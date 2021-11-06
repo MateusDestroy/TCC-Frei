@@ -45,6 +45,12 @@ const ConteinerEsqueceu = styled.div `
     text-align: center;
 }
 
+.texto {
+    width: 300px;
+    margin-left:10em;
+
+}
+
 .Bemvindo {
     padding-bottom: 0.5em;
 
@@ -60,6 +66,7 @@ const ConteinerEsqueceu = styled.div `
 .inputs{
     font-size: 1em;
     text-align: center;  
+    margin-top: 2em;
 }
 
 .confsenha {
@@ -85,8 +92,8 @@ input {
 
 
 .botão {
-    padding-top: 1em;
-    
+    margin: 2.5em;
+    margin-top: 0.5em;
     text-align: center;
     border-radius: 50px;
 }
