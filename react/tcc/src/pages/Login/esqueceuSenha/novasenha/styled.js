@@ -25,7 +25,6 @@ const Conteinernovasenha = styled.div `
     padding-bottom: 10em;
    
     font-family: Lobster;
-    color: #568EAE;
 
     background-color: black;
     opacity: 70%;
@@ -133,4 +132,4 @@ span {
 
 `
 
-export {Conteinernovasenha}
+export {Conteinernovasenha}]
