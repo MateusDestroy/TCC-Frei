@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
  
-import Routes from './Routes';
+import Routes from './components/rodape/rodape';
 
 
 ReactDOM.render(
