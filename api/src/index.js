@@ -11,6 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 
+
 app.get('/clientes', async (req, resp) => {
     try {
         let users = await db.infoa_sti_cliente.findAll()
@@ -89,6 +90,9 @@ app.post('/login', async (req, resp) => {
 
     resp.sendStatus(200);
 });
+
+
+
 
 
 

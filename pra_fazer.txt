@@ -1,9 +1,9 @@
 Mateus e João - API parte do usuario {
-    GET / Produto por Categoria
+    GET / Produto por Categoria (pronta)
     GET / endereços por ID (pronta)
     GET / do Pedido do usuario para Listar (Mateus)
     GET/id do cliente (pronta)
-    POST / dos pedidos
+    POST / dos pedidos 
     PUT / do Perfil (pronta)
     GET / dos Produtos (pronta)
 }
