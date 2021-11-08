@@ -2,7 +2,9 @@ import {ConteinerProduto} from '../styled'
 import Categorias  from '../../../components/Categorias/categoria'
 import Cabecalho from '../../../components/cabecalho/cabecalho'
 import Avalicao from '../../../components/avaliação/avaliacao'
-import BotaoCompra from '../../../components/buttoncompra/index'
+
+
+import Produto from '../../../components/CaixaProduto/index'
 
 import Rodape from '../../../components/rodape/rodape'
 
@@ -17,22 +19,7 @@ export default function doces (){
              <div className = "ListaProdutos">
                
   
-                <div className = "caixa1">
-                 <div className = "imagem"> <img src="./assets/imagens/Pao-doce-coco-creme-Baixa-5 3.png" alt=""  /> </div>
-                 <div className = "Produto"> Pão doce de creme c/ coco </div>
-                 <Avalicao/>
-                 <div className = "Preco"> Valor: 2,50 R$ </div>
-                 <BotaoCompra/>
-                </div>
-
-
-                <div className = "caixa1">
-                 <div className = "imagem"> <img src="./assets/imagens/pao doce de creme.png" alt=""  /> </div>
-                 <div className = "Produto"> Pão doce de creme </div>
-                 <Avalicao/>
-                 <div className = "Preco"> Valor: 2,50 R$ </div>
-                 <div className = "botão-compra"> <button> Comprar </button> </div>
-                </div>
+                <Produto/>
 
 
                 <div className = "caixa1">
