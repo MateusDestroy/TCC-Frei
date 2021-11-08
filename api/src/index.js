@@ -195,18 +195,15 @@ app.post('/cupom', async (req, resp) => {
 app.post('/produto', async (req, resp) => {
     
     try {
-    const { imagem, produto, codigo, descricao, valor, estoqueMin, estoqueMax, estoqueAtual, sabor} = req.body;
+    const { imagem, produto, codigo, descricao, valor, estoqueMin, estoqueMax, estoqueAtual, categoria} = req.body;
 
 
-    const xx = await db.infoa_sti_categoria.create({
-        nm_sabor: sabor
-    })
 
     const Produtos = await db.infoa_sti_produto.create({
-        id_categoria: xx.id_categoria,
         img_produto: imagem,
         nm_produto: produto,
         ds_codigo_interno: codigo,
+        id_categoria: categoria,
         ds_descricao: descricao,
         vl_valor: valor,
         nr_estoque_minimo: estoqueMin,
@@ -233,7 +230,7 @@ app.post('/produto', async (req, resp) => {
 app.get('/produto', async (req, resp) => {
 
 
-    const data = await db.infoa_sti_produto.findAll();
+    const data = await db.infoa_sti_produto.findAll({where: id_categoria});
 
     
     resp.send(data);
