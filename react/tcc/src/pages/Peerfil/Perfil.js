@@ -43,8 +43,10 @@ export default function Perfil() {
                 </div>
             </div>
             <div className="but"> Confirmar</div>
-            <Rodape />
-        </ConteinerPerfils>
+            <div className="as">
+                <Rodape />
+            </div>
+            </ConteinerPerfils>
     )
     
 }

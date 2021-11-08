@@ -4,6 +4,13 @@ import styled from 'styled-components'
 const ConteinerPerfils = styled.div`
  background-color: #D2F6FF;
 
+ .as {
+
+position:absolute;
+bottom:0;
+width:100%;
+}
+
  a {
      text-decoration: none;
 

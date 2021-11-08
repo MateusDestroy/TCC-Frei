@@ -12,7 +12,6 @@ const Containersroda = styled.div`
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      padding: 30.6em 0px 0px 0px;
       margin-left: 6em;
 }
       .part-roda1 {
