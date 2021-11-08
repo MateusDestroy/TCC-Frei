@@ -13,7 +13,7 @@ import { useHistory } from 'react-router-dom'
 export default function Revisao(props) {
 
     const [Mostrar, setMostrar] = useState(false);
-    const [pix, setPix] = useState(false)
+    const [pix ,setPix] = useState(false)
     let nav = useHistory()
 
     function fazer() {

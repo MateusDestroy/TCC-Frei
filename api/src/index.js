@@ -99,12 +99,40 @@ app.post('/cadastrar', async (req, resp) => {
         })
 
 
-    resp.send(200);
+    resp.sendStatus(200);
 
 } catch (error) {
     resp.send( error.toString() )
 }
 });
+
+
+app.post('/cadastrar/:id', async (req, resp) => {
+    let x = req.body;
+     
+    try {
+        const Endereco = await db.infoa_sti_endereco.create({
+            id_cliente: req.params.id,
+            ds_cep: x.cep,
+            ds_endereco: x.endereco,
+            nr_numero: x.numero,
+            ds_complemento: x.complemento,
+            ds_cidade: x.cidade
+        })
+
+
+    resp.sendStatus(200);
+
+} catch (error) {
+    resp.send( error.toString() )
+}
+});
+
+
+
+
+
+
 
 app.put('/cliente/:id', async (req, resp) => {
     const {nome, sexo, cpf, nascimento, email, senha, cep, endereco, numero, complemento, cidade} =  req.body;
@@ -165,15 +193,17 @@ app.post('/cupom', async (req, resp) => {
 
 
 app.post('/produto', async (req, resp) => {
-    const { imagem, produto, codigo, descricao, valor, estoqueMin, estoqueMax, estoqueAtual, sabor} = req.body;
     
-    const Sabores = await db.infoa_sti_categoria.create({
+    try {
+    const { imagem, produto, codigo, descricao, valor, estoqueMin, estoqueMax, estoqueAtual, sabor} = req.body;
+
+
+    const xx = await db.infoa_sti_categoria.create({
         nm_sabor: sabor
     })
 
-
     const Produtos = await db.infoa_sti_produto.create({
-        id_categoria: Sabores.id_categoria,
+        id_categoria: xx.id_categoria,
         img_produto: imagem,
         nm_produto: produto,
         ds_codigo_interno: codigo,
@@ -187,7 +217,15 @@ app.post('/produto', async (req, resp) => {
 
     resp.sendStatus(200);
 
+} catch (error) {
+    resp.send( error.toString() )
+}
+
 });
+
+
+
+
 
 
 
