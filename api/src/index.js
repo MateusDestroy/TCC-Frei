@@ -196,13 +196,11 @@ app.post('/produto', async (req, resp) => {
     
     try {
     const { imagem, produto, codigo, descricao, valor, estoqueMin, estoqueMax, estoqueAtual, sabor} = req.body;
- 
 
 
     const xx = await db.infoa_sti_categoria.create({
         nm_sabor: sabor
     })
-
 
     const Produtos = await db.infoa_sti_produto.create({
         id_categoria: xx.id_categoria,
@@ -216,9 +214,6 @@ app.post('/produto', async (req, resp) => {
         nr_estoque_atual: estoqueAtual
 
     })
-
-
-  
 
     resp.sendStatus(200);
 
