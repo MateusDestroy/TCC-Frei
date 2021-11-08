@@ -3,86 +3,36 @@ import styled from "styled-components"
 const Conteinercompras = styled.div`
 background: #D2F6FF;
 
-.Faixastatus {
-    background: #D2F6FF;
-    height: 200vh;
-    padding-bottom: 2em
-}
-.cabecalhO {
-    background-color: black;
-    opacity: 80%;
-    padding: 5Px;
-   
-    
+
+
+.custom-file-input {
+content: 'Select some files';
+display: inline-block;
+border: 1px solid #999;
+border-radius: 50px;
+padding: 5px 100px;
+opacity: 80%;
+text-shadow: 0px 0px #000000;
+font-weight: 700;
+font-size: 13px;
+width:137vh;
+height:3vh;
+position:relative;
 }
 
-.naveg {
-    align-items: flex-end;
-    justify-content: flex-end;
-    display: flex;
-    flex-direction: row;
-    padding-right: 2%;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    
+.inupt-02 {
+    margin-top: 2%
 }
 
-.LOGO {
-    position: absolute;
-    top: 2%;
-    margin-left: 5%;
-}
 
-.cariinho-50 {
-    margin-left: 4%;
-}
 
-.login-50 {
-    margin-left: 4%;
-}
-.LUPA00 {
-    margin-left: 4%;
-}
 
-input {
-    display: flex;
-    width: 600px;
-    border-radius: 12px;
-    border-color: black;
-    background: #C4C4C4;
-    margin-bottom: 2px;
-    margin-right: 50%;
-
-    
-}
-
-.cabelhO2 {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-}
-
-.C2 {
-    margin: 2% 10% 0% 10%;
-}
-
-.pooooo {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-}
-
-.tirinnhas {
-    margin-left: 3%;
-    margin-top: 3%
-    
-}
 
 .Minhas {
-    font-size: 20px;
+    font-size: 27px;
     padding: 5% 0% 2% 8%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
 }
 
 .etapas {
@@ -92,7 +42,10 @@ input {
 }
 
 .etapa1 {
-    margin-right: 2%;
+    margin-right: 10%;
+    color:  #1AABF3E5;
+    cursor: pointer;
+    font-family: Belleza;
 
 }
 .b {
@@ -110,11 +63,17 @@ input {
 
 .status-retirada {
     color: #006BA1;
+    font-family: Belleza;
+    font-size: 19px;
+
 }
 
 .status-concluifdo {
     color: red;
     margin-left: 1%;
+    font-family: Belleza;
+    font-size: 19px;
+
 }
 
 .borda222 {
@@ -138,11 +97,23 @@ input {
     justify-content: flex-end;
     padding-top: 1%;
     padding-bottom: 1%;
+    
 }
 
 .descricao-produto {
     display: flex;
     flex-direction: row;
+    
+}
+
+.nm-produto {
+    font-family: Belleza;
+    font-size: 20px;
+}
+
+.qtd-produto {
+    font-family: Belleza;
+    font-size: 20px;
 }
 
 .pronto0sium {
@@ -178,12 +149,20 @@ input {
 .Pre {
     color: #006BA1;
     font-size: 16px;
+    font-family: Belleza;
 
+}
+
+.vl {
+    font-size: 16px;
+    font-family: Belleza; 
 }
 
 .itenms {
     color: #006BA1;
     font-size: 16px;
+    font-size: 16px;
+    font-family: Belleza; 
 
 }
 
@@ -197,12 +176,15 @@ input {
                     
 .total {
     color: #878282;
-    font-size: 20px;
+    font-size: 16px;
+    font-family: Roboto; 
 }
 
 .vaLor{
     margin-left: 10px;
-    font-size: 15px;
+    font-size: 16px;
+    font-family: Roboto; 
+    color: red;
 }
 
 .imgstatus {
@@ -211,7 +193,8 @@ input {
 }
 
 .Statussim{
-    font-size: 15px;
+    font-size: 16px;
+    font-family: Belleza; 
 }
 
 .pronto0sium{
@@ -253,67 +236,13 @@ button{
     margin-left: 10px;
     font-size: 15px;
 }
-.rodape{
-      background: #FFFFFF;
-      display: flex;
-      flex-direction: row;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      padding: 3em 0px 0px 0px;
-}
-      .part-roda1 {
-      text-align: center;
-      margin-left: 24px;
-      margin-right: 80px;
-}
-      .part-roda2 {
-      text-align: center;
-      margin-right: 80px;
-      padding-bottom: 4em;
-      }
 
+.numerope {
+    margin-top: 2%;
+    font-family: Roboto; 
 
-      .info-01 {
-      margin-bottom: 19px;
-      font-size: 25px;
-      }
-
-      .info-02 {
-      margin-bottom: 15px;
-      font-size: 18px;
-      }
-      .info-03 {
-      margin-bottom: 15px;
-      font-size: 18px;
-      }
-      .info-04 {
-      margin-bottom: 15px;
-      font-size: 18px;
-      }
-      .info-05 {
-      margin-bottom: 1px;
-      font-size: 25px;
-      }
-      .info-06 {
-      margin-top: 20px;
-      font-size: 18px;
-      }
-      .final {
-      background: #4D5B76;
-      padding-top: 10px;
-      padding-bottom: 10px;
-}
-      .exp {
-      text-align: center;
-      color: #FFFFFF;
-      font-size: 13px;
 }
 
-.img {
- padding: 10px 0px;
-}
 `
 
 export {Conteinercompras}

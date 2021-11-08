@@ -16,25 +16,25 @@ flex-direction: row;
 width:100px;
 height:100px;
 position:absolute;
-top:25%;
-left:5%;
+top:13%;
+left:1%;
 
 }
 
 .div02 {
-width:500px;
-height:100px;
+
 position:absolute;
 left:50%;
 text-align: center;
 background-color: #1867FF;
 height: 100vh;
-width: 70vh;
+width: 104vh;
 }
 
 .titulo {
 margin-top: 10%;
-font-size: 40px;
+font-size: 35px;
+
 }
 
 .subtitulo {
@@ -101,7 +101,7 @@ font-size: 10pt;
 }
 
 button {
-border: 1px solid #000;
+border: 1px solid #222096 ;
 border-radius: 50px;
 outline: none;
 cursor: pointer;
@@ -109,7 +109,10 @@ background-color: #222096;
 color: #fff;
 width: 350px;
 height: 50px;
-font-size: 20px;}
+font-size: 20px;
+font-family: Belleza;
+
+}
 
 `
 
