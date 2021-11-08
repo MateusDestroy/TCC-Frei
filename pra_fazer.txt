@@ -1,11 +1,11 @@
 Mateus e João - API parte do usuario {
     GET / Produto por Categoria
-    GET / endereços por ID
-    GET / do Pedido do usuario para Listar
-    GET / do Perfil
-    PUT / do Perfil
+    GET / endereços por ID (pronta)
+    GET / do Pedido do usuario para Listar (Mateus)
+    GET/id do cliente (pronta)
     POST / dos pedidos
-    GET / dos Produtos
+    PUT / do Perfil (pronta)
+    GET / dos Produtos (pronta)
 }
 
 Bruno - Responsividade do site, arrumar todas telas de adm 

@@ -36,6 +36,15 @@ app.get('/endereco', async (req, resp) => {
 
 
 
+app.delete('/endereco', async (req, resp) => {
+    let r = await db.infoa_sti_endereco.destroy({
+        where: {
+            id_endereco : req.params.idEndereco
+        } 
+     })
+     resp.sendStatus(200);
+});
+
 
 /// consultar produtos 
 
@@ -47,6 +56,14 @@ app.get('/clientes/:id', async (req, resp) => {
     let r = await db.infoa_sti_cliente.findOne({ where: { id_cliente: req.params.id}});
     resp.send(r);
 });
+
+
+app.get('/endereco/:id', async (req, resp) => {
+    let r = await db.infoa_sti_endereco.findAll({ where: { id_cliente: req.params.id}});
+    resp.send(r);
+});
+
+
 
 
 // tela de login
@@ -196,7 +213,7 @@ app.post('/produto', async (req, resp) => {
     
     try {
     const { imagem, produto, codigo, descricao, valor, estoqueMin, estoqueMax, estoqueAtual, categoria} = req.body;
-
+    
 
 
     const Produtos = await db.infoa_sti_produto.create({
