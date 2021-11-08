@@ -15,7 +15,7 @@ opacity: 80%;
 text-shadow: 0px 0px #000000;
 font-weight: 700;
 font-size: 13px;
-width:137vh;
+width:100vh;
 height:3vh;
 position:relative;
 }

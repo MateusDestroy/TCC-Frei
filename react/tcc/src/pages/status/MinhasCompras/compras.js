@@ -179,7 +179,6 @@ export default function MinhasCompras (){
                         
                     </div>
                    
-             
                     <Rodape/>
         </Conteinercompras>
     )

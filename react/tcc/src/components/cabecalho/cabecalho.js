@@ -41,7 +41,7 @@ async function a() {
                         <div className="ff"> 
                             <Link to = "/perfil"> <div className="names"> Minha Conta </div> </Link>
                             <div className="bord"> </div>
-                            <Link to = "./MinhasCompras"> <div className="names"> Meus Pedidos</div> </Link>
+                            <Link to = "./Compras"> <div className="names"> Meus Pedidos</div> </Link>
                             <div className="bord"> </div>
                             <Link to = "/"> <div className="names"> Sair </div> </Link>
                             <div className="bord"> </div>
