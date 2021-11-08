@@ -83,7 +83,7 @@ export default function Carrinho(props) {
                 <th> </th>
                 <th> Produto </th>
                 <th> Preço </th>
-                <th className="f"> Quantidade</th>
+                <th className="f"> Quantidade </th>
                 <th> Total </th>
             </thead>
       
@@ -103,20 +103,20 @@ export default function Carrinho(props) {
         </div>
         <div className="precos"> 
             <div className="box-preco"> 
-                <div className="sb">Subtotal dos Pedidos: </div>
+                <div className="sb">Subtotal dos pedidos: </div>
                 <div className="pc"> {} </div>
             </div>
             <div className="box-preco"> 
-                <div className="sb">Cupom de Desconto:</div>
+                <div className="sb">Cupom de desconto:</div>
                 <div className="pc"> 20,00</div>
             </div>
             <div className="box-preco"> 
-                <div className="sb"> Pagamento Total: </div>
+                <div className="sb"> Pagamento total: </div>
                 <div className="pc"> 20,00</div>
             </div>
         </div>
         <div className="botoes"> 
-            <Link to="./Produtos"> <button> Continuar Comprando </button> </Link> 
+            <Link to="./Produtos"> <button> Continuar comprando </button> </Link> 
             <Link to="./revisao"> <button>  Realizar pedido   </button> </Link> 
         </div>
         <Rodape />

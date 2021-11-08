@@ -55,7 +55,7 @@ export default function status () {
                         </div>
                         <div className= "detalhesdoproduto">
                             <div className= "imgproduto">
-                                <img src="./assets/imagens/baguete queijo.png" alt="" height= "70"/>
+                            <img src="./assets/imagens/baguete-queijo e presunto 14.png" alt=""/>
                             </div> 
                             <div className="qtdnm" >
                                 <div className="nm">

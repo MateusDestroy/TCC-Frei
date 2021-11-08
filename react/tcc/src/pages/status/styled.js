@@ -9,22 +9,6 @@ background-color: #D2F6FF;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .volta {
     margin: 0% 1% 1% 5%;
 }
@@ -32,6 +16,7 @@ background-color: #D2F6FF;
 .tet1 {
 
     margin: 0% 0% 2% 8%;
+       
 }
 
 .tet2 {
@@ -62,7 +47,7 @@ background-color: #D2F6FF;
 
 .ok {
 
-    margin: 1% 0% 1% 8%;
+    margin: 1% 0% 3% 8%;
 
 }
 
@@ -78,19 +63,25 @@ background-color: #D2F6FF;
     
 }
 .en {
-    margin-left: 5%;
+    margin-left: 4%;
     margin-bottom: 1%;
     margin-top:1%
 }
 
 .rua {
 
-    margin-left: 5%;
+    margin-left: 4%;
+    opacity: 80%;
+    font-family: Roboto;
 }
 
 .bairro {
-    margin-left: 5%;
-    margin-bottom: 2%
+    margin-top: 1%;
+    margin-left: 4%;
+    margin-bottom: 2%;
+    opacity: 80%;
+    font-family: Roboto;
+
 }
 
 .borda {
@@ -110,16 +101,18 @@ background-color: #D2F6FF;
 .part1-C3 {
     display: flex;
     flex-direction: row;
+    padding-top: 3%;
 }
 
 .pedido{
     margin-left: 5%;
     margin-bottom: 1%;
     margin-top:1%;
+    
 }
 
 .numero {
-    margin-left: 55%;
+    margin-left: 53%;
     display: flex;
     align-items: center;
     text-align: center;
@@ -141,16 +134,33 @@ background-color: #D2F6FF;
 
 .nm{
     margin-bottom: 35%;
+    font-family: Belleza;
+    font-size: 22px;
+}
+
+.qtd {
+    font-family: Belleza;
+    font-size: 22px;
 }
 
 .vlprd {
-    margin-left: 52%;
+    position: relative;
+    left: 55%;
+    top: 55px;
     color: red;
 }
 
 .final {
     display: flex;
     flex-direction: row;
+    
+
+}
+
+.sub {
+    font-family: Belleza;
+    font-size: 18px;
+    opacity: 80%;
 }
 
 .final {
@@ -163,43 +173,46 @@ background-color: #D2F6FF;
 
 .valor{
     margin-left: 5%;
+    font-family: Roboto;
 }
 
 .red{
     margin-left: 5%;
     color: red;
+    font-family: Roboto;
 }
 
 
 
 .tet1 {
-    font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 23px;
+    font-family: Belleza;
 }
 
 .tet2{
 
     font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Roboto;
 }
 
 .ok{
-    font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    font-family: Belleza;
 }
 
 .en{
-    font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    font-family: Belleza;
 }
 
 .pedido {
-    font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Belleza;
+    font-size: 22px;
 }
 
 .numero {
-font-family: 20px;
+    font-family: Belleza;
+    font-size: 22px;
 }
 `
 

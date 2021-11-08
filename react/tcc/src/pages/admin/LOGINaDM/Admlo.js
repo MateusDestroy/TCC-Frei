@@ -7,16 +7,16 @@ export default function logadm () {
             <div className= "pagina-01">
                 <div className= "div01">
                     <div className = "imgdiv01">
-                        <img src= "./assets/imagens/kisspng-responsive-web-design-clip-art-web-development-vec-anlise-de-processos-jtp-solution-5bd14eb7de8653 2.png" height= "400"alt=""/>
+                        <img src= "./assets/imagens/kisspng-responsive-web-design-clip-art-web-development-vec-anlise-de-processos-jtp-solution-5bd14eb7de8653 2.png" height= "500"alt=""/>
                     </div>
                 </div>
                 
                 <div className= "div02">
                    <div className= "titulo">
-                   Seja Bem-vindo
+                   Seja bem-vindo!
                     </div> 
                     <div className= " subtitulo">
-                    Acesso ao Setor Adminstrativo
+                    Acesso ao setor adminstrativo
                     </div>
                     <div className= "inupt-01">
                     <input type="text" class="custom-file-input" name="search" placeholder="Email de acesso" />
@@ -25,7 +25,7 @@ export default function logadm () {
                     <input type="text" class="custom-file-input" name="search" placeholder="Senha de acesso" />
                     </div>
                     <div className= " buto">
-                        <Link to="./Navegação"> <button className="NGNDJ"> Entrar</button> </Link>
+                        <Link to="./OP"> <button className="NGNDJ"> Entrar</button> </Link>
                     </div>
                     </div>
                     

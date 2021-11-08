@@ -18,7 +18,7 @@ export default function Inicial () {
             <div className = "ikkdfsksk">
             <div className= 'favoritos'>
                 <div className= 'titulo01'>
-                    Favoritos da Casa
+                    Favoritos da casa
                 </div>
                 <div className= 'descricao01'>
                     Categoria mais pedidas e vendidas

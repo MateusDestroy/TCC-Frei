@@ -76,7 +76,7 @@ export default function gerecniador () {
                     <thead>
                         <tr>
                             <th > Cód. Produto </th>
-                            <th> nome </th>
+                            <th> Nome </th>
                             <th> Categoria </th>
                             <th> Valor </th>
                             <th> Estq. Minimo </th>
