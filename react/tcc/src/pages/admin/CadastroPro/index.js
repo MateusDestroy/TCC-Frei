@@ -69,7 +69,7 @@ useEffect(() => {
                     <div className = "label">CATEGORIA</div>
                      <select name = "input-Categorias">
                          <option value = ""> </option>
-                         <option value = "Favoritos">Favoritos da Casa</option>
+                         <option value = "Favoritos">Favoritos da casa</option>
                          <option value = "Salgado">Salgados</option>
                          <option value = "Doce">Doces</option>
                          <option value = "Bebida">Bebidas</option>
@@ -90,7 +90,7 @@ useEffect(() => {
               
 
                 <div className = "conteinerinput">
-                    <div className = "label">ESTOQUE MAXIMO</div>
+                    <div className = "label">ESTOQUE MÁXIMO</div>
                      <div className = "input-text-estoque"><input className = "valorEstoque" type = "text" value = {estoqueMax} onChange = {e => setestoqueMax (e.target.value)}/></div>
                 </div>
               
@@ -103,7 +103,7 @@ useEffect(() => {
 
                 <div className = "descriçãoPro">
                 <div className = "conteinerarea">
-                    <div className = "label"> DESCRIÇÃO DO PRODUTO </div>
+                    <div className = "label"> DESCRIÇÃO DO PRODUTO  </div>
                     <textarea className = "Descrição" value = {descricao} onChange = {e => setdescricao(e.target.value)}></textarea>
                 </div>
                 </div>

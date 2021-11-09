@@ -34,7 +34,7 @@ export default function Rodape() {
 
                     <div className=' part-roda3'>
                         <div className='img'>
-                            <img src="./assets/imagens/logo 13 (1).png" alt="" width="80%"/>
+                            <img src="./assets/imagens/logo1.png" alt="" width="60%"/>
                         </div>
                     </div>
                 </div>

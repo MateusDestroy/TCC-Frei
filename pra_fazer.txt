@@ -1,14 +1,32 @@
-Mateus - Produtos, Login e cadastrar 
+Mateus e João - API parte do usuario {
+    GET / Produto por Categoria (pronta)
+    GET / endereços por ID (pronta)
+    GET / do Pedido do usuario para Listar (Mateus)
+    GET/id do cliente (pronta)
+    POST / dos pedidos 
+    PUT / do Perfil (pronta)
+    GET / dos Produtos (pronta)
+}
 
-Bruno - Inicial, Sobre-nos, Status da Compra
-x
-João - carrinho  Completo, Meu Perfil
+Bruno - Responsividade do site, arrumar todas telas de adm 
 
-Raul - Baixar Imagens, Fontes, fazer cabecalho e Rodapé
+Raul -  Api parte do Adm (Bruno) {
+    GET / dos Pedido (Ordenando pelos que estão Pendentes)
+}
 
+Carol - (organizar api em camadas) ou Isa -  Dar inserts
 
-** Cada um Mapear a rota das suas Paginas **
+** Tudo Pra Amanha **
+-----------------------------------------------
+Mateus - Atualizar o Banco
 
+João e  Raul - Atualizar o Caso de Uso
 
+Carol - Atualizar o DER (Db Design)
 
-models: colocar o nome da tabela para fazer innner joi
+Bruno -  Arrumar o Rodapé, Arrumar as Imagens
+
+Isa - Deixar o Figma igual o site e deixa
+
+------------------------------------------
+

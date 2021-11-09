@@ -11,6 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 
+
 app.get('/clientes', async (req, resp) => {
     try {
         let users = await db.infoa_sti_cliente.findAll()
@@ -23,11 +24,35 @@ app.get('/clientes', async (req, resp) => {
 });
 
 
+app.get('/endereco', async (req, resp) => {
+    try {
+        let users = await db.infoa_sti_endereco.findAll()
+
+        resp.send(users)
+        
+    } catch (e) {
+        resp.send({erro: e.toString()})
+    }
+});
+
+
+
+app.delete('/endereco', async (req, resp) => {
+    let r = await db.infoa_sti_endereco.destroy({
+        where: {
+            id_endereco : req.params.idEndereco
+        } 
+     })
+     resp.sendStatus(200);
+});
 
 
 /// consultar produtos 
 
-
+app.get('/produto/:id', async (req, resp) =>{
+    let r = await db.infoa_sti_produto.findAll({ where: {id_categoria: req.params.id}});
+    resp.send(r);
+})
 
 
 
@@ -35,6 +60,14 @@ app.get('/clientes/:id', async (req, resp) => {
     let r = await db.infoa_sti_cliente.findOne({ where: { id_cliente: req.params.id}});
     resp.send(r);
 });
+
+
+app.get('/endereco/:id', async (req, resp) => {
+    let r = await db.infoa_sti_endereco.findAll({ where: { id_cliente: req.params.id}});
+    resp.send(r);
+});
+
+
 
 
 // tela de login
@@ -57,6 +90,9 @@ app.post('/login', async (req, resp) => {
 
     resp.sendStatus(200);
 });
+
+
+
 
 
 
@@ -87,8 +123,91 @@ app.post('/cadastrar', async (req, resp) => {
         })
 
 
-    resp.send(200);
+    resp.sendStatus(200);
 
+} catch (error) {
+    resp.send( error.toString() )
+}
+});
+
+
+app.post('/cadastrar/:id', async (req, resp) => {
+    let x = req.body;
+     
+    try {
+        const Endereco = await db.infoa_sti_endereco.create({
+            id_cliente: req.params.id,
+            ds_cep: x.cep,
+            ds_endereco: x.endereco,
+            nr_numero: x.numero,
+            ds_complemento: x.complemento,
+            ds_cidade: x.cidade
+        })
+
+
+    resp.sendStatus(200);
+
+} catch (error) {
+    resp.send( error.toString() )
+}
+});
+
+
+
+
+
+
+
+app.put('/cliente/:id', async (req, resp) => {
+    const {nome, sexo, cpf, nascimento, email, senha, cep, endereco, numero, complemento, cidade} =  req.body;
+    let { id } = req.params;
+
+    const End = await db.infoa_sti_endereco.update(
+        {
+        ds_cep: cep,
+        ds_endereco: endereco,
+        nr_endereco: numero,
+        ds_complemento:  complemento,
+        ds_cidade:  cidade
+    }, 
+    { 
+        where: { id_endereco: id }
+    });
+
+    const Clientes = await db.infoa_sti_cliente.update({
+        id_endereco: End.id_endereco,
+        nm_nome: nome,
+        ds_sexo: sexo,
+        ds_cpf: cpf,
+        dt_nascimento: nascimento,
+        ds_email: email,
+        ds_senha: senha
+    },
+    { 
+        where: { id_cliente: id }
+    
+    })
+
+    resp.sendStatus(200)
+
+
+});
+
+
+
+
+app.post('/cupom', async (req, resp) => {
+    let x = req.body;
+     
+    try {
+       
+        const cupons = await db.infoa_sti_cupom.create({
+            ds_nome_desconto: x.nome,
+            vl_cupom: x.valor,
+            bt_ativo: true,
+        })
+
+    resp.sendStatus(200);
 } catch (error) {
     resp.send( error.toString() )
 }
@@ -98,18 +217,17 @@ app.post('/cadastrar', async (req, resp) => {
 
 
 app.post('/produto', async (req, resp) => {
-    const { imagem, produto, codigo, descricao, valor, estoqueMin, estoqueMax, estoqueAtual, sabor} = req.body;
     
-    const Sabor = await db.infoa_sti_categoria.create({
-        nm_sabor: sabor
-    })
+    try {
+    const { imagem, produto, codigo, descricao, valor, estoqueMin, estoqueMax, estoqueAtual, categoria} = req.body;
+    
 
 
     const Produtos = await db.infoa_sti_produto.create({
-        id_categoria: Sabor.id_categoria,
         img_produto: imagem,
         nm_produto: produto,
         ds_codigo_interno: codigo,
+        id_categoria: categoria,
         ds_descricao: descricao,
         vl_valor: valor,
         nr_estoque_minimo: estoqueMin,
@@ -118,9 +236,17 @@ app.post('/produto', async (req, resp) => {
 
     })
 
-    resp.send(200);
+    resp.sendStatus(200);
+
+} catch (error) {
+    resp.send( error.toString() )
+}
 
 });
+
+
+
+
 
 
 
@@ -128,7 +254,7 @@ app.post('/produto', async (req, resp) => {
 app.get('/produto', async (req, resp) => {
 
 
-    const data = await db.infoa_sti_produto.findAll();
+    const data = await db.infoa_sti_produto.findAll({where: id_categoria});
 
     
     resp.send(data);
@@ -172,42 +298,6 @@ app.put('/produto/:idProduto', async (req, resp) => {
 
 
 // alterar informações do cliente
-
-app.put('/cliente/:id', async (req, resp) => {
-    const {nome, sexo, cpf, nascimento, email, senha, cep, endereco, numero, complemento, cidade} =  req.body;
-    let { id } = req.params;
-
-    const End = await db.infoa_sti_endereco.update(
-        {
-        ds_cep: cep,
-        ds_endereco: endereco,
-        nr_endereco: numero,
-        ds_complemento:  complemento,
-        ds_cidade:  cidade
-    }, 
-    { 
-        where: { id_endereco: id }
-    });
-
-    const Clientes = await db.infoa_sti_cliente.update({
-        id_endereco: End.id_endereco,
-        nm_nome: nome,
-        ds_sexo: sexo,
-        ds_cpf: cpf,
-        dt_nascimento: nascimento,
-        ds_email: email,
-        ds_senha: senha
-    },
-    { 
-        where: { id_cliente: id }
-    
-    })
-
-    resp.sendStatus(200)
-
-
-});
-
 
 
 

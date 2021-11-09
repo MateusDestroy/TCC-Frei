@@ -16,7 +16,7 @@ export default function nav () {
                     <table class ="table-user">
                     <thead>
                         <tr>
-                            <th > Nª Pedido </th>
+                            <th > Nº Pedido </th>
                             <th> Cliente </th>
                             <th> Valor </th>
                             <th> Pagamento </th>
@@ -31,12 +31,12 @@ export default function nav () {
                     <tbody>
                         <tr >
                             <td> 8756454353 </td>
-                            <td> Joao joao...</td>
-                            <td> 11.90 </td>
+                            <td> João João...</td>
+                            <td> 11,90 </td>
                             <td> Visa </td>
                             <td > Baguete - 2
                                   Baguete - 3 </td>
-                            <td> R Rio do Vae, 700,
+                            <td> R. Rio do Vae, 700,
                                  Vila Mariana,
                                   04018002 </td>
                             <td> 17:13 - 17:40 </td>

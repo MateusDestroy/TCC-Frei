@@ -11,15 +11,15 @@ export default function Perfil() {
 
         <ConteinerPerfils>
             <Cabecalho />
-            <h1> Meus Endereços </h1>
+            <h1> Meus endereços </h1>
             <Tiras />
-            <h5>Gerenciar e Proteger sua Conta </h5>
+            <h5>Gerenciar e proteger sua conta </h5>
             <div className="per-box1"> 
                 <div className="per-contas"> 
                     <div className="mi"> <img src="./assets/imagens/logo de user.png" alt="" width="12%" height="5%"/> <h3>  Minha Conta </h3> </div>
                     <Link to="/perfil">  <div> Perfil</div> </Link>
                     <Link to="/endereco"> <div  style={{color: '#006BA1E5'}}> Endereços</div> </Link>
-                    <Link to="/senha"> <div> Trocar Senha</div> </Link>
+                    <Link to="/senha"> <div> Trocar senha</div> </Link>
                 </div>
                 <div className="tabela">
                     <div className="en-endereco">
@@ -60,7 +60,9 @@ export default function Perfil() {
                 
             </div>
             <div className="but"> Confirmar</div>
-            <Rodape />
+            <div className="as">
+                <Rodape />
+            </div>
         </ConteinerPerfils>
     )
     

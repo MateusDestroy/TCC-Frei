@@ -1,6 +1,6 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL : 'http://localhost:3030'
+    baseURL : 'https://tccheroku.herokuapp.com/'
 })
 
 
@@ -10,7 +10,6 @@ export default class Api{
         let r = await api.get('/produto')
         return r.data; 
     }
-
 
 
  async CadastraProduto(imagem, codigo , produto, Sabor, estoqueMin, estoqueMax, valor , estoqueAtual, descricao){

@@ -14,6 +14,8 @@ import Salgados from './pages/Produtos/salgado/salgados'
 import Doces from './pages/Produtos/doce/doces'
 import Bebidas from './pages/Produtos/bebida/bebidas'
 import Detalhes from './pages/Produtos/detalhepro/index'
+import Esqueceu from './pages/Login/esqueceuSenha/esqueceu'
+import NovaSenha from './pages/Login/esqueceuSenha/novasenha/novasenha'
 
 
 
@@ -55,14 +57,17 @@ export default function Routes () {
               <Route path = '/home'  component = {Home} />
 
               <Route path = '/sobre' component = {Nos} />
+              <Route path = '/esqueceu' component = {Esqueceu} />
+              <Route path = '/novasenha' component = {NovaSenha} />
+              
               <Route path = '/Cadastra' component = {Cadastra}/>
 
               <Route path = '/CarrinhoVazio'  component = {CarrinhoVazio} />
               <Route path = '/Carrinho'  component = {Carrinho} />
               <Route path = '/Produtos'  component = {Produtos} />
               <Route path = '/Doces' component = {Doces} />
-           
-             <Route path = '/Loginadm' component = {Loginadm} />
+              
+              <Route path = '/Loginadm' component = {Loginadm} />
               <Route path = '/CadastraProduto' component = {CadastraPro}/>
               <Route path = '/Navegação' component = {Navega}/>
               <Route path = '/Gerenciadorpt' component = {Gerenciadordes}/>
@@ -83,11 +88,8 @@ export default function Routes () {
               <Route path="/status" component={status} />
 
 
-              
+              <Route path="/Compras" component={MinhasCompras}/>
 
-              <Route path="/MinhasCompras" component={MinhasCompras}/>
-                    
-             
 
               <Route path="/entrega" component={Entrega} />
               <Route path="/revisao" component={Entrega} />

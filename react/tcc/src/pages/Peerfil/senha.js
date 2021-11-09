@@ -29,8 +29,10 @@ export default function Perfil() {
                 </div>
                 
             </div>
-            <Rodape />
-        </ConteinerPerfils>
+            <div className="as">
+                <Rodape />
+            </div>
+         </ConteinerPerfils>
     )
     
 }

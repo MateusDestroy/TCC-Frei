@@ -14,19 +14,25 @@ export default function Revisao(props) {
     const [Mostrar, setMostrar] = useState(false);
 
 
+ 
 
-
-    function listar() {
+    async function listar() {
         setMostrar(true)  
         onclick="select"
     }
 
-    function remover(){
+    async function remover(){
         setMostrar(false)
     }
 
 
+
+
+    
     return ( 
+
+       
+
         <ContainerRevisao>
             <Cabecalho />
             <h1 style={{marginLeft: '70px'}}>  Finalização da Compra </h1>
@@ -58,7 +64,7 @@ export default function Revisao(props) {
             </div>
             <h1 style={{marginLeft: '3em'}}>Método de Pagamento</h1>    
             <div className="meto-paga">
-                <div className="pix" onClick={remover} type="radio" style={{marginLeft: '1em', alignItems: 'center'}}> <img src="./assets/imagens/logo-pix-icone-512 10.png" alt="" width="30%"/> <div style={{marginLeft: '.8em'}}> PIX </div> </div>
+                <div className="pix"  type="radio" style={{marginLeft: '1em', alignItems: 'center'}}> <img src="./assets/imagens/logo-pix-icone-512 10.png" alt="" width="30%"/> <div style={{marginLeft: '.8em'}}> PIX </div> </div>
                 <div className="din"  onClick={remover} style={{marginLeft: '3em', alignItems: 'center'}}> <img src="./assets/imagens/dinheiro.png" alt="" width="58%"/> <div> Dinheiro </div> </div>
                 <div className="car" style={{marginLeft: '3em'}} onClick={listar}> <img src="./assets/imagens/kisspng-e-commerce-payment-system-credit-card-debit-card-5bf9cb52d627b6 2.svg" alt=""  /> <div>   Cartão de Crédito</div> </div>
             </div> 
@@ -85,10 +91,12 @@ export default function Revisao(props) {
                      <div className="pc"> 20,00</div>
                 </div>
             </div>
-            <div className="but">
-            <Link to="./status"> <button className="ff"> Fazer Pedidos</button> </Link>
+                
+            <div className="but" >
+             <button className="ff"> Fazer Pedidos</button> 
             </div>
         <Rodape />
         </ContainerRevisao>
-        )
+
+)
 }

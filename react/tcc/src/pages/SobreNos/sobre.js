@@ -37,7 +37,7 @@ export default function sobrenos () {
                         <img src="./assets/imagens/Pao-doce-coco-creme-Baixa-5 3.png" height="158" width="258" alt="" />
                     </div>
                     <div className= 'img-pr1'>
-                        <img src="./assets/imagens/sonho.png" height="158" width="258"  alt="" />
+                        <img src="./assets/imagens/sonho de chocolate.png" height="158" width="258"  alt="" />
                     </div>
                     <div className= 'img-pr1'>
                         <img src="./assets/imagens/Bolo de Fubá.png" height="158" width="258" alt="" />

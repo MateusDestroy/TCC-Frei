@@ -1,215 +1,88 @@
 import styled from "styled-components";
 
 
+const Container = styled.div`
+`
+
 const ConteinerCadastrar = styled.div`
 display: flex;
 flex-direction: column;
-background-color:#D2F6FF;
 height: 100vh;
-
-
-.conteinercadastro {
-display: flex;
-flex-direction: column;
-flex-direction: arrow;
-align-items: center;
-justify-content: center;
+width: auto; 
+background-image: url("./assets/imagens/Background.svg");
+background-size: cover; 
+background-repeat: no-repeat; 
+.box {
+    background-color: rgba(0,0,0, 0.90);
+    margin-top: 2em;
+    margin-left: 7em;
+    padding: 3em 2em;
+    width: 70em;
+    border-radius: 14px;
 }
-
 .as {
-
-    position:absolute;
-    bottom:0;
-    width:100%;
-}
-
-   
-
-.input-endereco {
- 
-}
-
-.input-sexo {
-    margin-right: 50px;
-}
-
-.input-nome{
-    margin-right: 50px;
-}
-
-.caixa1-inputs {
-    font-family: Gabriela;
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    justify-content: left; 
-    
-}
-
-.isafoi, .ok {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-    font-size: 20px;
-    align-items: center;
-    margin-left: 100px;
-}
-
-.opa {
-    display: flex;
-    justify-content: space-between; 
-    margin-top: 0.9em;
-    font-size: 20px;
-    justify-content: left;
-}
-
-.titulo {
-    font-family: Lobster;
-}
-
-
-
-.senha {
-    font-family: Gabriela;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-    font-size: 20px;
-    justify-content: left;
-}
-
-.cidade {
-    font-family: Gabriela;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-    font-size: 20px;
-    justify-content: left; 
-}
-
-.complemento {
-    font-family: Gabriela;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-    font-size: 20px;
-    
-}
-
-.caixa2-inputs {
-    font-family: Gabriela;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-
-    font-size: larger;
-    font-size: 20px;
-    justify-content: left; 
-    margin-right: 295px;
-}
-
-.caixa3-inputs {
-    font-family: Lobster;
-
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-    
-    font-size: 20px;
-    justify-content: left;
-}
-
-.Titulo {
-    
+    color: white;
     text-align: center;
-    font-family: Lobster;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 35px;
-    line-height: 62px;
-    
-    color: #000000;
+    font-size: 24px;
 }
-
-input {
-    align-items: center;
-    background: #FFFFFF;
-    opacity: 0.95;
-
-    border-radius: 30px;
-    border: none;
+.box-cadas {
+    display: flex;
+    justify-content: space-between;
+    padding: 0em 5em 0em 5em;
+    align-self: center;
 }
-
-.carolfoi {
+.name {
     display: flex;
     flex-direction: row;
-    margin-top: 0.9em;
+    
+    align-items: center;
+    margin-top: 2em;
 }
-
+.nome {
+    color: white;
+    margin-right: 10px;
+}
+.inputs > input, select  {
+    outline: black;
+    padding: 0em .5em;
+    width: 15em;
+    height: 2.4em;
+    border: none;
+    border-radius: 12px;
+}
 select {
+    width: 16em;
     text-align: center;
-    width: 12em;
 }
-
-
-.Botaomae {
+.pt {
+    margin-right: 4em;
+    margin-top: 2em;
     display: flex;
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
+    justify-content: flex-end;
 }
-
-button {
+button {    
+    cursor: pointer;
+    margin-right: .8em;
     border: none;
-    font-family: Lobster;
-    padding: 10px;
-    margin: auto;
+    border-radius: 12px;
     width: 10em;
-    font-size: 15px;
-    margin-top: 1em;
-
+    height: 2.3em;
+    font-size: 17px;
 }
-
-.nascimento input {
-    width: 5em;
-    height: 1.5em;
-    margin-left: 20px;
-    text-align: center;
-    font-family: Gabr;
+.ds{
+    background-color: #FF4949;
+    :hover {
+        background-color: #FF0707;
+        color: white;
+    }
 }
-
-
-
-.botão1 > button {
-    background-color:#FF4949;
-    opacity: 0.75;
-    border-radius: 30px;
-    text-align: center;
-    font-family: Lobster;
-    
+.js {
+    background-color: #1AF38B;
+    :hover {
+        background-color: #00B15C;
+        color: white;
+    }
 }
-
-.botão > button {
-    background-color:#1AF38B;
-    opacity: 0.75;
-    border-radius: 30px;
-    position: absolute;
-}
-
-
-
-.Botaomae {
-    display: flex;
-    flex-direction: column;
-}
-
-.Cancelar {
-    font-size: 50px;
-}
-
-
-
 `
 
-export {ConteinerCadastrar}
+export {ConteinerCadastrar, Container}
