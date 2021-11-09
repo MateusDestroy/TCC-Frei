@@ -131,28 +131,29 @@ app.post('/cadastrar', async (req, resp) => {
 });
 
 
-app.post('/cadastrar/:id', async (req, resp) => {
-    let x = req.body;
-     
-    try {
-        const Endereco = await db.infoa_sti_endereco.create({
-            id_cliente: req.params.id,
-            ds_cep: x.cep,
-            ds_endereco: x.endereco,
-            nr_numero: x.numero,
-            ds_complemento: x.complemento,
-            ds_cidade: x.cidade
-        })
+        app.post('/cadastrar/:id', async (req, resp) => {
+            let x = req.body;
+            
+            try {
+                const Endereco = await db.infoa_sti_endereco.create({
+                    id_cliente: req.params.id,
+                    ds_cep: x.cep,
+                    ds_endereco: x.endereco,
+                    nr_numero: x.numero,
+                    ds_complemento: x.complemento,
+                    ds_cidade: x.cidade
+                })
 
 
-    resp.sendStatus(200);
+            resp.sendStatus(200);
 
-} catch (error) {
-    resp.send( error.toString() )
-}
+        } catch (error) {
+            resp.send( error.toString() )
+    }
 });
 
 
+,
 
 
 
@@ -251,6 +252,7 @@ app.post('/produto', async (req, resp) => {
 
 
 
+
 app.get('/produto', async (req, resp) => {
 
 
@@ -316,3 +318,7 @@ app.delete('/produto', async (req, resp) => {
 
 app.listen(process.env.PORT,
             console.log(`Servidor na Porta ${process.env.PORT}`));
+
+
+
+         
