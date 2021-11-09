@@ -11,8 +11,11 @@ height: 100vh;
 .conteinercadastro {
 display: flex;
 flex-direction: column;
-
+flex-direction: arrow;
+align-items: center;
+justify-content: center;
 }
+
 .as {
 
     position:absolute;
@@ -20,39 +23,68 @@ flex-direction: column;
     width:100%;
 }
 
+   
+
+.input-endereco {
+ 
+}
+
+.input-sexo {
+    margin-right: 50px;
+}
+
+.input-nome{
+    margin-right: 50px;
+}
+
 .caixa1-inputs {
     font-family: Gabriela;
     display: flex;
     flex-direction: column;
+    font-size: 20px;
+    justify-content: left; 
+    
 }
 
 .isafoi, .ok {
     display: flex;
     justify-content: space-between;
     margin-top: 0.9em;
+    font-size: 20px;
+    align-items: center;
+    margin-left: 100px;
 }
 
 .opa {
     display: flex;
     justify-content: space-between; 
     margin-top: 0.9em;
+    font-size: 20px;
+    justify-content: left;
 }
 
 .titulo {
     font-family: Lobster;
 }
 
+
+
 .senha {
     font-family: Gabriela;
     display: flex;
     justify-content: space-between;
     margin-top: 0.9em;
+    font-size: 20px;
+    justify-content: left;
 }
+
 .cidade {
     font-family: Gabriela;
     display: flex;
     justify-content: space-between;
     margin-top: 0.9em;
+    font-size: 20px;
+    justify-content: left; 
 }
 
 .complemento {
@@ -60,6 +92,8 @@ flex-direction: column;
     display: flex;
     justify-content: space-between;
     margin-top: 0.9em;
+    font-size: 20px;
+    
 }
 
 .caixa2-inputs {
@@ -67,6 +101,11 @@ flex-direction: column;
     display: flex;
     justify-content: space-between;
     margin-top: 0.9em;
+
+    font-size: larger;
+    font-size: 20px;
+    justify-content: left; 
+    margin-right: 295px;
 }
 
 .caixa3-inputs {
@@ -75,6 +114,9 @@ flex-direction: column;
     display: flex;
     justify-content: space-between;
     margin-top: 0.9em;
+    
+    font-size: 20px;
+    justify-content: left;
 }
 
 .Titulo {
@@ -124,7 +166,17 @@ button {
     padding: 10px;
     margin: auto;
     width: 10em;
-    margin-top: 3em;
+    font-size: 15px;
+    margin-top: 1em;
+
+}
+
+.nascimento input {
+    width: 5em;
+    height: 1.5em;
+    margin-left: 20px;
+    text-align: center;
+    font-family: Gabr;
 }
 
 
@@ -135,6 +187,7 @@ button {
     border-radius: 30px;
     text-align: center;
     font-family: Lobster;
+    
 }
 
 .botão > button {
@@ -152,7 +205,7 @@ button {
 }
 
 .Cancelar {
-    font-family: Lobster;
+    font-size: 50px;
 }
 
 
