@@ -90,7 +90,7 @@ export default function Salgados (){
 
                  
                 <div className = "caixa1">
-                 <div className = "imagem"> <img src="./assets/imagens/pao-de-queijo-mineiro 1.png" alt=""  /> </div>
+                 <div className = "imagem"> <img src="./assets/imagens/Pao de queijo.png" alt=""  /> </div>
                  <div className = "Produto"> Pão de queijo </div>
                  <Avalicao/>
                  <div className = "Preco">Valor: 3,00 R$ </div>

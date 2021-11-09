@@ -11,6 +11,20 @@ app.use(cors())
 app.use(express.json())
 
 
+/*/
+app.get('/pedidos', async (req, resp)=>
+    try {
+        let admin = await db.infoa_sti_venda.findAll()
+        resp.send(admin)
+    } catch (e) {
+        resp.send({errp: e.toString()})
+        
+    }
+)
+*/
+
+
+
 
 app.get('/clientes', async (req, resp) => {
     try {

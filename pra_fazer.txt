@@ -24,7 +24,7 @@ João e  Raul - Atualizar o Caso de Uso
 
 Carol - Atualizar o DER (Db Design)
 
-Bruno -  Arrumar o Rodapé, Arrumar as Imagens
+Bruno -   Arrumar as Imagens 
 
 Isa - Deixar o Figma igual o site e deixa
 
