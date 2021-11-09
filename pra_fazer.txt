@@ -29,13 +29,13 @@ Todos -  **Conectar Api com o React**
 11/11 até até 18:00
 
 -----------------------------------------------------------------------------------
-id_produto - ir pra venda item
+id_produto - ir pra venda item (pronto)
 
-forma de pagamento criar campo na  tabela venda
+forma de pagamento criar campo na  tabela venda(pronto)
 
-numero do pedido tirar
+numero do pedido tirar(pronto)
 
-qtd do produto na tabela venda item
+qtd do produto na tabela venda item(pronto)
 
-trocar bt_situação para ds_situação
+trocar bt_situação para ds_situação(pronto)
 
