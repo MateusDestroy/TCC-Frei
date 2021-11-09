@@ -31,14 +31,14 @@ background-color: #D2F6FF;
 
 .previsao1 {
     background-color: #00ff00;
-    width: 25vh;
+    width: 20vh;
     height: 1.5vh;
     border-radius: 50px;
 }
 
 .previsao2 {
     background-color: #00ff00;
-    width: 100vh;
+    width: 80vh;
     height: 1.5vh;
     border-radius: 50px;
     margin-left: 1%;

@@ -8,11 +8,7 @@ Mateus e João - API parte do usuario {
     GET / dos Produtos (pronta)
 }
 
-Bruno - Responsividade do site, arrumar todas telas de adm 
-
-Raul -  Api parte do Adm (Bruno) {
-    GET / dos Pedido (Ordenando pelos que estão Pendentes)
-}
+Bruno e Raul- Responsividade do site, arrumar todas telas de adm 
 
 Carol - (organizar api em camadas) ou Isa -  Dar inserts
 

@@ -12,7 +12,7 @@ const Containersroda = styled.div`
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      margin-left: 6em;
+      
 }
       .part-roda1 {
       text-align: center;

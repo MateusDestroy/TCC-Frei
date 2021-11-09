@@ -5,7 +5,7 @@ import styled from "styled-components";
 const ConteinerLogin = styled.div `
     display: flex;
     flex-direction: column;
-    height: 120vh;
+    height: 100vh;
     width: auto; 
 
     background-image: url("./assets/imagens/Background.svg");
@@ -123,6 +123,17 @@ span {
     cursor: pointer;
     
 }
+
+@media (max-width: 375px) {
+ width: 100vh;
+
+.ConteinerLogin {
+    width: 70vh;
+    margin-left: 7em;
+    margin-top: 1em;
+}
+}
+
 
 
 

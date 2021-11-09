@@ -18,7 +18,7 @@ background-repeat: no-repeat;
 .box {
     background-color: rgba(0,0,0, 0.90);
     margin-top: 2em;
-    margin-left: 7em;
+    margin-left: 3em;
 
     padding: 3em 2em;
     width: 70em;
