@@ -12,7 +12,7 @@ Bruno e Raul- Responsividade do site, arrumar todas telas de adm
 
 Carol - (organizar api em camadas) ou Isa -  Dar inserts
 
-** Tudo Pra Amanha **
+** 09/11 até 00:00 **
 -----------------------------------------------
 Mateus - Atualizar o Banco
 
@@ -20,9 +20,22 @@ João e  Raul - Atualizar o Caso de Uso
 
 Carol - Atualizar o DER (Db Design)
 
-Bruno -  Arrumar o Rodapé, Arrumar as Imagens
+Bruno -   Arrumar as Imagens 
 
 Isa - Deixar o Figma igual o site e deixa
 
-------------------------------------------
+Todos -  **Conectar Api com o React**
+
+11/11 até até 18:00
+
+-----------------------------------------------------------------------------------
+id_produto - ir pra venda item
+
+forma de pagamento criar campo na  tabela venda
+
+numero do pedido tirar
+
+qtd do produto na tabela venda item
+
+trocar bt_situação para ds_situação
 
