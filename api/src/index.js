@@ -11,6 +11,8 @@ app.use(cors())
 app.use(express.json())
 
 
+
+
 /*/
 app.get('/pedidos', async (req, resp)=>
     try {
@@ -108,7 +110,20 @@ app.post('/login', async (req, resp) => {
 
 
 
+app.post('/pedidos', async (req, resp) => {
+    let d = req.body
 
+    const ender = await db.infoa_sti_endereco.findAll()
+    const pro = await db.infoa_sti_produto()
+
+
+    const cri = await db.infoa_sti_venda.create({
+
+        ds_forma_pagamento: d.pagamento,
+        ds_situacao: d.situacao    })
+
+    resp.sendStatus(200);
+})
 
 // tela de cadastro
 app.post('/cadastrar', async (req, resp) => {
