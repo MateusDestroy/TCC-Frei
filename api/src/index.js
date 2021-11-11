@@ -40,6 +40,14 @@ app.get('/clientes', async (req, resp) => {
 });
 
 
+
+
+
+
+
+
+
+
 app.get('/endereco', async (req, resp) => {
     try {
         let users = await db.infoa_sti_endereco.findAll()
