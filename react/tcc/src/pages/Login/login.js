@@ -2,10 +2,15 @@
 
 import { ConteinerLogin } from "./styled"
 import { Link } from "react-router-dom"
+import { useState } from "react"
+import Api from '../../services/api'
+
+const api = new Api();
 
 
 export default function Login() {
-
+    const[ email, setEmail] = useState ('');
+    const[ senha, setSenha] = useState ('');
     return (
         <ConteinerLogin>
             <div className = "ConteinerLogin">
@@ -16,8 +21,8 @@ export default function Login() {
                 </div>
 
                <div className = "inputs">
-                 <div className  = "email"> <input type = "email"  placeholder= "Digite seu email"/>  </div>
-                 <div className  = "senha"> <input type = "password" placeholder = "Digite sua senha"/></div>
+                 <div className  = "email"> <input type = "email"  value = {email} onChange = {e => setEmail(e.target.value)}/>  </div>
+                 <div className  = "senha"> <input type = "password"value = {senha} onChange = {e => setSenha(e.target.value)}/></div>
                 </div>
 
                  <div className = "botão"> <Link  to = "/home"> <button> Entrar </button>  </Link> </div>

@@ -22,5 +22,10 @@ export default class Api{
         return r.data;
     }
 
+    async login (email, senha) {
+        let r  = await api.post('/login', { email, senha})
+        return r.data;
+    }
+
 }
 
