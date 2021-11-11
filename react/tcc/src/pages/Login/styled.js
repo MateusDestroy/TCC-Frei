@@ -28,7 +28,7 @@ const ConteinerLogin = styled.div `
     color: #568EAE;
 
     background-color: black;
-    opacity: 70%;
+    opacity: 90%;
 }
 
 
@@ -73,8 +73,8 @@ const ConteinerLogin = styled.div `
 
 input {
     
-    width: 400px ;
-    height: 70px;
+    width: 350px ;
+    height: 50px;
 
     border-radius: 30px;
 }
