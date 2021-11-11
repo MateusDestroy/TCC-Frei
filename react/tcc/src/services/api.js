@@ -6,10 +6,11 @@ const api = axios.create({
 
 export default class Api{
 
-    async ListaProdutos (){
-        let r = await api.get('/produto')
+    async ListaProdutos (imagem, produto, sabor, valor){
+        let r = await api.get('/produto', {imagem, produto, sabor, valor})
         return r.data; 
     }
+
 
 
  async CadastraProduto(imagem, codigo , produto, Sabor, estoqueMin, estoqueMax, valor , estoqueAtual, descricao){
