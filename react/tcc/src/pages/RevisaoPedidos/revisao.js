@@ -6,10 +6,14 @@ import Cabecalho from '../../components/cabecalho/cabecalho'
 import Rodape from '../../components/rodape/rodape'
 import Pagamento from '../../components/pagamento'
 import { useState } from 'react'
+import Cookies from "js-cookie"
+import CarItem from './BoxRevisao'
+
 
 
 
 export default function Revisao(props) {
+    const [produtos, setProdutos] = useState([]);
 
     const [Mostrar, setMostrar] = useState(false);
 
@@ -59,8 +63,12 @@ export default function Revisao(props) {
                   <th> Preço unitário </th>
                   <th> Quantidade </th>
                   <th> Subtotal de itens</th>
-              </thead>
-              
+            </thead>
+            {produtos.map(item => 
+                    <CarItem key={item.id} 
+                        info={item} 
+                        />
+                )}
             </div>
             <h1 style={{marginLeft: '3em'}}>Método de Pagamento</h1>    
             <div className="meto-paga">
