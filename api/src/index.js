@@ -298,6 +298,24 @@ app.post('/produto', async (req, resp) => {
 });
 
 
+
+
+
+
+
+
+
+app.get('/produto', async (req, resp) => {
+    const data = await db.infoa_sti_produto.findAll({where: id_categoria});
+    resp.send(data);
+
+});
+
+
+
+
+// Alterar Produto 
+
 app.put('/produto/:idProduto', async (req, resp) => {
 
     const { imagem, produto, codigo, descricao, valor, estoqueMin, estoqueMax, estoqueAtual, sabor} = req.body;
