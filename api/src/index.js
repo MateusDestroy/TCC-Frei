@@ -93,6 +93,32 @@ app.get('/endereco/:id', async (req, resp) => {
 
 
 
+app.get('/sla', async (req, resp) => {
+    try {
+        let users = await db.infoa_sti_produto.findAll()
+
+        resp.send(users)
+        
+    } catch (e) {
+        resp.send({erro: e.toString()})
+    }
+});
+
+
+
+
+app.get('/produto', async (req, resp) => {
+
+
+    const dat = await db.infoa_sti_produto.findAll();
+
+    
+    resp.send(dat);
+
+});
+
+
+
 
 // tela de login
 
@@ -287,17 +313,6 @@ app.post('/produto', async (req, resp) => {
 
 
 
-
-
-app.get('/produto', async (req, resp) => {
-
-
-    const data = await db.infoa_sti_produto.findAll({where: id_categoria});
-
-    
-    resp.send(data);
-
-});
 
 
 // Alterar Produto 
