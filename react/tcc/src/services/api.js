@@ -1,13 +1,22 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL : 'https://tccheroku.herokuapp.com/'
+    baseURL : 'http://localhost:3030'
 })
 
 
 export default class Api{
 
+<<<<<<< HEAD
     async ListaProdutos (imagem, produto, sabor, valor){
         let r = await api.get('/produto', {imagem, produto, sabor, valor})
+=======
+    async ListaProdutos (){
+        let r = await api.get('/sla')
+        return r.data; 
+    }
+    async ListaProdutosDoces(id) {
+        let r = await api.get(`/produto/${id}`)
+>>>>>>> 8848daaf1984ffe053314ebd07397c490527fc85
         return r.data; 
     }
 

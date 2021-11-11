@@ -62,18 +62,18 @@ export default function DetalhesProdutos(props) {
               <h2>  {produto.nome} </h2>
 
                 <div className = "Produto" >
-                <div className = "Imagem-produto"><img src= {produto.imagem}  alt=""  /> </div>  
+                <div className = "Imagem-produto"><img src= {produto.img_produto}  alt=""  /> </div>  
 
                   <div className = "informaçõesproduto">
                         <div className = "informações">
-                         <div className = "valor-Produto"> R$: {produto.valor}   </div>
+                         <div className = "valor-Produto"> R$: {produto.vl_valor}   </div>
                           <ContadorProduto />
                          <button className = "adicionarCarrinho"  onClick={comprar}>Adicionar ao Carrinho </button>
                        </div>
 
                        <div className = "conteinerDescricao">
                          <h3> DESCRIÇÃO DO PRODUTO:  </h3>
-                         <div className = "Descrição-produto"> O Melhor Rocambole de chocolate que você pode encontra é aqui no FREI </div>
+                         <div className = "Descrição-produto"> {produto.ds_descricao} </div>
                        </div>
                        
                    </div>
