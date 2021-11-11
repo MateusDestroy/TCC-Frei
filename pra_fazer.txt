@@ -3,39 +3,39 @@ Mateus e João - API parte do usuario {
     GET / endereços por ID (pronta)
     GET / do Pedido do usuario para Listar (Mateus)
     GET/id do cliente (pronta)
-    POST / dos pedidos 
-    PUT / do Perfil (pronta)
     GET / dos Produtos (pronta)
+    PUT / do Perfil (pronta)
+
+    POST / dos pedidos (Pendente) 
+    GET / dos pedidos (Pendente) 
+
 }
 
 Bruno e Raul- Responsividade do site, arrumar todas telas de adm 
 
-Carol - (organizar api em camadas) ou Isa -  Dar inserts
+Carol - (organizar api em camadas) (Pendente)
+Isa -  Dar inserts (pronta)
 
 ** 09/11 até 00:00 **
 -----------------------------------------------
-Mateus - Atualizar o Banco
+Mateus - Atualizar o Banco (Andamento)
 
-João e  Raul - Atualizar o Caso de Uso
+João e  Raul - Atualizar o Caso de Uso  (Andamento)
 
-Carol - Atualizar o DER (Db Design)
+Carol - Atualizar o DER (Db Design) (Andamento)
 
-Bruno -   Arrumar as Imagens 
+Bruno -   Arrumar as Imagens  (Andamento)
 
-Isa - Deixar o Figma igual o site e deixa
+Isa - Deixar o Figma igual o site e deixa (Andamento)
 
-Todos -  **Conectar Api com o React**
+Todos -  **Conectar Api com o React** {
+    Bruno e Raul - Tela de cadastro e Login (Vê o video do MonkChat se estiver duvida)
+    Mateus - Tela dos produto (com ajuda de todos)
+    Joao - Tela de Minha Conta
+}
 
 11/11 até até 18:00
 
 -----------------------------------------------------------------------------------
-id_produto - ir pra venda item (pronto)
 
-forma de pagamento criar campo na  tabela venda(pronto)
-
-numero do pedido tirar(pronto)
-
-qtd do produto na tabela venda item(pronto)
-
-trocar bt_situação para ds_situação(pronto)
 

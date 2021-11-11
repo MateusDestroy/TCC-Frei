@@ -101,7 +101,7 @@ align-items: center;
 
 
 .nascimento input {
-    width: 5em;
+    width: 15em;
     height: 1.5em;
     margin-left: 20px;
     text-align: center;
