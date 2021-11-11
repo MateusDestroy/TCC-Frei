@@ -1,7 +1,7 @@
 import {ConteinerProduto} from '../styled'
 import Categorias  from '../../../components/Categorias/categoria'
 import Cabecalho from '../../../components/cabecalho/cabecalho'
-import Avalicao from '../../../components/avaliação/avaliacao'
+
 
 
 import Produto from '../boxItem/index'
@@ -27,6 +27,7 @@ export default function Doces (){
         }
         listar();
       })
+
     return (
         <ConteinerProduto>
             <Cabecalho/>

@@ -6,17 +6,10 @@ const api = axios.create({
 
 export default class Api{
 
-<<<<<<< HEAD
-    async ListaProdutos (imagem, produto, sabor, valor){
-        let r = await api.get('/produto', {imagem, produto, sabor, valor})
-=======
-    async ListaProdutos (){
-        let r = await api.get('/sla')
-        return r.data; 
-    }
+
     async ListaProdutosDoces(id) {
         let r = await api.get(`/produto/${id}`)
->>>>>>> 8848daaf1984ffe053314ebd07397c490527fc85
+
         return r.data; 
     }
 
