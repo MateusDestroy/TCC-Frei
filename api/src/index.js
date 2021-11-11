@@ -1,7 +1,6 @@
 import db from './db.js';
 import express from 'express';
 import cors from 'cors';
-import path from 'path'
 
 
 
@@ -22,7 +21,6 @@ app.get('/pedidos', async (req, resp)=>
     }
 )
 */
-
 
 
 
@@ -70,8 +68,12 @@ app.get('/produto/:id', async (req, resp) =>{
 
 
 
-app.get('/clientes/:id', async (req, resp) => {
-    let r = await db.infoa_sti_cliente.findOne({ where: { id_cliente: req.params.id}});
+app.get('/clientes', async (req, resp) => {
+    let r = await db.infoa_sti_cliente.findAll({ 
+        where: { id_cliente: req.params.id,
+                 ds_email : req.params.ds_email, 
+                 ds_senha : req.params.ds_senha
+        }});
     resp.send(r);
 });
 
