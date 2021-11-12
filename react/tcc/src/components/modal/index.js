@@ -142,7 +142,7 @@ export default function Model(props) {
                         <input type="" value = {numero} onChange = {e => SetNumero (e.target.value)}/> </div>
                     <div className="comple"> 
                         <div>Complemento:</div>
-                        <input type="" value = {complemento} onChange = {e => SetComplementoP (e.target.value)}/>
+                        <input type="" value = {complemento} onChange = {e => SetComplemento (e.target.value)}/>
                     </div>
                    
                 </div>
