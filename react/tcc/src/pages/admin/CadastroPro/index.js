@@ -10,12 +10,7 @@ const api = new Api();
 
 
 
-
-
-
-
 export default function Cadastro() {
-
 
 
     

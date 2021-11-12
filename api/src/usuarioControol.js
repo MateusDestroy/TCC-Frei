@@ -116,6 +116,3 @@ app.post('/cadastrar/:id', async (req, resp) => {
     resp.send( error.toString() )
 }
 });
-
-
-

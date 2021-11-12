@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 
 
-
-
 const Conteinerboxproduto = styled.div `
 
 
@@ -34,8 +32,6 @@ const Conteinerboxproduto = styled.div `
 
 
 
-
-
 .imagem {
     text-align: center;
 
@@ -50,11 +46,6 @@ const Conteinerboxproduto = styled.div `
 }
 
  
-
-
-
-
-
 
 
 

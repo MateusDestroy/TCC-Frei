@@ -27,9 +27,6 @@ export default function Revisao(props) {
     }
 
 
-
-
-    
     return ( 
 
        

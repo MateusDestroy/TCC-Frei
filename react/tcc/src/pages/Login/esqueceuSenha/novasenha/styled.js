@@ -24,15 +24,7 @@ const Conteinernovasenha = styled.div `
     font-family: Lobster;
     background-color: black;
     opacity:90%;
-}
-    
-          
-            
-    
-
-          
-          
-            
+}    
     
 
    

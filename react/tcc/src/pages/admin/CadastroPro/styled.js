@@ -215,13 +215,6 @@ padding-left: 19.5em;
 
 
 
-
-
-
-
-
-
-
 `
 
 export{ConteinerCadastro}

@@ -18,6 +18,3 @@ app.get('/produto', async (req, resp) => {
     resp.send(data);
 
 });
-
-
-
