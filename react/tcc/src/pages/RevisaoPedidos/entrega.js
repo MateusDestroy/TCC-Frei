@@ -8,7 +8,7 @@ import { useState } from 'react'
 import Model from '../../components/modal'
 
 export default function Carrinho() {
-
+    
     const [Exibir, setExibir] = useState(false)
 
     return ( 
