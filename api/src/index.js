@@ -131,12 +131,11 @@ app.post('/login', async (req, resp) => {
         where: {
             ds_email: login.email,
             ds_senha: login.senha
-        },
-        raw: true
+        }
     })
 
     if(p == null)
-    return resp.send({erro: 'tudo errado'});
+    return resp.send({erro: 'O email do usuário inserido não pertence a uma conta. Verifique o email do usuário e tente novamente'});
 
     resp.sendStatus(200);
 });
