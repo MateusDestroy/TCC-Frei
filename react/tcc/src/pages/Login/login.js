@@ -16,12 +16,7 @@ export default function Login() {
     const paginas = useHistory();
 
     const logar = async () => {
-        console.log(email);
-        console.log(senha);
-
         let r = await api.login(email, senha);
-
-        console.log(r);
         
         if (r.erro) {
             alert (`${r.erro}`)
@@ -40,11 +35,11 @@ export default function Login() {
                 </div>
 
                <div className = "inputs">
-                 <div className  = "email"> <input type = "email"  value = {email} onChange = {e => setEmail(e.target.value)}/>  </div>
+                 <div className  = "email"> <input type = "email"  value={email} onChange = {e => setEmail(e.target.value)}/>  </div>
                  <div className  = "senha"> <input type = "password"value = {senha} onChange = {e => setSenha(e.target.value)}/></div>
                 </div>
 
-                 <div className = "botão" onClick={logar}>  <Link  to = "/home">  <button> Entrar </button>  </Link> </div>
+                 <div className = "botão" onClick={logar}>    <button> Entrar </button>  </div>
 
              <div className = "func-para-cadastro">
                  <div className = "Esqueceu"> Esqueci a senha <Link to = "/esqueceu"> <span> clique aqui </span></Link></div>
