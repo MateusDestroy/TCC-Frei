@@ -12,10 +12,9 @@ import { useEffect } from 'react'
 const api = new Api();
 
 
-export default function Carrinho() {
+export default function Carrinho(props) {
     const [endereco, SetEndereco] = useState([])   
-    const [Exibir, setExibir] = useState(false)
-
+    const [exibirModal, setExibirModal] = useState({show: false});
 
     useEffect(() => { 
         const listar = async() => {
@@ -25,9 +24,10 @@ export default function Carrinho() {
         listar();
       })
 
+
     return ( 
         <ContainerRevisao>
-            <Model show={Exibir} />
+            <Model options={exibirModal}/>
             <Cabecalho />
             <h1 style={{marginLeft: '70px'}}>  Finalização da Compra </h1>
             <Tiras/>
@@ -38,7 +38,7 @@ export default function Carrinho() {
             <div className="info"> 
             <div className="en-cabe">   
                 <h2> Endereço de Entrega </h2>
-                <button onClick={() => setExibir(true)}> <img src="./assets/imagens/plus_icon-icons.com_70890.svg" alt="" /> <h3>Novo Endereço</h3></button> 
+                <button onClick={() => setExibirModal({show: true})}> <img src="./assets/imagens/plus_icon-icons.com_70890.svg" alt="" /> <h3>Novo Endereço</h3></button> 
             </div>
                <div className="en-entrega">
                

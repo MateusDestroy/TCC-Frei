@@ -1,6 +1,5 @@
 import {ConteinerCadastrar, Container} from './styled'
 
-import Cabecalho from '../../../components/cabecalho/cabecalho'
 
 import Rodape from '../../../components/rodape/rodape'
 import { Link } from 'react-router-dom'
@@ -11,7 +10,6 @@ export default function Cadastrar() {
 
     <Container>    
         <ConteinerCadastrar>
-        <Cabecalho />
        <div className="box">
            <div className="as"> Realizar Cadastro    </div>
            <div className="box-cadas"> 

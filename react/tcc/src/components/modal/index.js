@@ -33,9 +33,6 @@ const Container = styled.div `
       flex-direction: row;
       width:100%;
       justify-content: center;
-      
-       
-      
   }
  
   .box2{
@@ -114,18 +111,33 @@ export default function Model(props) {
     const [cidade, SetCidade] =useState('')
     const [tudo, SetTudo] =useState([])
 
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        setShow(props.options.show);
+      }, [props.options.show])
+
+
+      function hide(e) {
+        if(e.currentTarget !== e.target ) 
+          return;
+    
+        props.options.show = false;
+        setShow(false);
+      }  
 
     async function Inserir(id) {
         const produtosr = await api.CadastraEndereco(id, cep , endereco, numero, complemento, cidade);
         SetTudo(produtosr);
     }
-
+    
     useEffect(() => { 
         Inserir()
       })
 
+     
     return(
-        <Container show={props.show}>
+        <Container show={show} onClick={hide}>
             <div className="content">
                 <div className="box1">
                     <div className="cep"> 
@@ -152,7 +164,7 @@ export default function Model(props) {
                    
                 </div>
                 <div className="butt">
-                    <button>Fechar</button>
+                    <button show={show} onClick={hide}>Fechar</button>
                     <button onClick={() => tudo()}>Cadastrar</button>
                 </div>
             </div>

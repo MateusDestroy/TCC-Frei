@@ -1,6 +1,7 @@
 import db from './db.js';
 import express from 'express';
 import cors from 'cors';
+import path from 'path'
 
 
 
@@ -26,8 +27,6 @@ app.get('/pedidos', async (req, resp)=>
 
 
 
-
-app.get('/clientes', async (req, resp) => {
 
 app.post('/cadastrar-endereco/:id', async (req, resp) => {
     let x = req.body;
@@ -74,39 +73,13 @@ app.delete('/endereco', async (req, resp) => {
 });
 
 
-
-
-
-/// consultar produtos 
-
-app.get('/produto/:id', async (req, resp) =>{
-    let r = await db.infoa_sti_produto.findAll({ where: {id_categoria: req.params.id}});
-
 app.get('/endereco/:id', async (req, resp) => {
     let r = await db.infoa_sti_endereco.findAll({ where: { id_cliente: req.params.id}});
     resp.send(r);
 });
 
 
-app.get('/produto', async (req, resp) => {
-    let data = await db.infoa_sti_produto.findAll({
-        where:{
-            nm_produto: req.params.nm_produto,
-            vl_valor: req.params.vl_valor,
-            img_produto: req.params.img_produto        
-        }
-    });
-    resp.send(data);
-})
 
-app.get('/clientes', async (req, resp) => {
-    let r = await db.infoa_sti_cliente.findAll({ 
-        where: { id_cliente: req.params.id,
-                 ds_email : req.params.ds_email, 
-                 ds_senha : req.params.ds_senha
-        }});
-    resp.send(r);
-});
 
 
 
@@ -390,4 +363,3 @@ app.delete('/produto', async (req, resp) => {
 
 app.listen(process.env.PORT,
             console.log(`Servidor na Porta ${process.env.PORT}`));
-

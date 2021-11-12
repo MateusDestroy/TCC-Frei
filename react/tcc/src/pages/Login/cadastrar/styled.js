@@ -14,13 +14,10 @@ background-size: cover;
 background-repeat: no-repeat; 
 .box {
     background-color: rgba(0,0,0, 0.90);
-    margin-top: 2em;
-<<<<<<< HEAD
-    margin-left: 3em;
+    margin-top: 10em;
+    margin-left: 4.5em;
 
-=======
     margin-left: 7em;
->>>>>>> 73fb4acf52c2ff695151a197f4dabeb8bae0f553
     padding: 3em 2em;
     width: 70em;
     border-radius: 14px;

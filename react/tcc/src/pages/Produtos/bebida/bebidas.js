@@ -2,10 +2,7 @@ import {ConteinerProduto} from '../styled'
 import Categorias  from '../../../components/Categorias/categoria'
 import Cabecalho from '../../../components/cabecalho/cabecalho'
 
-import Produto from '../../../components/CaixaProduto'
-
 import Produto from '../boxItem/index'
-
 
 import Rodape from '../../../components/rodape/rodape'
 import { useState, useEffect } from 'react'
@@ -17,6 +14,7 @@ const api = new Api();
 export default function Produtos() {
 
   const [produtos, SetProduto] = useState([])
+
 
 
  

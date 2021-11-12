@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 import { Link } from 'react-router-dom'
 import Avalicao from '../../../components/avaliação/avaliacao'
 
@@ -27,4 +26,4 @@ export default function Box(props) {
     </div>
     )
 }
->>>>>>> 82c6332987bc4b4c28a061776cd82453478b60d9
+
