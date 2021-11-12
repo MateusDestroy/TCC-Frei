@@ -26,10 +26,11 @@ export default function Perfil() {
     async function Alterar() {
         await api.AlterarCadastro(idAlterando,  nome, sexo, nascimento, email);
         alert('Cliente alterado, Com Sucesso!');
+        SetIdAlterando()
     }
 
 
-
+    
 
 
     return(
@@ -53,7 +54,7 @@ export default function Perfil() {
                         <div className="nomes"> <h4> Número de Telefone: </h4> <input  type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"/> </div>
                         <div className="genero"  style={{marginLeft: '7.4em'}}> <h4> Sexo: </h4>                         
                             <input type="radio" id="age1" name="age" value="30" fill="red"/>
-                            <label>Masculino</label> 
+                            <label value={sexo} onChange={e => SetSexo(e.target.value)}>Masculino</label> 
 
                             <input type="radio" id="age1" name="age" value="30" fill="red"/>
                             <label>Feminino</label> 
@@ -66,7 +67,7 @@ export default function Perfil() {
                 </div>
             </div>
             <div className="but"  onClick={() => Alterar(idAlterando)}> Confirmar</div>
-          
+            <Rodape />
             </ConteinerPerfils>
     )
     

@@ -1,6 +1,5 @@
 
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import Api from '../../services/api'
@@ -113,11 +112,17 @@ export default function Model(props) {
     const [numero, SetNumero] =useState('')
     const [complemento, SetComplemento] =useState('')
     const [cidade, SetCidade] =useState('')
+    const [tudo, SetTudo] =useState([])
 
 
     async function Inserir(id) {
         const produtosr = await api.CadastraEndereco(id, cep , endereco, numero, complemento, cidade);
+        SetTudo(produtosr);
     }
+
+    useEffect(() => { 
+        Inserir()
+      })
 
     return(
         <Container show={props.show}>
@@ -148,7 +153,7 @@ export default function Model(props) {
                 </div>
                 <div className="butt">
                     <button>Fechar</button>
-                    <button>Cadastrar</button>
+                    <button onClick={() => tudo()}>Cadastrar</button>
                 </div>
             </div>
         </Container>

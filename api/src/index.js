@@ -121,7 +121,7 @@ app.post('/login', async (req, resp) => {
     })
 
     if(p == null)
-    return resp.send({erro: 'O email do usuário inserido não pertence a uma conta. Verifique o email do usuário e tente novamente'});
+    return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
 
     resp.sendStatus(200);
 });

@@ -13,13 +13,13 @@ const api = new Api();
 
 
 export default function Carrinho() {
-    const [endereco, SetEndereco] = useState([])    
+    const [endereco, SetEndereco] = useState([])   
     const [Exibir, setExibir] = useState(false)
 
 
     useEffect(() => { 
         const listar = async() => {
-          const produtosr = await api.ListarEndereco(3);
+          const produtosr = await api.ListarEndereco();
           SetEndereco(produtosr);
         }
         listar();

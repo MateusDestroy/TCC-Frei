@@ -9,14 +9,11 @@ export default class Api{
 
     async ListaProdutosDoces(id) {
         let r = await api.get(`/produto/${id}`)
-
         return r.data; 
     }
 
-    async ListarEndereco(id)
-    {
+    async ListarEndereco(id){
         let r = await api.get(`/endereco/${id}`)
-
         return r.data; 
     }
 
