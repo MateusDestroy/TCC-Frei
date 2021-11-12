@@ -35,7 +35,7 @@ export default function Carrinho(props) {
       // Se o Cookie estiver vazio, volta um Array vazio []
       // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
       let carrinho = Cookie.get('carrinho');
-      carrinho = carrinho !== undefined 
+      carrinho = carrinho !== null 
                     ? JSON.parse(carrinho) 
                      : [];
 
@@ -58,7 +58,7 @@ export default function Carrinho(props) {
         Cookie.set('carrinho', JSON.stringify(carrinho));
     
         // Atualiza a variável de estado
-        carregarCarrinho()
+        setProdutos(carregarCarrinho())
         }
     
       function alterarProduto(id, qtd) {
@@ -79,14 +79,14 @@ export default function Carrinho(props) {
         <div className="titulo" style={{fontSize: '64px', marginLeft: '65px'}}> Meu Carrinho</div>
         <Tiras/>
         <div className="box-tabela"> 
-            <thead>
+        
+             <thead>
                 <th> </th>
                 <th> Produto </th>
                 <th> Preço </th>
                 <th className="f"> Quantidade </th>
                 <th> Total </th>
-            </thead>
-      
+             </thead>
                 {produtos.map(item => 
                     <CarrinhoItem key={item.id} 
                         info={item} 

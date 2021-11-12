@@ -60,7 +60,7 @@ export default function Perfil() {
                 
             </div>
             <div className="but"> Confirmar</div>
-         
+         <Rodape/>
         </ConteinerPerfils>
     )
     

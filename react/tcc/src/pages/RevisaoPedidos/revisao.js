@@ -9,6 +9,7 @@ import { useState } from 'react'
 
 
 
+
 export default function Revisao(props) {
 
     const [Mostrar, setMostrar] = useState(false);
@@ -59,8 +60,8 @@ export default function Revisao(props) {
                   <th> Preço unitário </th>
                   <th> Quantidade </th>
                   <th> Subtotal de itens</th>
-              </thead>
-              
+            </thead>
+           
             </div>
             <h1 style={{marginLeft: '3em'}}>Método de Pagamento</h1>    
             <div className="meto-paga">

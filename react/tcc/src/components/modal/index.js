@@ -1,7 +1,10 @@
 
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
+import Api from '../../services/api'
 
+const api = new Api();
 
 const Container = styled.div `
  position: fixed;
@@ -102,37 +105,55 @@ const Container = styled.div `
 
 `
 
+
 export default function Model(props) {
+    const [cep, SetCep] =useState('')
+    const [endereco, SetEndereco] =useState('')
+    const [numero, SetNumero] =useState('')
+    const [complemento, SetComplemento] =useState('')
+    const [cidade, SetCidade] =useState('')
+    const [tudo, SetTudo] =useState([])
+
+
+    async function Inserir(id) {
+        const produtosr = await api.CadastraEndereco(id, cep , endereco, numero, complemento, cidade);
+        SetTudo(produtosr);
+    }
+
+    useEffect(() => { 
+        Inserir()
+      })
+
     return(
         <Container show={props.show}>
             <div className="content">
                 <div className="box1">
                     <div className="cep"> 
                         <div>CEP: </div>
-                        <input type="" />
+                        <input type="" value = {cep} onChange = {e => SetCep (e.target.value)}/>
                     </div>
                     <div className="descricao"> 
                         <div>Endereço:</div>
-                        <input type="" />
+                        <input type="" value = {endereco} onChange = {e => SetEndereco (e.target.value)}/>
                     </div>
                     <div className="cida"> 
                         <div>Cidade:</div>
-                        <input type="" />
+                        <input type="" value = {cidade} onChange = {e => SetCidade (e.target.value)}/>
                     </div>
                 </div>
                 <div className="box2">
                     <div className="numero"> 
                         <div>Numero:</div>
-                        <input type="" /> </div>
+                        <input type="" value = {numero} onChange = {e => SetNumero (e.target.value)}/> </div>
                     <div className="comple"> 
                         <div>Complemento:</div>
-                        <input type="" />
+                        <input type="" value = {complemento} onChange = {e => SetComplemento (e.target.value)}/>
                     </div>
                    
                 </div>
                 <div className="butt">
                     <button>Fechar</button>
-                    <button>Cadastrar</button>
+                    <button onClick={() => tudo()}>Cadastrar</button>
                 </div>
             </div>
         </Container>

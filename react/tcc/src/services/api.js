@@ -1,13 +1,19 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL : 'https://tccheroku.herokuapp.com/'
+    baseURL : 'http://localhost:3030'
 })
 
 
 export default class Api{
 
-    async ListaProdutos (){
-        let r = await api.get('/produto')
+
+    async ListaProdutosDoces(id) {
+        let r = await api.get(`/produto/${id}`)
+        return r.data; 
+    }
+
+    async ListarEndereco(id){
+        let r = await api.get(`/endereco/${id}`)
         return r.data; 
     }
 
@@ -19,8 +25,19 @@ export default class Api{
     return r.data; 
     }
 
+    
+ async CadastraEndereco(id, cep , endereco, numero, complemento, cidade){
+    let r = await api.get(`/cadastrar-endereco/${id}`, cep , endereco, numero, complemento, cidade)
+    return r.data; 
+    } 
+
     async AlterarCadastro(id, nome, sexo, cpf, nascimento, email, cep, endereco, numero, complemento, cidade) {
         let r = await api.put('/cliente' + id, {nome, sexo, cpf, nascimento, email, cep, endereco, numero, complemento, cidade})
+        return r.data;
+    }
+
+    async login (email, senha) {
+        let r  = await api.post('/login', { email, senha})
         return r.data;
     }
 

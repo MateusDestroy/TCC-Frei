@@ -26,15 +26,28 @@ app.get('/pedidos', async (req, resp)=>
 
 
 
-app.get('/clientes', async (req, resp) => {
-    try {
-        let users = await db.infoa_sti_cliente.findAll()
 
-        resp.send(users)
-        
-    } catch (e) {
-        resp.send({erro: e.toString()})
-    }
+app.get('/clientes', async (req, resp) => {
+
+app.post('/cadastrar-endereco/:id', async (req, resp) => {
+    let x = req.body;
+    
+    try {
+        const Endereco = await db.infoa_sti_endereco.create({
+            id_cliente: req.params.id,
+            ds_cep: x.cep,
+            ds_endereco: x.endereco,
+            nr_numero: x.numero,
+            ds_complemento: x.complemento,
+            ds_cidade: x.cidade
+        })
+
+
+    resp.sendStatus(200);
+
+} catch (error) {
+    resp.send( error.toString() )
+}
 });
 
 
@@ -63,12 +76,16 @@ app.delete('/endereco', async (req, resp) => {
 
 
 
+
 /// consultar produtos 
 
 app.get('/produto/:id', async (req, resp) =>{
     let r = await db.infoa_sti_produto.findAll({ where: {id_categoria: req.params.id}});
+
+app.get('/endereco/:id', async (req, resp) => {
+    let r = await db.infoa_sti_endereco.findAll({ where: { id_cliente: req.params.id}});
     resp.send(r);
-})
+});
 
 
 app.get('/produto', async (req, resp) => {
@@ -92,15 +109,31 @@ app.get('/clientes', async (req, resp) => {
 });
 
 
-app.get('/endereco/:id', async (req, resp) => {
-    let r = await db.infoa_sti_endereco.findAll({ where: { id_cliente: req.params.id}});
-    resp.send(r);
+
+
+//--------------------------------------------------------------------------------------------------------
+
+
+
+
+app.get('/clientes', async (req, resp) => {
+    try {
+        let users = await db.infoa_sti_cliente.findAll()
+
+        resp.send(users)
+        
+    } catch (e) {
+        resp.send({erro: e.toString()})
+    }
 });
 
 
 
+app.get('/clientes/:id', async (req, resp) => {
+    let r = await db.infoa_sti_cliente.findOne({ where: { id_cliente: req.params.id}});
+    resp.send(r);
+});
 
-// tela de login
 
 app.post('/login', async (req, resp) => {
 
@@ -111,35 +144,17 @@ app.post('/login', async (req, resp) => {
         where: {
             ds_email: login.email,
             ds_senha: login.senha
-        },
-        raw: true
+        }
     })
 
     if(p == null)
-    return resp.send({erro: 'tudo errado'});
+    return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
 
     resp.sendStatus(200);
 });
 
 
 
-
-app.post('/pedidos', async (req, resp) => {
-    let d = req.body
-
-    const ender = await db.infoa_sti_endereco.findAll()
-    const pro = await db.infoa_sti_produto()
-
-
-    const cri = await db.infoa_sti_venda.create({
-
-        ds_forma_pagamento: d.pagamento,
-        ds_situacao: d.situacao    })
-
-    resp.sendStatus(200);
-})
-
-// tela de cadastro
 app.post('/cadastrar', async (req, resp) => {
     let x = req.body;
      
@@ -148,6 +163,7 @@ app.post('/cadastrar', async (req, resp) => {
         const UsuarioCriado = await db.infoa_sti_cliente.create({
             nm_nome: x.nome,
             nm_sobrenome: x.sobrenome,
+            ds_telefone: x.telefone,
             ds_sexo: x.sexo,
             ds_cpf: x.cpf,
             dt_nascimento: x.nascimento,
@@ -174,35 +190,8 @@ app.post('/cadastrar', async (req, resp) => {
 });
 
 
-        app.post('/cadastrar/:id', async (req, resp) => {
-            let x = req.body;
-            
-            try {
-                const Endereco = await db.infoa_sti_endereco.create({
-                    id_cliente: req.params.id,
-                    ds_cep: x.cep,
-                    ds_endereco: x.endereco,
-                    nr_numero: x.numero,
-                    ds_complemento: x.complemento,
-                    ds_cidade: x.cidade
-                })
-
-
-            resp.sendStatus(200);
-
-        } catch (error) {
-            resp.send( error.toString() )
-    }
-});
-
-
-
-
-
-
-
 app.put('/cliente/:id', async (req, resp) => {
-    const {nome, sexo, cpf, nascimento, email, senha, cep, endereco, numero, complemento, cidade} =  req.body;
+    const {nome, sexo, cpf, nascimento, telefone, email, senha, cep, endereco, numero, complemento, cidade} =  req.body;
     let { id } = req.params;
 
     const End = await db.infoa_sti_endereco.update(
@@ -220,6 +209,7 @@ app.put('/cliente/:id', async (req, resp) => {
     const Clientes = await db.infoa_sti_cliente.update({
         id_endereco: End.id_endereco,
         nm_nome: nome,
+        ds_telefone: telefone,
         ds_sexo: sexo,
         ds_cpf: cpf,
         dt_nascimento: nascimento,
@@ -233,6 +223,54 @@ app.put('/cliente/:id', async (req, resp) => {
 
     resp.sendStatus(200)
 
+
+});
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------
+
+
+
+
+app.post('/pedidos', async (req, resp) => {
+    let d = req.body
+
+    const ender = await db.infoa_sti_endereco.findAll()
+    const pro = await db.infoa_sti_produto()
+
+
+    const cri = await db.infoa_sti_venda.create({
+
+        ds_forma_pagamento: d.pagamento,
+        ds_situacao: d.situacao    })
+
+    resp.sendStatus(200);
+})
+
+//--------------------------------------------------------------------------------------------------------
+
+
+app.get('/produto/:id', async (req, resp) =>{
+    let r = await db.infoa_sti_produto.findAll({ where: {id_categoria: req.params.id}});
+    resp.send(r);
+})
+
+
+
+
+app.get('/produto', async (req, resp) => {
+
+
+    const dat = await db.infoa_sti_produto.findAll();
+
+    
+    resp.send(dat);
 
 });
 
@@ -255,8 +293,6 @@ app.post('/cupom', async (req, resp) => {
     resp.send( error.toString() )
 }
 });
-
-// cadastrar Produto
 
 
 app.post('/produto', async (req, resp) => {
@@ -296,14 +332,12 @@ app.post('/produto', async (req, resp) => {
 
 
 app.get('/produto', async (req, resp) => {
-
-
     const data = await db.infoa_sti_produto.findAll({where: id_categoria});
-
-    
     resp.send(data);
 
 });
+
+
 
 
 // Alterar Produto 
@@ -341,11 +375,7 @@ app.put('/produto/:idProduto', async (req, resp) => {
 
 
 
-// alterar informações do cliente
 
-
-
-// Deletar Produto
 app.delete('/produto', async (req, resp) => {
     let r = await db.infoa_sti_produto.destroy({
         where: {
@@ -361,6 +391,3 @@ app.delete('/produto', async (req, resp) => {
 app.listen(process.env.PORT,
             console.log(`Servidor na Porta ${process.env.PORT}`));
 
-
-
-         
