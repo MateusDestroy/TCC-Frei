@@ -6,10 +6,24 @@ import Cabecalho from '../../components/cabecalho/cabecalho'
 import Rodape from '../../components/rodape/rodape'
 import { useState } from 'react'
 import Model from '../../components/modal'
+import Api from '../../services/api'
+import { useEffect } from 'react'
+
+const api = new Api();
+
 
 export default function Carrinho() {
-    
+    const [endereco, SetEndereco] = useState([])    
     const [Exibir, setExibir] = useState(false)
+
+
+    useEffect(() => { 
+        const listar = async() => {
+          const produtosr = await api.ListarEndereco(3);
+          SetEndereco(produtosr);
+        }
+        listar();
+      })
 
     return ( 
         <ContainerRevisao>
@@ -27,16 +41,18 @@ export default function Carrinho() {
                 <button onClick={() => setExibir(true)}> <img src="./assets/imagens/plus_icon-icons.com_70890.svg" alt="" /> <h3>Novo Endereço</h3></button> 
             </div>
                <div className="en-entrega">
-               <form>
-                    <div className="en-input">
-                        <input type="radio" id="age1" name="age" value="30" />
-                        <label>João Pedro Silva dos Santos   (+55) 1199999-9999 - R Rio do Vae, 700, Vila Mariana, São Paulo, São Paulo, 04018002</label> 
-                    </div>
-                    <div className="en-input">
-                        <input type="radio" id="age1" name="age" value="30" fill="red"/>
-                        <label>João Pedro Silva dos Santos   (+55) 1199999-9999 - R Rio do Vae, 700, Vila Mariana, São Paulo, São Paulo, 04018002</label> 
-                    </div>
-                </form>
+               
+
+                <form>
+                {endereco.map((item, i) =>
+                        <div className="en-input">
+                            <input type="radio" id="age1" name="age" value="30" />
+                            <label> {item.nm_nome}   (+55) 1199999-9999 - {item.ds_endereco}, {item.nr_numero}, {item.ds_cep}, {item.ds_cidade}</label> 
+                        </div>
+                     )} 
+                    
+                    </form>
+                
                 </div>
             </div>
             <div className="tabela"> 

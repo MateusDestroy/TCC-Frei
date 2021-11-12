@@ -1,8 +1,11 @@
 
+import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
+import Api from '../../services/api'
 
+const api = new Api();
 
 const Container = styled.div `
  position: fixed;
@@ -105,7 +108,16 @@ const Container = styled.div `
 
 
 export default function Model(props) {
+    const [cep, SetCep] =useState('')
+    const [endereco, SetEndereco] =useState('')
+    const [numero, SetNumero] =useState('')
+    const [complemento, SetComplemento] =useState('')
+    const [cidade, SetCidade] =useState('')
 
+
+    async function Inserir(id) {
+        const produtosr = await api.CadastraEndereco(id, cep , endereco, numero, complemento, cidade);
+    }
 
     return(
         <Container show={props.show}>
@@ -113,24 +125,24 @@ export default function Model(props) {
                 <div className="box1">
                     <div className="cep"> 
                         <div>CEP: </div>
-                        <input type="" />
+                        <input type="" value = {cep} onChange = {e => SetCep (e.target.value)}/>
                     </div>
                     <div className="descricao"> 
                         <div>Endereço:</div>
-                        <input type="" />
+                        <input type="" value = {endereco} onChange = {e => SetEndereco (e.target.value)}/>
                     </div>
                     <div className="cida"> 
                         <div>Cidade:</div>
-                        <input type="" />
+                        <input type="" value = {cidade} onChange = {e => SetCidade (e.target.value)}/>
                     </div>
                 </div>
                 <div className="box2">
                     <div className="numero"> 
                         <div>Numero:</div>
-                        <input type="" /> </div>
+                        <input type="" value = {numero} onChange = {e => SetNumero (e.target.value)}/> </div>
                     <div className="comple"> 
                         <div>Complemento:</div>
-                        <input type="" />
+                        <input type="" value = {complemento} onChange = {e => SetComplementoP (e.target.value)}/>
                     </div>
                    
                 </div>
