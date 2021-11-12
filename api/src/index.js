@@ -61,6 +61,8 @@ app.delete('/endereco', async (req, resp) => {
 });
 
 
+
+
 /// consultar produtos 
 
 app.get('/produto/:id', async (req, resp) =>{
@@ -69,6 +71,16 @@ app.get('/produto/:id', async (req, resp) =>{
 })
 
 
+app.get('/produto', async (req, resp) => {
+    let data = await db.infoa_sti_produto.findAll({
+        where:{
+            nm_produto: req.params.nm_produto,
+            vl_valor: req.params.vl_valor,
+            img_produto: req.params.img_produto        
+        }
+    });
+    resp.send(data);
+})
 
 app.get('/clientes', async (req, resp) => {
     let r = await db.infoa_sti_cliente.findAll({ 

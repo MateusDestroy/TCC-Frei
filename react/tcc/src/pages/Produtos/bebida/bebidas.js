@@ -1,7 +1,7 @@
 import {ConteinerProduto} from '../styled'
 import Categorias  from '../../../components/Categorias/categoria'
 import Cabecalho from '../../../components/cabecalho/cabecalho'
-import Produto from '../boxItem/index'
+import Produto from '../../../components/CaixaProduto'
 
 import Rodape from '../../../components/rodape/rodape'
 import { useState, useEffect } from 'react'
@@ -14,44 +14,6 @@ export default function Produtos() {
 
 
  
-  function Listar() {
-    const r = [
-      {
-        id: 103,
-        imagem: "./assets/imagens/achocolatado.png",
-        valor: 5,
-        nome: "Achocolatado",
-      },
-      {
-        id: 104,
-        imagem: "./assets/imagens/suco-de-uva 1.png",
-        valor: 7,
-        nome: "Suco de Uva",
-      },
-      {
-        id: 106,
-        imagem: "./assets/imagens/agua.png",
-        valor: 9,
-        nome: "achocolatado",
-      },
-      {
-        id: 107,
-        imagem: "./assets/imagens/cafe.png",
-        valor: 3,
-        nome: "Café",
-      },
-      {
-        id: 108,
-        imagem: "./assets/imagens/cafe-com-leite 1.png",
-        valor: 9,
-        nome: "Cafe com Leite ",
-      }
-    
-    ]
-
-    SetProduto(r);
-  }
-  
  
   useEffect(() => {
     Listar();
