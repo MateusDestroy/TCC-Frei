@@ -49,6 +49,25 @@ app.post('/cadastrar-endereco/:id', async (req, resp) => {
 }
 });
 
+app.post('/cadastarcliente', async (req, resp) => {
+    try {
+        let { nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha } = req.body;
+        
+        let r = await db.infoa_sti_cliente.create({
+            nm_nome: nome,
+            nm_sobrenome: sobrenome,
+            ds_sexo: sexo,
+            ds_cpf: cpf,
+            dt_nascimento: nascimento,
+            ds_telefone: telefone,
+            ds_email: email,
+            ds_senha: senha
+        })
+        resp.send(r);
+    } catch (e) {
+        resp.send({ erro: e.toString() })
+    }
+});
 
 app.get('/endereco', async (req, resp) => {
     try {
@@ -56,6 +75,17 @@ app.get('/endereco', async (req, resp) => {
 
         resp.send(users)
         
+    } catch (e) {
+        resp.send({erro: e.toString()})
+    }
+});
+
+app.get('/cadastarcliente', async (req, resp) => {
+    try {
+        let uuso = await db.infoa_sti_cliente.findAll()
+
+        resp.send(uuso)
+
     } catch (e) {
         resp.send({erro: e.toString()})
     }
@@ -121,7 +151,7 @@ app.post('/login', async (req, resp) => {
     })
 
     if(p == null)
-    return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
+    
 
     resp.sendStatus(200);
 });

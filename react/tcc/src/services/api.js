@@ -41,4 +41,11 @@ export default class Api{
         return r.data;
     }
 
+    async CadastarCliente( nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha ) {
+        let r = await api.post('/cadastarcliente', {  nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha })
+        return r.data;
+    }
+
+    
+
 }
