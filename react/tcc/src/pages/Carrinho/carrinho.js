@@ -9,13 +9,14 @@ import { Link ,useHistory } from "react-router-dom"
 
 export default function Carrinho(props) {
     const [produtos, setProdutos] = useState([]);
-
+    
     const navegation = useHistory()
-  
+
 
  
 
-    useEffect(  function carregarCarrinho() {
+    useEffect( 
+         function carregarCarrinho() {
         let carrinho = Cookie.get('carrinho');
         carrinho = carrinho !== undefined
             ? JSON.parse(carrinho)
@@ -29,13 +30,27 @@ export default function Carrinho(props) {
         
     }
 , [ navegation ])  
+
+
+    
+function removerProduto(id) {
+    // Buscar todos os Itens do Carrinho DIFERENTES do produto que está sendo removido 
+    let carrinho = produtos.filter(item => item.id !== id);
+    
+    // Atualiza o Cookie
+    Cookie.set('carrinho', JSON.stringify(carrinho));
+
+    // Atualiza a variável de estado
+    carregarCarrinho()
+    }
+
   
     function carregarCarrinho() {
       // Lê o Array de Produtos do Carrinho do Cookie.
       // Se o Cookie estiver vazio, volta um Array vazio []
       // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
       let carrinho = Cookie.get('carrinho');
-      carrinho = carrinho !== null 
+        carrinho = carrinho !== undefined
                     ? JSON.parse(carrinho) 
                      : [];
 
@@ -49,17 +64,6 @@ export default function Carrinho(props) {
     }
 
     
-    
-    function removerProduto(id) {
-        // Buscar todos os Itens do Carrinho DIFERENTES do produto que está sendo removido 
-        let carrinho = produtos.filter(item => item.id !== id);
-        
-        // Atualiza o Cookie
-        Cookie.set('carrinho', JSON.stringify(carrinho));
-    
-        // Atualiza a variável de estado
-        setProdutos(carregarCarrinho())
-        }
     
       function alterarProduto(id, qtd) {
         // Busca o Produto em questão no Carrinho e atualiza o campo de 'qtd'
@@ -104,7 +108,7 @@ export default function Carrinho(props) {
         <div className="precos"> 
             <div className="box-preco"> 
                 <div className="sb">Subtotal dos pedidos: </div>
-                <div className="pc"> {} </div>
+                <div className="pc">  </div>
             </div>
             <div className="box-preco"> 
                 <div className="sb">Cupom de desconto:</div>

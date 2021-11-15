@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import Cabecalho from '../../components/cabecalho/cabecalho'
 import Api from '../../services/api';
 import Rodape from '../../components/rodape/rodape'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const api = new Api();
 
@@ -17,20 +17,37 @@ export default function Perfil() {
     const [sexo, SetSexo] = useState('');
     const [nascimento, SetNascimento] = useState('');
     const [email, SetEmail] = useState('');
-    const [idAlterando, SetIdAlterando] = useState (0);
+    const [tudo, SetTudo] = useState ([]);
 
 
 
 
 
     async function Alterar() {
-        await api.AlterarCadastro(idAlterando,  nome, sexo, nascimento, email);
+        const r = await api.AlterarCadastro(3,  nome, sexo, nascimento, email);
         alert('Cliente alterado, Com Sucesso!');
-        SetIdAlterando()
     }
 
 
+
     
+async function editar(item) {
+    SetNome(item.nm_produto);
+    SetSexo(item.ds_sexo);
+    SetNascimento(item.dt_nascimento);
+    SetEmail(item.ds_email);
+}
+
+    
+
+    
+useEffect(() => { 
+    const listar = async() => {
+      const produtosr = await api.ListarUsuario(3);
+      SetTudo(produtosr);
+    }
+    listar();
+  })
 
 
     return(
@@ -49,12 +66,12 @@ export default function Perfil() {
                 </div>
                 <div className="tab"> 
                     <div className="per-form"> 
-                        <div className="nomes"  style={{marginLeft: '1.4em'}}> <h4>Nome de Usuário:</h4> <input ttype="text" name="username" value={nome} onChange={e => SetNome(e.target.value)} /> </div>
-                        <div className="nomes" style={{marginLeft: '7em'}}> <h4 >Email:</h4> <input ype="email" id="email" name="email" value={email} onChange={e => SetEmail(e.target.value)}/> </div>
-                        <div className="nomes"> <h4> Número de Telefone: </h4> <input  type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"/> </div>
+                        <div className="nomes"  style={{marginLeft: '1.4em'}}> <h4>Nome de Usuário:</h4> <input ttype="text" name="username" placeholder={tudo.nm_nome}  />  </div>
+                        <div className="nomes" style={{marginLeft: '7em'}}> <h4 >Email:</h4> <input ype="email" id="email" name="email" placeholder={tudo.ds_email} onChange={e => SetEmail(e.target.value)}/> </div>
+                        <div className="nomes"> <h4> Número de Telefone: </h4> <input  type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder={tudo.ds_telefone}/> </div>
                         <div className="genero"  style={{marginLeft: '7.4em'}}> <h4> Sexo: </h4>                         
                             <input type="radio" id="age1" name="age" value="30" fill="red"/>
-                            <label value={sexo} onChange={e => SetSexo(e.target.value)}>Masculino</label> 
+                            <label onChange={e => SetSexo(e.target.value)}>Masculino</label> 
 
                             <input type="radio" id="age1" name="age" value="30" fill="red"/>
                             <label>Feminino</label> 
@@ -62,11 +79,11 @@ export default function Perfil() {
                             <input type="radio" id="age1" name="age" value="30" fill="red"/>
                             <label>Outros</label> 
                         </div>
-                        <div className="nascimento"> <h4>Data de Nascimento: </h4> <input type="date" value={nascimento} onChange={e => SetNascimento(e.target.value)}/>  </div>
+                        <div className="nascimento"> <h4>Data de Nascimento: </h4> <input type="date" value={tudo.dt_nascimento}  onChange={e => SetNascimento(e.target.value)}/>  </div>
                     </div>
                 </div>
             </div>
-            <div className="but"  onClick={() => Alterar(idAlterando)}> Confirmar</div>
+            <div className="but"> Confirmar</div>
             <Rodape />
             </ConteinerPerfils>
     )

@@ -18,7 +18,7 @@ export default function Carrinho(props) {
 
     useEffect(() => { 
         const listar = async() => {
-          const produtosr = await api.ListarEndereco();
+          const produtosr = await api.ListarEndereco(3);
           SetEndereco(produtosr);
         }
         listar();

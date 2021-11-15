@@ -63,18 +63,30 @@ app.get('/endereco', async (req, resp) => {
 
 
 
-app.delete('/endereco', async (req, resp) => {
+app.delete('/endereco/:id', async (req, resp) => {
     let r = await db.infoa_sti_endereco.destroy({
         where: {
-            id_endereco : req.params.idEndereco
+            id_endereco : req.params.id
         } 
      })
      resp.sendStatus(200);
 });
 
 
-app.get('/endereco/:id', async (req, resp) => {
-    let r = await db.infoa_sti_endereco.findAll({ where: { id_cliente: req.params.id}});
+app.get('/endereco-usuario/:id', async (req, resp) => {
+    let r = await db.infoa_sti_endereco.findAll({
+        where: {
+            id_cliente : req.params.id
+        },
+        include: [
+             {
+             model: db.infoa_sti_cliente,
+             as: 'id_cliente_infoa_sti_cliente',
+             required: true
+            }
+        ]
+        
+        });
     resp.send(r);
 });
 

@@ -31,8 +31,11 @@ export default function Item(props) {
   }
 
 
+  
+
   useEffect(() => {
    multiplicar();
+   
   })
     return(
         <comtainersla>
