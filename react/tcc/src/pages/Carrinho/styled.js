@@ -18,19 +18,18 @@ tbody {
 }
 th {
     height: 61.93px;
-    text-align: center;
-    padding: .1em 6.5em;
+    text-align: left;
+    padding: .1em 6em;
     color: #ffff;
     font-weight: 600;
 } 
 
-
 td {
-    text-align: center;
+    text-align: right;
     height:  61.93px;
-    font-family: 'Noto Sans SC', sans-serif;
-    padding: 1em 2em;
+    padding: 1em;
     color: #6D6868;
+    font-weight: 600;
 }
 
 .cupom {
@@ -61,11 +60,16 @@ outline: none;
 }
 
 .est-box {
-    position: static;
+    position: relative;
     left: 3em;
-    top: .45em;
+    top: 1em;
     display: flex;
     flex-direction: row;
+}
+
+.h {
+    position: relative;
+    right: 8em;
 }
 .f {
     margin-right: -590em;
@@ -76,13 +80,17 @@ outline: none;
 }
 
 .lixeira img {
-    margin-top: 10px;
+    margin-top: 0px;
     height: 1.4em;
 
     cursor: pointer;
 }
 
-.h {
+.lixeira {
+    position: relative;
+    top: 1.43em;
+    right: 12.5em;
+
 }
 input {
     outline: none;

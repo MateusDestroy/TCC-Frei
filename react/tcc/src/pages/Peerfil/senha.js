@@ -7,7 +7,7 @@ import Cabecalho from '../../components/cabecalho/cabecalho'
 import Rodape from '../../components/rodape/rodape'
 
 import Api from '../../services/api'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const api = new Api();
 
@@ -24,6 +24,7 @@ export default function Perfil() {
         SetSenha(item.ds_senha);
     }
 
+    
 
     return(
 

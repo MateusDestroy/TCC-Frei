@@ -5,37 +5,38 @@ import Rodape  from '../../components/rodape/rodape'
 import CarrinhoItem from './/boxItem/index'
 import Cookie from 'js-cookie'
 import { useState, useEffect } from "react"
-import { Link ,useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function Carrinho(props) {
     const [produtos, setProdutos] = useState([]);
     
-    const navegation = useHistory()
 
 
  
 
-    useEffect( 
-         function carregarCarrinho() {
-        let carrinho = Cookie.get('carrinho');
-        carrinho = carrinho !== undefined
-            ? JSON.parse(carrinho)
-            : [];
-
-        if (carrinho.length === 0)
-            navegation.push('/CarrinhoVazio')
+    useEffect(carregarCarrinho, []);
 
 
-        setProdutos(carrinho)
-        
-    }
-, [ navegation ])  
 
+function carregarCarrinho() {
+    // Lê o Array de Produtos do Carrinho do Cookie.
+    // Se o Cookie estiver vazio, volta um Array vazio []
+    // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
+    let carrinho = Cookie.get('carrinho');
+    carrinho = carrinho !== undefined 
+                  ? JSON.parse(carrinho) 
+                  : [];
+
+             
+
+    // Atualiza a variável de Estado com o Conteúdo do Cookie
+    setProdutos(carrinho);
+  }
 
     
-function removerProduto(id) {
+function removerProduto(id_produto) {
     // Buscar todos os Itens do Carrinho DIFERENTES do produto que está sendo removido 
-    let carrinho = produtos.filter(item => item.id !== id);
+    let carrinho = produtos.filter(item => item.id_produto !== id_produto);
     
     // Atualiza o Cookie
     Cookie.set('carrinho', JSON.stringify(carrinho));
@@ -45,24 +46,6 @@ function removerProduto(id) {
     }
 
   
-    function carregarCarrinho() {
-      // Lê o Array de Produtos do Carrinho do Cookie.
-      // Se o Cookie estiver vazio, volta um Array vazio []
-      // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
-      let carrinho = Cookie.get('carrinho');
-        carrinho = carrinho !== undefined
-                    ? JSON.parse(carrinho) 
-                     : [];
-
-
-                     if (carrinho.length === 0)
-                     navegation.push('/carrinhoVazio')
-
-  
-      // Atualiza a variável de Estado com o Conteúdo do Cookie
-      setProdutos(carrinho);
-    }
-
     
     
       function alterarProduto(id, qtd) {

@@ -24,19 +24,14 @@ export default function Perfil() {
 
 
     async function Alterar() {
-        const r = await api.AlterarCadastro(3,  nome, sexo, nascimento, email);
+        await api.AlterarCadastro(3,  nome, sexo, nascimento, email);
         alert('Cliente alterado, Com Sucesso!');
+
     }
 
 
 
     
-async function editar(item) {
-    SetNome(item.nm_produto);
-    SetSexo(item.ds_sexo);
-    SetNascimento(item.dt_nascimento);
-    SetEmail(item.ds_email);
-}
 
     
 
@@ -66,8 +61,8 @@ useEffect(() => {
                 </div>
                 <div className="tab"> 
                     <div className="per-form"> 
-                        <div className="nomes"  style={{marginLeft: '1.4em'}}> <h4>Nome de Usuário:</h4> <input ttype="text" name="username" placeholder={tudo.nm_nome}  />  </div>
-                        <div className="nomes" style={{marginLeft: '7em'}}> <h4 >Email:</h4> <input ype="email" id="email" name="email" placeholder={tudo.ds_email} onChange={e => SetEmail(e.target.value)}/> </div>
+                        <div className="nomes"  style={{marginLeft: '1.4em'}}> <h4>Nome de Usuário:</h4> <input ttype="text" name="username" placeholder={tudo.nm_nome} onChange={e => SetNome(e.target.value)} />  </div>
+                        <div className="nomes" style={{marginLeft: '6.6            em'}}> <h4 >Email:</h4> <input ype="email" id="email" name="email" placeholder={tudo.ds_email} onChange={e => SetEmail(e.target.value)}/> </div>
                         <div className="nomes"> <h4> Número de Telefone: </h4> <input  type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder={tudo.ds_telefone}/> </div>
                         <div className="genero"  style={{marginLeft: '7.4em'}}> <h4> Sexo: </h4>                         
                             <input type="radio" id="age1" name="age" value="30" fill="red"/>
@@ -83,7 +78,7 @@ useEffect(() => {
                     </div>
                 </div>
             </div>
-            <div className="but"> Confirmar</div>
+            <div className="but" onClick={Alterar}> Confirmar</div>
             <Rodape />
             </ConteinerPerfils>
     )

@@ -31,7 +31,7 @@ export default function DetalhesProdutos(props) {
     // Verifica se o produto em questão já está no carrinho pelo Id e pela função some()
     // Se o produto não existir, adiciona o produto no carrinho copiando todos os campos do produto
     // e adicionando o campo novo qtd com valor 1
-    if (carrinho.some(item => item.id === produto.id) === false)
+    if (carrinho.some(item => item.id_produto === produto.id_produto) === false)
         carrinho.push({...produto, qtd: 1 });
  
     

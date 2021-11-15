@@ -32,12 +32,12 @@ const Container = styled.div `
       display: flex;
       flex-direction: row;
       width:100%;
-      justify-content: center;
+      justify-content: left;
   }
  
   .box2{
-     margin-left:.7em;
-     margin-top: .7em;
+    margin-top: 1em;
+     margin-left:.0em;
  }
 
   .numero > input , .numero>div{
@@ -68,12 +68,20 @@ const Container = styled.div `
       margin-top: 2em;
   
    button {
+    cursor: pointer;
+
       margin-left: 2em;
       border: solid #1f628d 1px;
+
       border-radius:27px;
+      border: none;
       background-color: #1c85c7;
       width: 7em;
       height:2.5em;
+
+      :hover {
+        color: white;
+      }
     }
   }
   .cep> input{
@@ -103,6 +111,9 @@ const Container = styled.div `
 
 
 export default function Model(props) {
+
+
+
     const [cep, SetCep] =useState('')
     const [endereco, SetEndereco] =useState('')
     const [numero, SetNumero] =useState('')
@@ -110,6 +121,8 @@ export default function Model(props) {
     const [cidade, SetCidade] =useState('')
 
     const [show, setShow] = useState(false);
+
+
 
     useEffect(() => {
         setShow(props.options.show);
@@ -127,7 +140,9 @@ export default function Model(props) {
     async function Inserir(id) {
         const produtosr = await api.CadastraEndereco(3, cep , endereco, numero, complemento, cidade);
         return produtosr;
-    }
+
+        
+      }
 
     
    

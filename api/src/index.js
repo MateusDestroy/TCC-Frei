@@ -205,31 +205,14 @@ app.post('/cadastrar', async (req, resp) => {
 });
 
 
-app.put('/cliente/:id', async (req, resp) => {
-    const {nome, sexo, cpf, nascimento, telefone, email, senha, cep, endereco, numero, complemento, cidade} =  req.body;
+app.put('/clientessd/:id', async (req, resp) => {
+    const {nome} =  req.body;
     let { id } = req.params;
 
-    const End = await db.infoa_sti_endereco.update(
-        {
-        ds_cep: cep,
-        ds_endereco: endereco,
-        nr_endereco: numero,
-        ds_complemento:  complemento,
-        ds_cidade:  cidade
-    }, 
-    { 
-        where: { id_endereco: id }
-    });
+
 
     const Clientes = await db.infoa_sti_cliente.update({
-        id_endereco: End.id_endereco,
-        nm_nome: nome,
-        ds_telefone: telefone,
-        ds_sexo: sexo,
-        ds_cpf: cpf,
-        dt_nascimento: nascimento,
-        ds_email: email,
-        ds_senha: senha
+        nm_nome: nome
     },
     { 
         where: { id_cliente: id }

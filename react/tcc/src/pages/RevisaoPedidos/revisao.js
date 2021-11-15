@@ -91,7 +91,7 @@ export default function Revisao(props) {
             </div>
                 
             <div className="but" >
-             <button className="ff"> Fazer Pedidos</button> 
+            <Link to="./Pagamento"> <button className="ff"> Fazer Pedidos</button> </Link>
             </div>
         <Rodape />
         </ContainerRevisao>

@@ -42,8 +42,8 @@ export default class Api{
     return r.data; 
     } 
 
-    async AlterarCadastro(id,  senha) {
-        let r = await api.put('/cliente' + id, senha)
+    async AlterarCadastro(id,  nome) {
+        let r = await api.put(`/endereco/${id}`, nome)
         return r.data;
     }
 
