@@ -65,6 +65,19 @@ app.post('/cadastarcliente', async (req, resp) => {
             ds_email: email,
             ds_senha: senha
         })
+
+            
+ 
+        const EnderecoCriado = await db.infoa_sti_endereco.create({
+            id_cliente: UsuarioCriado.id_cliente,
+            ds_cep: x.cep,
+            ds_endereco: x.endereco,
+            nr_numero: x.numero,
+            ds_complemento: x.complemento,
+            ds_cidade: x.cidade
+        })
+
+        
         resp.send(r);
     } catch (e) {
         resp.send({ erro: e.toString() })

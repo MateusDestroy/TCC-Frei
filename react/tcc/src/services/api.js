@@ -36,7 +36,7 @@ export default class Api{
     return r.data; 
     }
 
-    async CadastraProduto(imagem, codigo , produto, Sabor, estoqueMin, estoqueMax, valor , estoqueAtual, descricao){
+ async CadastraProduto(imagem, codigo , produto, Sabor, estoqueMin, estoqueMax, valor , estoqueAtual, descricao){
         let r = await api.get('/produto', {imagem, codigo, produto, Sabor, estoqueMin, estoqueMax, valor, estoqueAtual, descricao})
         return r.data; 
         }
@@ -64,8 +64,8 @@ export default class Api{
     }
 
 
-    async CadastarCliente( nome, sobrenome, telefone, cpf, nascimento) {
-        let r = await api.post('/cadastrar', { nome, sobrenome, telefone, cpf, nascimento})
+    async CadastarCliente(nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade ) {
+        let r = await api.post('/cadastrar', { nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade })
         return r.data;
     }
 
