@@ -2,18 +2,18 @@ import styled from "styled-components";
 
 
 const Conteinergeren  = styled.div `
+background: linear-gradient(to top, #33ccff 0%, #0000ff 100%);
+height: 100vh;
+
 
 .opcao01 {
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    background-color: white;
     width: 100vh;
     margin-top: 20px;
-    }
+ }
 
 .parte1 {
-    background-color: #17191A;
+    
     height: 100vh ;
     width: 100vh;
     
@@ -37,10 +37,7 @@ const Conteinergeren  = styled.div `
     margin-left: 5%;
 }
 
-.PAGINA {
-    display: flex;
-    flex-direction: row;
-}
+
 
 td {
 
@@ -49,7 +46,7 @@ td {
 }
 
 thead {
-     background-color:#1C5BFE;
+     background-color:#FB8604;
     
      
      
@@ -57,6 +54,7 @@ thead {
 
 table {
     margin-top: 2em;
+    
 }
 
 
@@ -65,6 +63,7 @@ table {
 
  tbody {
      background-color: #FFFFFF;
+     
      
  }
 
@@ -83,26 +82,29 @@ th {
     padding: 1em;
     color: #ffff;
     font-weight: 800;
+    
 } 
 
 .table-user {
     border-collapse: collapse;
     width: 160vh;
-    margin-left: 5%;
+    margin-left: 10em;
    
     
 }
 
 .parte-02 {
-    background-color:  #D8D8D8;
-    width: 1800px;
+   
 
 }
 
 .titulo {
-    font-size: 22px;
-    margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 5em;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 
 }
 
@@ -111,12 +113,7 @@ table {
     border-radius: 50px;
 }
 
-.pooooo {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-}
+
 
 
 .tirinnhas {
@@ -138,7 +135,7 @@ border: 1px solid #000;
 border-radius: 50px;
 outline: none;
 cursor: pointer;
-background-color:#2BA600;
+background-color:#FB8604;
 color: #fff;
 width: 200px;
 height: 50px;

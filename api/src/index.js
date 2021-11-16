@@ -42,6 +42,8 @@ app.post('/cadastrar-endereco/:id', async (req, resp) => {
         })
 
 
+
+
     resp.sendStatus(200);
 
 } catch (error) {
@@ -147,6 +149,24 @@ app.post('/login', async (req, resp) => {
         where: {
             ds_email: login.email,
             ds_senha: login.senha
+        }
+    })
+
+    if(p == null)
+    
+
+    resp.sendStatus(200);
+});
+
+app.post('/loginadm', async (req, resp) => {
+
+
+    let loginadm = req.body;
+
+    let p = await db.infoa_sti_cliente.findOne({
+        where: {
+            ds_email: loginadm.email,
+            ds_senha: loginadm.senha
         }
     })
 

@@ -1,6 +1,9 @@
 import { Conteinergeren} from './styled'
-
+import { Link } from 'react-router-dom'
+import { useState } from "react"
 import OptLista from "../../../components/BarOption/index"
+import Api from '../../../services/api'
+const api = new Api();
 
 export default function gerecniador () {
 
@@ -15,57 +18,11 @@ export default function gerecniador () {
                     GERENCIADOR DE PEDIDOS
                     </div>
 
-                    <div className = "pooooo">
-
-                    <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                        
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                <div className = "tirinnhas">
-                    <img src= "./assets/imagens/Rectangle 224.png" alt= "" />
-                </div>
-                
-                </div>
+                   
 
                 <div className = "pesquisa">
                     <div className = "buttom">
-                        <button> Adicionar </button>
+                    <Link to="/CadastraProduto">   <button> Adicionar </button> </Link>
                     </div> 
                     <div className= "inupt-01">
                     <input type="text" class="custom-file-input" name="search" placeholder="Pesquisar por: nome ou cod." />
@@ -88,8 +45,8 @@ export default function gerecniador () {
                     </thead>
             
                     <tbody>
-                        <tr >
-                            <td>  </td>
+                       <tr>
+                            <td>   </td>
                             <td> </td>
                             <td>  </td>
                             <td>  </td>
@@ -103,7 +60,7 @@ export default function gerecniador () {
                            
                         </tr>
 
-                        
+                    
                     
 
                     
