@@ -4,7 +4,7 @@ import styled from "styled-components";
 const ConteinerAdmBar = styled.div`
 .kkkk {
     display: flex;
-    width: 198vh;
+    width: 140vh;
     justify-content: space-around;
     padding-top: 5%;
     

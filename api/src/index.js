@@ -71,6 +71,27 @@ app.post('/cadastarcliente', async (req, resp) => {
     }
 });
 
+app.post('/login', async (req, resp) => {
+
+
+    let login = req.body;
+
+    let p = await db.infoa_sti_cliente.findOne({
+        where: {
+            ds_email: login.email,
+            ds_senha: login.senha
+        }
+    })
+
+    if(p == null)
+    return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
+
+    resp.sendStatus(200);
+});
+
+
+
+
 app.get('/endereco', async (req, resp) => {
     try {
         let users = await db.infoa_sti_endereco.findAll()
@@ -152,23 +173,18 @@ app.get('/clientes/:id', async (req, resp) => {
 });
 
 
-app.post('/login', async (req, resp) => {
 
 
-    let login = req.body;
 
-    let p = await db.infoa_sti_cliente.findOne({
-        where: {
-            ds_email: login.email,
-            ds_senha: login.senha
-        }
-    })
 
-    if(p == null)
-    
 
-    resp.sendStatus(200);
-});
+app.get('login', async(req, resp) => {
+    let r = await db.infoa_sti_cliente.findAll()
+    res
+})
+
+
+
 
 app.post('/loginadm', async (req, resp) => {
 

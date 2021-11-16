@@ -1,9 +1,9 @@
 import { Conteinergeren} from './styled'
 import { Link } from 'react-router-dom'
-import { useState } from "react"
+
 import OptLista from "../../../components/BarOption/index"
-import Api from '../../../services/api'
-const api = new Api();
+
+
 
 export default function gerecniador () {
 

@@ -36,7 +36,7 @@ export default class Api{
     return r.data; 
     }
 
-    async CadastraProduto(imagem, codigo , produto, Sabor, estoqueMin, estoqueMax, valor , estoqueAtual, descricao){
+    async CadastraProdutosnt(imagem, codigo , produto, Sabor, estoqueMin, estoqueMax, valor , estoqueAtual, descricao){
         let r = await api.get('/produto', {imagem, codigo, produto, Sabor, estoqueMin, estoqueMax, valor, estoqueAtual, descricao})
         return r.data; 
         }
@@ -69,18 +69,13 @@ export default class Api{
         return r.data;
     }
 
-<<<<<<< HEAD
-    async loginadm (emailadm, senhaadm) {
-        let r  = await api.post('/loginadm', { emailadm, senhaadm})
-        return r.data;
-    }
+
 
     
 
    
 
     
-=======
->>>>>>> 4d6226aaf056c1f30e554d0c5d36eb51b2275bcd
+
 
 }
