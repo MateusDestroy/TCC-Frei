@@ -25,11 +25,11 @@ export default function Cadastrar() {
  
 
 const inserir = async () => {
-    let r = await api.inserir (nome, sobrenome,  cpf, nascimento, telefone, email, senha);
+    let r = await api.CadastarCliente(nome, sobrenome,telefone, cpf, nascimento);
              if (r.erro) {
             alert (`${r.erro}`)
         } else {
-            paginas.push('/home')
+            alert ('ve se foi')
         }
 
 
@@ -58,10 +58,10 @@ const inserir = async () => {
                 <div className="name">
                     <div className="nome"   style={{marginLeft:'62px'}}> Sexo: </div>
                         <select>
-                            <option value="volvo">Escolher Gênero</option>
-                            <option value="saab"  >Masculino</option>
-                            <option value="mercedes"  >Feminino</option>
-                            <option value="audi"  >Outros</option>
+                            <option value="">Escolher Gênero</option>
+                            <option value="Masculino"  >Masculino</option>
+                            <option value="Feminino"  >Feminino</option>
+                            <option value="Outros"  >Outros</option>
                         </select>                
                     </div>
                 <div className="name"> 
@@ -73,11 +73,11 @@ const inserir = async () => {
            <div className="box-cadas"> 
                 <div className="name">
                     <div className="nome"   style={{marginLeft:'37px'}}> Telefone: </div>
-                    <div className="inputs"> <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"  value={telefone} onChange = {e => setTelefone(e.target.value)}/>  </div>
+                    <div className="inputs"> <input type="tel"  value={telefone} onChange = {e => setTelefone(e.target.value)}/>  </div>
                 </div>
                 <div className="name"> 
                     <div className="nome"> Data de Nascimento: </div>
-                    <div className="inputs"> <input type="date" value={nascimento} onChange = {e => setNascimento(e.target.value)} /> </div>
+                    <div className="inputs"> <input type="text" value={nascimento} onChange = {e => setNascimento(e.target.value)} /> </div>
                 </div> 
            </div>
 
