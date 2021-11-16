@@ -64,12 +64,13 @@ export default class Api{
     }
 
 
-    async CadastarCliente( nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha ) {
-        let r = await api.post('/cadastarcliente', {  nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha })
+    async CadastarCliente( nome, sobrenome, telefone, cpf, nascimento) {
+        let r = await api.post('/cadastrar', { nome, sobrenome, telefone, cpf, nascimento})
         return r.data;
     }
 
-<<<<<<< HEAD
+
+
     async loginadm (emailadm, senhaadm) {
         let r  = await api.post('/loginadm', { emailadm, senhaadm})
         return r.data;
@@ -80,7 +81,7 @@ export default class Api{
    
 
     
-=======
->>>>>>> 4d6226aaf056c1f30e554d0c5d36eb51b2275bcd
+
+
 
 }

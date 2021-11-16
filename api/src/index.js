@@ -201,7 +201,7 @@ app.post('/cadastrar', async (req, resp) => {
             ds_telefone: x.telefone,
             ds_sexo: x.sexo,
             ds_cpf: x.cpf,
-            dt_nascimento: x.nascimento,
+            dt_nascimento: new Date(),
             ds_email: x.email,
             ds_senha: x.senha
         })
