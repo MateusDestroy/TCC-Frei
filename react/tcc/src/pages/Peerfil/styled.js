@@ -3,8 +3,9 @@ import styled from 'styled-components'
 
 const ConteinerPerfils = styled.div`
  background-color: #D2F6FF;
+ height: 100vh;
 
- .as {
+ .as{
 
 position:absolute;
 bottom:0;
@@ -183,7 +184,7 @@ margin-bottom: 20px;
 background-color: rgba(255, 255, 255, 0.4);
 padding:  2em;   
 width: 35em;
-margin-top: 4em;
+margin-top: 0em;
 
 }
 

@@ -42,6 +42,8 @@ app.post('/cadastrar-endereco/:id', async (req, resp) => {
         })
 
 
+
+
     resp.sendStatus(200);
 
 } catch (error) {
@@ -49,6 +51,25 @@ app.post('/cadastrar-endereco/:id', async (req, resp) => {
 }
 });
 
+app.post('/cadastarcliente', async (req, resp) => {
+    try {
+        let { nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha } = req.body;
+        
+        let r = await db.infoa_sti_cliente.create({
+            nm_nome: nome,
+            nm_sobrenome: sobrenome,
+            ds_sexo: sexo,
+            ds_cpf: cpf,
+            dt_nascimento: nascimento,
+            ds_telefone: telefone,
+            ds_email: email,
+            ds_senha: senha
+        })
+        resp.send(r);
+    } catch (e) {
+        resp.send({ erro: e.toString() })
+    }
+});
 
 app.get('/endereco', async (req, resp) => {
     try {
@@ -61,20 +82,43 @@ app.get('/endereco', async (req, resp) => {
     }
 });
 
+app.get('/cadastarcliente', async (req, resp) => {
+    try {
+        let uuso = await db.infoa_sti_cliente.findAll()
+
+        resp.send(uuso)
+
+    } catch (e) {
+        resp.send({erro: e.toString()})
+    }
+});
 
 
-app.delete('/endereco', async (req, resp) => {
+
+app.delete('/endereco/:id', async (req, resp) => {
     let r = await db.infoa_sti_endereco.destroy({
         where: {
-            id_endereco : req.params.idEndereco
+            id_endereco : req.params.id
         } 
      })
      resp.sendStatus(200);
 });
 
 
-app.get('/endereco/:id', async (req, resp) => {
-    let r = await db.infoa_sti_endereco.findAll({ where: { id_cliente: req.params.id}});
+app.get('/endereco-usuario/:id', async (req, resp) => {
+    let r = await db.infoa_sti_endereco.findAll({
+        where: {
+            id_cliente : req.params.id
+        },
+        include: [
+             {
+             model: db.infoa_sti_cliente,
+             as: 'id_cliente_infoa_sti_cliente',
+             required: true
+            }
+        ]
+        
+        });
     resp.send(r);
 });
 
@@ -121,7 +165,25 @@ app.post('/login', async (req, resp) => {
     })
 
     if(p == null)
-    return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
+    
+
+    resp.sendStatus(200);
+});
+
+app.post('/loginadm', async (req, resp) => {
+
+
+    let loginadm = req.body;
+
+    let p = await db.infoa_sti_cliente.findOne({
+        where: {
+            ds_email: loginadm.email,
+            ds_senha: loginadm.senha
+        }
+    })
+
+    if(p == null)
+    
 
     resp.sendStatus(200);
 });
@@ -163,31 +225,14 @@ app.post('/cadastrar', async (req, resp) => {
 });
 
 
-app.put('/cliente/:id', async (req, resp) => {
-    const {nome, sexo, cpf, nascimento, telefone, email, senha, cep, endereco, numero, complemento, cidade} =  req.body;
+app.put('/clientessd/:id', async (req, resp) => {
+    const {nome} =  req.body;
     let { id } = req.params;
 
-    const End = await db.infoa_sti_endereco.update(
-        {
-        ds_cep: cep,
-        ds_endereco: endereco,
-        nr_endereco: numero,
-        ds_complemento:  complemento,
-        ds_cidade:  cidade
-    }, 
-    { 
-        where: { id_endereco: id }
-    });
+
 
     const Clientes = await db.infoa_sti_cliente.update({
-        id_endereco: End.id_endereco,
-        nm_nome: nome,
-        ds_telefone: telefone,
-        ds_sexo: sexo,
-        ds_cpf: cpf,
-        dt_nascimento: nascimento,
-        ds_email: email,
-        ds_senha: senha
+        nm_nome: nome
     },
     { 
         where: { id_cliente: id }

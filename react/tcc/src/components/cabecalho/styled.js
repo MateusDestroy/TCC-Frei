@@ -9,12 +9,12 @@ img {
     cursor: pointer;
 }
 :hover {
-    .ff {
+    .ffs {
         visibility: visible;
     }
 }
 
-.ff {
+.ffs {
 
     visibility: hidden;
     position: absolute;

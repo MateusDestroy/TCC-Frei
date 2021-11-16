@@ -1,37 +1,73 @@
 import { Link } from 'react-router-dom'
 import { Conteineradml } from './styled'
-export default function logadm () {
+import { useState } from "react"
+import { useHistory } from "react-router"
+
+import Api from '../../../services/api'
+const api = new Api();
+
+export default function Logadm () 
+{
+    const[ email, setEmail] = useState ('');
+    const[ senha, setSenha] = useState ('');
+
+    const paginas = useHistory();
+
+    const logar = async () => {
+        let r = await api.login(email, senha);
+        
+        if (r.erro) {
+            alert (`${r.erro}`)
+        } else {
+            paginas.push('/CadastraProduto')
+        }
+
+    }
 
     return (
         <Conteineradml>
             <div className= "pagina-01">
-                <div className= "div01">
-                    <div className = "imgdiv01">
-                        <img src= "./assets/imagens/kisspng-responsive-web-design-clip-art-web-development-vec-anlise-de-processos-jtp-solution-5bd14eb7de8653 2.png" height= "500"alt=""/>
-                    </div>
+                <div class= "bbbb">
+                    
+                <div class="Titulo">
+                Seja bem-vindo!
                 </div>
-                
-                <div className= "div02">
-                   <div className= "titulo">
-                   Seja bem-vindo!
-                    </div> 
-                    <div className= " subtitulo">
+                </div>
+                <div className= " subtitulo">
                     Acesso ao setor adminstrativo
                     </div>
-                    <div className= "inupt-01">
-                    <input type="text" class="custom-file-input" name="search" placeholder="Email de acesso" />
-                    </div>
-                    <div className= "inupt-02">
-                    <input type="text" class="custom-file-input" name="search" placeholder="Senha de acesso" />
-                    </div>
-                    <div className= " buto">
-                        <Link to="./OP"> <button className="NGNDJ"> Entrar</button> </Link>
-                    </div>
+               <div className=" Caixa-01">
+               <div className="n">EMAIL</div>
+                    <div class="input-data">
+                        <input type="text" value={email} onChange = {e => setEmail(e.target.value)}/>
+                        <div className="bord"></div>  
                     </div>
                     
-                    
+               </div>
+
                
+
+               <div className=" Caixa-01">
+               <div className="g">SENHA</div>
+                    <div class="input-datak">
+                        <input type="password" value={senha} onChange = {e => setSenha(e.target.value)}/>
+                        <div className="bord"></div>    
+                    </div>
+                    
+               </div>
+
+               <div class="botão">
+                <button onClick ={logar}> ENTRAR </button> 
+               </div>
             </div>
+
+            <div class="logo55">
+                <img src = "/assets/imagens/logo1.png" alt="" width="120" />
+                <div className="lll">
+                    Acesso  adminstrativo da padaria do Intituito Nossa Senhora de Fatíma
+                </div>
+            </div>
+   
         </Conteineradml>
     )
 }

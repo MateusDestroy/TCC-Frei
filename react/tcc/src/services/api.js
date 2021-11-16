@@ -1,10 +1,16 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL : 'https://api-tcc-frei.herokuapp.com/'
+    baseURL : 'http://localhost:3030/'
 })
 
 
 export default class Api{
+
+    async ListarUsuario(id) {
+        let r = await api.get(`/clientes/${id}`)
+        return r.data; 
+    }
+
 
 
     async ListaProdutosDoces(id) {
@@ -17,6 +23,11 @@ export default class Api{
         return r.data; 
     }
 
+    async ListarEnderecoPerfil(id) {
+        let r = await api.get(`/endereco-usuario/${id}`)
+        return r.data;
+    }
+
 
 
 
@@ -25,14 +36,19 @@ export default class Api{
     return r.data; 
     }
 
+    async CadastraProduto(imagem, codigo , produto, Sabor, estoqueMin, estoqueMax, valor , estoqueAtual, descricao){
+        let r = await api.get('/produto', {imagem, codigo, produto, Sabor, estoqueMin, estoqueMax, valor, estoqueAtual, descricao})
+        return r.data; 
+        }
+
     
  async CadastraEndereco(id, cep , endereco, numero, complemento, cidade){
-    let r = await api.get(`/cadastrar-endereco/${id}`, cep , endereco, numero, complemento, cidade)
+    let r = await api.post(`/cadastrar-endereco/${id}`, {cep , endereco, numero, complemento, cidade})
     return r.data; 
     } 
 
-    async AlterarCadastro(id, nome, sexo, cpf, nascimento, email, cep, endereco, numero, complemento, cidade) {
-        let r = await api.put('/cliente' + id, {nome, sexo, cpf, nascimento, email, cep, endereco, numero, complemento, cidade})
+    async AlterarCadastro(id,  nome) {
+        let r = await api.put(`/endereco/${id}`, nome)
         return r.data;
     }
 
@@ -40,5 +56,31 @@ export default class Api{
         let r  = await api.post('/login', { email, senha})
         return r.data;
     }
+
+    
+    async DeletarEndereco (id) {
+        let r = await api.delete(`/endereco/${id}`)
+        return r.data;
+    }
+
+
+    async CadastarCliente( nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha ) {
+        let r = await api.post('/cadastarcliente', {  nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha })
+        return r.data;
+    }
+
+<<<<<<< HEAD
+    async loginadm (emailadm, senhaadm) {
+        let r  = await api.post('/loginadm', { emailadm, senhaadm})
+        return r.data;
+    }
+
+    
+
+   
+
+    
+=======
+>>>>>>> 4d6226aaf056c1f30e554d0c5d36eb51b2275bcd
 
 }

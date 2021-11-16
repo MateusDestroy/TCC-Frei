@@ -12,9 +12,10 @@ width: auto;
 background-image: url("./assets/imagens/Background.svg");
 background-size: cover; 
 background-repeat: no-repeat; 
+
 .box {
     background-color: rgba(0,0,0, 0.90);
-    margin-top: 10em;
+    margin-top: 1em;
     margin-left: 4.5em;
 
     margin-left: 7em;
