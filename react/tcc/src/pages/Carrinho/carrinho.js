@@ -106,7 +106,9 @@ function removerProduto(id_produto) {
             <Link to="./Produtos"> <button> Continuar comprando </button> </Link> 
             <Link to="./revisao"> <button>  Realizar pedido   </button> </Link> 
         </div>
-        <Rodape />
-    </ ContainerCarrinho>
+        <div className="as">
+                <Rodape />
+            </div>
+                </ ContainerCarrinho>
     )
 }
