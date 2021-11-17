@@ -11,7 +11,7 @@ export default class infoa_dtn_tb_cliente extends Model {
       primaryKey: true
     },
     ds_email: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(150),
       allowNull: true
     },
     ds_senha: {
@@ -30,8 +30,8 @@ export default class infoa_dtn_tb_cliente extends Model {
       type: DataTypes.STRING(25),
       allowNull: true
     },
-    dt_nascimento: {
-      type: DataTypes.DATEONLY,
+    ds_codigo_rec: {
+      type: DataTypes.STRING(100),
       allowNull: true
     }
   }, {

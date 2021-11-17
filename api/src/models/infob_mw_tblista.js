@@ -1,26 +1,34 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infod_tif_amigos extends Model {
+export default class infob_mw_tblista extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_amigo: {
+    id_lista: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    id_usuario_solicitou: {
+    id_usuario: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      references: {
+        model: 'infob_mw_usuario',
+        key: 'id_usuario'
+      }
     },
-    id_usuario_aceitou: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+    nm_lista: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    ds_descricao: {
+      type: DataTypes.STRING(300),
+      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infod_tif_amigos',
+    tableName: 'infob_mw_tblista',
     timestamps: false,
     indexes: [
       {
@@ -28,25 +36,18 @@ export default class infod_tif_amigos extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_amigo" },
+          { name: "id_lista" },
         ]
       },
       {
-        name: "id_usuario_solicitou",
+        name: "id_usuario",
         using: "BTREE",
         fields: [
-          { name: "id_usuario_solicitou" },
-        ]
-      },
-      {
-        name: "id_usuario_aceitou",
-        using: "BTREE",
-        fields: [
-          { name: "id_usuario_aceitou" },
+          { name: "id_usuario" },
         ]
       },
     ]
   });
-  return infod_tif_amigos;
+  return infob_mw_tblista;
   }
 }
