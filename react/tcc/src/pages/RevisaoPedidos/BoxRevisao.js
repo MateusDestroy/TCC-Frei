@@ -1,19 +1,24 @@
+import { useState, useEffect } from "react"
 
 
- 
-export default function CarItem(props) {
+    
+    export default function BoxItem(props) {
+        const [produto, setProduto] = useState(props.location.state);  
 
-    return(
-        <comtainersla>
-               <tbody>
-                  <tr>
-                      <td style={{width: '15%'}}> <img src="./assets/imagens/bolinho.png" alt="" width="90%" /> </td>
-                      <td>dskajkld</td>
-                      <td></td>
-                      <td></td>  
-                      <td> jjjjjjjjjjjjj</td>
-                  </tr>
-              </tbody>
+        return(
+            <comtainersla>
+               
+            <tbody>
+                <tr>
+                    <td style={{width: '12%'}}></td>
+                    <td>  {props.info.nm_produto} </td>
+                    <td> R$: </td>
+                    <td> 
+                    R$: {produto.vl_valor}
+                    </td>                  
+                </tr>
+            </tbody>
+            
         </comtainersla>
-    )
-} 
+        )
+    }

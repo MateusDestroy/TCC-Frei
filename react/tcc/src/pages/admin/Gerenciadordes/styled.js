@@ -87,8 +87,13 @@ th {
 
 .table-user {
     border-collapse: collapse;
+<<<<<<< HEAD
     width: 120vh;
     margin-left: 8em;
+=======
+    width: 80%;
+    margin-left: 10%;
+>>>>>>> 3bba35d65e259812f2b634fa6686eb6cb2ea4456
    
     
 }

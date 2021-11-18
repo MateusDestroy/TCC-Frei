@@ -104,7 +104,10 @@ function removerProduto(id_produto) {
         </div>
         <div className="botoes"> 
             <Link to="./Produtos"> <button> Continuar comprando </button> </Link> 
-            <Link to="./revisao"> <button>  Realizar pedido   </button> </Link> 
+            <Link to ={{
+            pathname: '/revisao',
+            state: props.info
+        }} > <button>  Realizar pedido   </button> </Link> 
         </div>
         <div className="as">
                 <Rodape />

@@ -18,8 +18,8 @@ export default class infoc_tht_lugar extends Model {
       type: DataTypes.DECIMAL(10,5),
       allowNull: true
     },
-    ds_edereco: {
-      type: DataTypes.STRING(100),
+    ds_endereco: {
+      type: DataTypes.STRING(200),
       allowNull: true
     },
     ds_imagem: {
@@ -27,15 +27,19 @@ export default class infoc_tht_lugar extends Model {
       allowNull: true
     },
     ds_informacao: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
-    dt_dias: {
+    ds_horario_fds: {
       type: DataTypes.DATE,
       allowNull: true
     },
-    dt_horario: {
+    ds_horario_dds: {
       type: DataTypes.DATE,
+      allowNull: true
+    },
+    ds_categoria: {
+      type: DataTypes.STRING(50),
       allowNull: true
     }
   }, {

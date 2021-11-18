@@ -25,7 +25,6 @@ export default function Salgados (){
         listar();
     })
 
-   
 
     return (
         <ConteinerProduto>

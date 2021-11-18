@@ -1,14 +1,14 @@
 import db from './db.js';
 import express from 'express';
 import cors from 'cors';
-import path from 'path'
 
 
 
 
-const app = new express()
-app.use(cors())
-app.use(express.json())
+
+const app = new express();
+app.use(cors());
+app.use(express.json());
 
 
 
@@ -24,6 +24,10 @@ app.get('/pedidos', async (req, resp)=>
     }
 )
 */
+
+
+
+
 
 
 
@@ -50,6 +54,9 @@ app.post('/cadastrar-endereco/:id', async (req, resp) => {
     resp.send( error.toString() )
 }
 });
+
+
+
 
 app.post('/cadastarcliente', async (req, resp) => {
     try {
@@ -84,6 +91,7 @@ app.post('/cadastarcliente', async (req, resp) => {
     }
 });
 
+<<<<<<< HEAD
 app.post('/login', async (req, resp) => {
 
 
@@ -102,6 +110,8 @@ app.post('/login', async (req, resp) => {
     resp.sendStatus(200);
 });
 
+=======
+>>>>>>> 3bba35d65e259812f2b634fa6686eb6cb2ea4456
 
 
 
@@ -116,6 +126,9 @@ app.get('/endereco', async (req, resp) => {
     }
 });
 
+
+
+
 app.get('/cadastarcliente', async (req, resp) => {
     try {
         let uuso = await db.infoa_sti_cliente.findAll()
@@ -129,6 +142,10 @@ app.get('/cadastarcliente', async (req, resp) => {
 
 
 
+
+
+
+
 app.delete('/endereco/:id', async (req, resp) => {
     let r = await db.infoa_sti_endereco.destroy({
         where: {
@@ -137,6 +154,10 @@ app.delete('/endereco/:id', async (req, resp) => {
      })
      resp.sendStatus(200);
 });
+
+
+
+
 
 
 app.get('/endereco-usuario/:id', async (req, resp) => {
@@ -186,10 +207,25 @@ app.get('/clientes/:id', async (req, resp) => {
 });
 
 
+<<<<<<< HEAD
+=======
+app.get('/clientes/:id', async (req, resp) => {
+    let r = await db.infoa_sti_cliente.findOne({ where: { id_cliente: req.params.id}});
+    resp.send(r);
+});
+
+
+app.post('/login', async (req, resp) => {
+>>>>>>> 3bba35d65e259812f2b634fa6686eb6cb2ea4456
 
 
 
 
+<<<<<<< HEAD
+=======
+    if(p == null)
+    return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
+>>>>>>> 3bba35d65e259812f2b634fa6686eb6cb2ea4456
 
 app.get('login', async(req, resp) => {
     let r = await db.infoa_sti_cliente.findAll()
@@ -199,23 +235,74 @@ app.get('login', async(req, resp) => {
 
 
 
-app.post('/loginadm', async (req, resp) => {
 
 
-    let loginadm = req.body;
+// function getRandomInterger(min, max) {
+//     return Math.floor(Math.random() + (max - min) ) + min; 
+    
+// }
 
-    let p = await db.infoa_sti_cliente.findOne({
-        where: {
-            ds_email: loginadm.email,
-            ds_senha: loginadm.senha
-        }
-    })
 
-    if(p == null)
+// app.post('/esqueciSenha', async(req, resp) => {
+//    const  usuario = await db.infoa_sti_cliente.findOne({
+//        where: {
+//            ds_email: req.body.email
+//        }
+//    }); 
+//    if (usuario == null){
+//        resp.send ({status: 'erro', mensagem: 'E-mail invalido'});
+//    }
+
+//    let codigo = getRandomInterger(1000, 9999)
+//    await db.infoa_sti_cliente.update({
+//        ds_codigo_rec: codigo
+//    }, {
+//        where: {id_cliente: usuario.id_cliente}
+//    })
+
+//    enviarEmail(usuario.ds_email, 'Recuperação de senha', 
+//    `
+//    <h1> Recuperação de senha de usuario </h1>
+//    <p> Sua requesição de recuperação de senha foi atendida</p>
+//    <p> insira o codigo ${codigo} para recupera a sua senha 
+//    `)
+
+//    resp.send({status: 'FOIII MEU FILHO'});
+// })
+
+// app.post('/validarSenha', async(req, resp) => {
+   
+
+// })
+
+
+// app.put('/restSenha', async(req, resp) => {
+
+// })
+
+
+
+
+
+
+
+// app.post('/loginadm', async (req, resp) => {
+
+
+//     let loginadm = req.body;
+
+//     let p = await db.infoa_sti_cliente.findOne({
+//         where: {
+//             ds_email: loginadm.email,
+//             ds_senha: loginadm.senha
+//         }
+//     })
+
+//     if(p == null)
     
 
-    resp.sendStatus(200);
-});
+//     resp.sendStatus(200);
+// });
 
 
 
