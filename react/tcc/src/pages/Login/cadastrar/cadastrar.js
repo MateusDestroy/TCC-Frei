@@ -1,4 +1,5 @@
 import {ConteinerCadastrar, Container} from './styled'
+import axios from 'axios'
 
 
 import Rodape from '../../../components/rodape/rodape'
@@ -24,12 +25,19 @@ export default function Cadastrar() {
     const[ numero , setnumero] = useState('');
     const[ complemento , setcomplemento] = useState('');
     const[ cidade , setcidade] = useState('');
+    const [loc, setLoc] = useState({});
+
     const paginas = useHistory();
 
 
 
 
 
+    async function buscarCep() {
+        const resp = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+        setLoc(resp.data);
+      }
+      
 
 
      
@@ -47,11 +55,12 @@ export default function Cadastrar() {
     setnumero ('')
     setcomplemento ('')
     setcidade ('')
+    setLoc ('');
     }
  
 
 const inserir = async () => {
-    if (nome === '' || sobrenome === ''|| telefone === ''|| cpf === ''|| nascimento === ''|| sexo === ''|| email === ''|| senha === ''|| cep === ''|| endereco === ''|| numero === ''|| complemento === ''|| cidade === '')
+    if (nome === '' || sobrenome === ''|| telefone === ''|| cpf === ''|| nascimento === ''|| sexo === ''|| email === ''|| senha === ''|| cep === ''|| endereco === ''|| numero === '' || cidade === '')
         alert ('campo nulo')
         else {
             let r = await api.CadastarCliente(nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade );
@@ -115,19 +124,19 @@ const inserir = async () => {
 
            <div className="box-cadas"> 
                 <div className="name">
-                    <div className="nome"    style={{marginLeft:'33px'}}> Endereço: </div>
-                    <div className="inputs"> <input type=""value={endereco} onChange = {e => setendereco(e.target.value)}  />  </div>
+                    <div className="nome"    style={{marginLeft:'33px'}}> CEP: </div>
+                    <div className="inputs"> <input type=""value={cep}  onChange = {e => setcep(e.target.value)} onBlur={buscarCep}  />  </div>
                 </div>
                 <div className="name"> 
-                    <div className="nome"> CEP: </div>
-                    <div className="inputs"> <input type=""value={cep} onChange = {e => setcep(e.target.value)} /> </div>
+                    <div className="nome"> Endereço: </div>
+                    <div className="inputs"> <input type=""value={loc.logradouro + ", " + loc.bairro}  onChange = {e => setendereco(e.target.value)}/> </div>
                 </div> 
            </div>
 
            <div className="box-cadas" > 
                 <div className="name"   style={{marginLeft:'49px'}}>
                     <div className="nome"> Cidade: </div>
-                    <div className="inputs"> <input type="" value={cidade} onChange = {e => setcidade(e.target.value)} />  </div>
+                    <div className="inputs"> <input type="" value={loc.localidade} onChange = {e => setcidade(e.target.value)} />  </div>
                 </div>
                 <div className="name"> 
                     <div className="nome"> Número:  </div>

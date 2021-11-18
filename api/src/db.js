@@ -6,11 +6,7 @@ const sequelize = new Sequelize(
 'nsf@tcc', {
 host: 'my01.winhost.com',
 dialect: 'mysql',
-<<<<<<< HEAD
-logging: console.logging
-=======
 logging: console.log
->>>>>>> 8b7196a1a6517b16fdb2b8796515dc5dec186bdf
 });
 const db = initdb(sequelize);
 
