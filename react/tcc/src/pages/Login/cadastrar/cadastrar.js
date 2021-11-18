@@ -18,27 +18,48 @@ export default function Cadastrar() {
     const[ telefone, setTelefone] = useState ('');
     const[ email, setEmail] = useState ('');
     const[ senha, setSenha] = useState ('');
-
+    const[sexo, setSexo] = useState ('');
+    const[ cep , setcep] = useState('');
+    const[ endereco , setendereco] = useState('');
+    const[ numero , setnumero] = useState('');
+    const[ complemento , setcomplemento] = useState('');
+    const[ cidade , setcidade] = useState('');
     const paginas = useHistory();
 
 
+
+
+
+
+
+     
+   async function limpar() {
+    setNome('')
+    setSobrenome ('')
+    setCpf ('')
+    setNascimento ('')
+    setTelefone ('')
+    setEmail ('')
+    setSenha ('')
+    setSexo ('')
+    setcep ('')
+    setendereco ('')
+    setnumero ('')
+    setcomplemento ('')
+    setcidade ('')
+    }
  
 
 const inserir = async () => {
-    let r = await api.inserir (nome, sobrenome,  cpf, nascimento, telefone, email, senha);
-             if (r.erro) {
-            alert (`${r.erro}`)
-        } else {
-            paginas.push('/home')
+    if (nome === '' || sobrenome === ''|| telefone === ''|| cpf === ''|| nascimento === ''|| sexo === ''|| email === ''|| senha === ''|| cep === ''|| endereco === ''|| numero === ''|| complemento === ''|| cidade === '')
+        alert ('campo nulo')
+        else {
+            let r = await api.CadastarCliente(nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade );
+            alert ('agr foi')
         }
 
-
  }
-
-
-
-    return (
-
+ return (
     <Container>    
         <ConteinerCadastrar>
        <div className="box">
@@ -57,11 +78,11 @@ const inserir = async () => {
            <div className="box-cadas"> 
                 <div className="name">
                     <div className="nome"   style={{marginLeft:'62px'}}> Sexo: </div>
-                        <select>
-                            <option value="volvo">Escolher Gênero</option>
-                            <option value="saab"  >Masculino</option>
-                            <option value="mercedes"  >Feminino</option>
-                            <option value="audi"  >Outros</option>
+                        <select value={sexo} onChange={e => setSexo(e.target.value)}>
+                            <option value="">Escolher Gênero</option>
+                            <option value="Masculino"  >Masculino</option>
+                            <option value="Feminino"  >Feminino</option>
+                            <option value="Outros"  >Outros</option>
                         </select>                
                     </div>
                 <div className="name"> 
@@ -73,11 +94,11 @@ const inserir = async () => {
            <div className="box-cadas"> 
                 <div className="name">
                     <div className="nome"   style={{marginLeft:'37px'}}> Telefone: </div>
-                    <div className="inputs"> <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"  value={telefone} onChange = {e => setTelefone(e.target.value)}/>  </div>
+                    <div className="inputs"> <input type="tel"  value={telefone} onChange = {e => setTelefone(e.target.value)}/>  </div>
                 </div>
                 <div className="name"> 
                     <div className="nome"> Data de Nascimento: </div>
-                    <div className="inputs"> <input type="date" value={nascimento} onChange = {e => setNascimento(e.target.value)} /> </div>
+                    <div className="inputs"> <input type="text" value={nascimento} onChange = {e => setNascimento(e.target.value)} /> </div>
                 </div> 
            </div>
 
@@ -95,32 +116,32 @@ const inserir = async () => {
            <div className="box-cadas"> 
                 <div className="name">
                     <div className="nome"    style={{marginLeft:'33px'}}> Endereço: </div>
-                    <div className="inputs"> <input type=""  />  </div>
+                    <div className="inputs"> <input type=""value={endereco} onChange = {e => setendereco(e.target.value)}  />  </div>
                 </div>
                 <div className="name"> 
                     <div className="nome"> CEP: </div>
-                    <div className="inputs"> <input type="" /> </div>
+                    <div className="inputs"> <input type=""value={cep} onChange = {e => setcep(e.target.value)} /> </div>
                 </div> 
            </div>
 
            <div className="box-cadas" > 
                 <div className="name"   style={{marginLeft:'49px'}}>
                     <div className="nome"> Cidade: </div>
-                    <div className="inputs"> <input type="" />  </div>
+                    <div className="inputs"> <input type="" value={cidade} onChange = {e => setcidade(e.target.value)} />  </div>
                 </div>
                 <div className="name"> 
                     <div className="nome"> Número:  </div>
-                    <div className="inputs"> <input type="number" /> </div>
+                    <div className="inputs"> <input type="number" value={numero} onChange = {e => setnumero(e.target.value)}/> </div>
                 </div> 
                 <div className="name">
                     <div className="nome"> Complemento: </div>
-                    <div className="inputs">  <input type="" />  </div>
+                    <div className="inputs">  <input type="" value={complemento} onChange = {e => setcomplemento(e.target.value)}/>  </div>
                 </div>
            </div>
 
            <div className="cadas"> 
                     <div className="pt"> 
-                        <div className="nomes">   <button className="ds">  Limpar </button> </div>                     
+                        <div className="nomes">   <button className="ds" onClick={limpar}>  Limpar </button> </div>                     
                         <div className="nomes" onClick={inserir}>   <button className="js">Cadastrar</button>  </div> 
                     </div>
            </div>

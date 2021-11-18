@@ -36,7 +36,11 @@ export default class Api{
     return r.data; 
     }
 
+<<<<<<< HEAD
     async CadastraProdutosnt(imagem, codigo , produto, Sabor, estoqueMin, estoqueMax, valor , estoqueAtual, descricao){
+=======
+ async CadastraProduto(imagem, codigo , produto, Sabor, estoqueMin, estoqueMax, valor , estoqueAtual, descricao){
+>>>>>>> 7dfe84fb0672191656f8b93577dd79d6da275f10
         let r = await api.get('/produto', {imagem, codigo, produto, Sabor, estoqueMin, estoqueMax, valor, estoqueAtual, descricao})
         return r.data; 
         }
@@ -64,18 +68,28 @@ export default class Api{
     }
 
 
-    async CadastarCliente( nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha ) {
-        let r = await api.post('/cadastarcliente', {  nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha })
+    async CadastarCliente(nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade ) {
+        let r = await api.post('/cadastrar', { nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade })
         return r.data;
     }
 
 
+<<<<<<< HEAD
+=======
+
+    async loginadm (emailadm, senhaadm) {
+        let r  = await api.post('/loginadm', { emailadm, senhaadm})
+        return r.data;
+    }
+>>>>>>> 7dfe84fb0672191656f8b93577dd79d6da275f10
 
     
 
-   
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 7dfe84fb0672191656f8b93577dd79d6da275f10
 
 }
