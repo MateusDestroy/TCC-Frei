@@ -91,27 +91,6 @@ app.post('/cadastarcliente', async (req, resp) => {
     }
 });
 
-<<<<<<< HEAD
-app.post('/login', async (req, resp) => {
-
-
-    let login = req.body;
-
-    let p = await db.infoa_sti_cliente.findOne({
-        where: {
-            ds_email: login.email,
-            ds_senha: login.senha
-        }
-    })
-
-    if(p == null)
-    return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
-
-    resp.sendStatus(200);
-});
-
-=======
->>>>>>> 3bba35d65e259812f2b634fa6686eb6cb2ea4456
 
 
 
@@ -207,8 +186,6 @@ app.get('/clientes/:id', async (req, resp) => {
 });
 
 
-<<<<<<< HEAD
-=======
 app.get('/clientes/:id', async (req, resp) => {
     let r = await db.infoa_sti_cliente.findOne({ where: { id_cliente: req.params.id}});
     resp.send(r);
@@ -216,24 +193,22 @@ app.get('/clientes/:id', async (req, resp) => {
 
 
 app.post('/login', async (req, resp) => {
->>>>>>> 3bba35d65e259812f2b634fa6686eb6cb2ea4456
 
 
+    let login = req.body;
 
+    let p = await db.infoa_sti_cliente.findOne({
+        where: {
+            ds_email: login.email,
+            ds_senha: login.senha
+        }
+    })
 
-<<<<<<< HEAD
-=======
     if(p == null)
     return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
->>>>>>> 3bba35d65e259812f2b634fa6686eb6cb2ea4456
 
-app.get('login', async(req, resp) => {
-    let r = await db.infoa_sti_cliente.findAll()
-    res
-})
-
-
-
+    resp.sendStatus(200);
+});
 
 
 
