@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const ConteinerLogin = styled.div `
     display: flex;
-    flex-direction: column;
-    height: 120vh;
+    justify-content: center;
+    height: 100vh;
     width: auto; 
 
     background-image: url("./assets/imagens/Background.svg");
@@ -15,20 +15,17 @@ const ConteinerLogin = styled.div `
 
 .ConteinerLogin{
     
-    margin-top: 5em;
-    margin-left: 23em;
-    margin-right: 22em;
     border-radius: 30px;
     height: 30em;
-    
+    width: 36em;
 
-    padding-bottom: 10em;
-   
+    padding-bottom: 8em;
+   margin-top: 1em;
     font-family: Lobster;
     color: #568EAE;
 
     background-color: black;
-    opacity: 70%;
+    opacity: 90%;
 }
 
 
@@ -73,10 +70,12 @@ const ConteinerLogin = styled.div `
 
 input {
     
-    width: 400px ;
-    height: 70px;
-
+    width: 320px ;
+    height: 50px;
+    padding-left: 15px;
+    border: none;
     border-radius: 30px;
+    outline: red;
 }
 
 
@@ -88,10 +87,11 @@ input {
 }
 
 button {
-    
+    cursor: pointer;
+
     width: 200px ;
     height: 50px;
-
+    border: none;
     font-size: 30px;
     background-color:  #568EAE;
     color: white; 
@@ -119,10 +119,23 @@ button {
 
 
 span {
-    color: #568EAE; 
+    color: white; 
     cursor: pointer;
-    
+        :hover {
+            color: red;
+        }
 }
+
+@media (max-width: 375px) {
+ width: 100vh;
+
+.ConteinerLogin {
+    width: 100vh;
+    margin-left: 7em;
+    margin-top: 1em;
+}
+}
+
 
 
 

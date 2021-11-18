@@ -33,8 +33,6 @@ import PerfilSen from './pages/Peerfil/senha'
 
 
 
-
-
 import Loginadm from './pages/admin/LOGINaDM/Admlo'
 import CadastraPro from './pages/admin/CadastroPro/index'
 import Navega from './pages/admin/NAVEGAOP/NAV'
@@ -88,11 +86,8 @@ export default function Routes () {
               <Route path="/status" component={status} />
 
 
-              
+              <Route path="/Compras" component={MinhasCompras}/>
 
-              <Route path="/MinhasCompras" component={MinhasCompras}/>
-                    
-             
 
               <Route path="/entrega" component={Entrega} />
               <Route path="/revisao" component={Entrega} />
@@ -107,10 +102,3 @@ export default function Routes () {
     )
     
 }
-
-
-
-
-
-
-   

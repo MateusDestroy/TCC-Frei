@@ -1,26 +1,22 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infod_tif_like extends Model {
+export default class infob_hdm_sala extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_like: {
+    id_hdm_sala: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    nm_like: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    nm_deslike: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+    nm_sala: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infod_tif_like',
+    tableName: 'infob_hdm_sala',
     timestamps: false,
     indexes: [
       {
@@ -28,11 +24,11 @@ export default class infod_tif_like extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_like" },
+          { name: "id_hdm_sala" },
         ]
       },
     ]
   });
-  return infod_tif_like;
+  return infob_hdm_sala;
   }
 }

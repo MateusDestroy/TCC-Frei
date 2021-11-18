@@ -2,16 +2,16 @@ import styled from "styled-components";
 
 
 
-const ConteinerEsqueceu = styled.div `
+
+const ConteinerEsqueceu = styled.div`
+
     display: flex;
     flex-direction: column;
     height: 120vh;
     width: auto; 
-
     background-image: url("./assets/imagens/Background.svg");
     background-size: cover; 
     background-repeat: no-repeat; 
-
 
 .ConteinerEsqueceu{
     
@@ -21,81 +21,74 @@ const ConteinerEsqueceu = styled.div `
     border-radius: 30px;
     height: 30em;
     
-
     padding-bottom: 10em;
    
     font-family: Lobster;
-    color: #568EAE;
-
+    color: white;
     background-color: black;
-    opacity: 70%;
+    opacity: 90%;
 }
-
-
 .Login {
     padding-top: 2em;
     margin-top: 3em;
 }
-
 .logo {
     padding-left: 25em ;
 }
-
 .titulo{
     text-align: center;
 }
-
+.texto {
+    width: 300px;
+    margin-left:10em;
+    font-size: 1em;
+}
 .Bemvindo {
     padding-bottom: 0.5em;
-
-    font-size: 2em;
 }
+
+    
+        
+          
 
 .logar{
     padding-bottom: 1em;
-
     font-size: 2em;
 }
-
 .inputs{
     font-size: 1em;
     text-align: center;  
-}
-
-.confsenha {
-    padding-bottom: 2em;
+    margin-top: 2em;
 }
 
 .senhanova {
     
     padding-bottom: 2em;
 }
-
 .email {
     padding-bottom: 2em;
 }
-
 input {
     
     width: 400px ;
     height: 70px;
-
     border-radius: 30px;
 }
 
-
 .botão {
-    padding-top: 1em;
-    
+    margin: 2.5em;
+    margin-top: 0.5em;
     text-align: center;
     border-radius: 50px;
 }
 
+   
+
+  
 button {
     
     width: 200px ;
     height: 50px;
-
     font-size: 20px;
     background-color:  #568EAE;
     color: white; 
@@ -107,10 +100,8 @@ button {
     padding-top: 20px;
 }
 
-
 .cria {
     padding-top: 5px;
-
 }
 
 .cria a {
@@ -118,19 +109,10 @@ button {
     text-decoration: none; 
 }
 
-
-
-
-
 span {
     color: #568EAE; 
-    cursor: pointer;
-    
+    cursor: pointer; 
 }
 
-
-
-
 `
-
 export {ConteinerEsqueceu}

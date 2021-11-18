@@ -2,28 +2,20 @@ import styled from "styled-components";
 
 
 const ConteinerCadastro = styled.div`
+background: linear-gradient(to top, #33ccff 0%, #0000ff 100%);
+height: 100vh;
 
 
 
-height: 41em;
-background-color: #D2F6FF;
-text-align: center;
 
-
-.conteinercadastro {
-    display: flex;
-    flex-direction: row;
-    
-}
 
 .conteiner-cadastro {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-   
-   
-
     padding-top: 5em;
-    padding-left: 8em;
+    
     
 }
 
@@ -31,6 +23,7 @@ text-align: center;
     display: flex;
     flex-direction: row;
     padding-bottom: 0.5em;
+    color: white;
 }
 
 
@@ -38,7 +31,9 @@ text-align: center;
 .inputs {
     display: flex;
     flex-direction: column;
-  
+    font-family: 'Courier New', Courier, monospace;
+
+
 }
 
 
@@ -46,6 +41,9 @@ text-align: center;
     display: flex;
     flex-direction: row;
     padding-bottom: 2em;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+
 }
 
 
@@ -120,18 +118,18 @@ textarea {
     height: 78px;
 }
 
-.informações {
-    padding-right: 14em;
-}
 
 .Informação {
-    padding-left: 9em;
-    padding-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .botões {
-    padding-top: 2em;
-    padding-left: 20em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
 }
 
 .cadastra {
@@ -186,7 +184,10 @@ textarea {
 }
 
 .arquivoUp{
-padding-left: 19.5em;
+    padding-top: 5% ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -211,13 +212,6 @@ padding-left: 19.5em;
 .Updimg img {
     padding-right: 1em;
 }
-
-
-
-
-
-
-
 
 
 

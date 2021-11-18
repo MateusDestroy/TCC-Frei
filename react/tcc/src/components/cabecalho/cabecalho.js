@@ -38,10 +38,10 @@ async function a() {
                     <div class="barra"></div>
                     <Tristeza>  
                        <Link to = '/Login'> <img src= "./assets/imagens/login.svg" alt ="" />  </Link>
-                        <div className="ff"> 
+                        <div className="ffs"> 
                             <Link to = "/perfil"> <div className="names"> Minha Conta </div> </Link>
                             <div className="bord"> </div>
-                            <Link to = "./MinhasCompras"> <div className="names"> Meus Pedidos</div> </Link>
+                            <Link to = "./Compras"> <div className="names"> Meus Pedidos</div> </Link>
                             <div className="bord"> </div>
                             <Link to = "/"> <div className="names"> Sair </div> </Link>
                             <div className="bord"> </div>

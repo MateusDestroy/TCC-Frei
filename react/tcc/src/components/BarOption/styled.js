@@ -2,60 +2,29 @@ import styled from "styled-components";
 
 
 const ConteinerAdmBar = styled.div`
-height: 100vh;
-width: 12em;
-background-color:black;
-
-.logo2 img {
-    height: 8em;
-    width: 7em;
-}
-
-.logo2 {
-    padding-top: 9px;
-}
-
-.conteinerBar{
-display: flex;
-flex-direction: column;
-
-
-
-color: white
-}
-
-.espaço {
-    margin-top: 20px;
-    width: 12em;
-    height: 30px;
-    background-color: #383838;
-}
-
-.botõesBar{
+.kkkk {
     display: flex;
-    flex-direction: column;
+    width: 198vh;
+    justify-content: space-around;
+    padding-top: 5%;
     
-    color: black;
+}
+.op-01 {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 22px;
 }
 
-.botão1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 3em;
-    height: 3em;
-    background-color: white;
+a {
+    text-decoration: none;
+    color: white;
 }
 
-.gerenciamento {
-    padding-left: 4px;
+a:hover {
+    color: #2872FF;
+    
 }
 
-.barra {
-    height: 48px;
-    width: 8px;
-    background-color: #0064FB;
-}
 
 `
 

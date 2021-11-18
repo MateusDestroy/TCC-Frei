@@ -3,9 +3,25 @@ import Cabe from '../../components/cabecalho/cabecalho'
 import Roda from '../../components/rodape/rodape' 
 
 import { Link } from "react-router-dom"
+import { useState } from 'react'
+import { useEffect } from 'react'
 
-export default function status () {
 
+export default function Status () {
+
+    const [codigo, setCodigo] = useState('')
+    
+
+    function getCurrentTime() {
+        setCodigo(Math.floor(Math.random() * 1200000000));
+    }
+
+
+    
+    useEffect(() => {
+        getCurrentTime();      
+      }, [])
+    
     return (
         <Conteinerstatus>
             <Cabe/>
@@ -49,13 +65,13 @@ export default function status () {
                             </div> 
                             
                             <div className ="numero">
-                            Nº do Pedido: 202111051841
+                            Nº do Pedido: {codigo}
             
                             </div> 
                         </div>
                         <div className= "detalhesdoproduto">
                             <div className= "imgproduto">
-                                <img src="./assets/imagens/baguete queijo.png" alt="" height= "70"/>
+                            <img src="./assets/imagens/baguete-queijo e presunto 14.png" alt=""/>
                             </div> 
                             <div className="qtdnm" >
                                 <div className="nm">

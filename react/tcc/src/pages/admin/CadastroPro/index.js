@@ -10,12 +10,7 @@ const api = new Api();
 
 
 
-
-
-
-
 export default function Cadastro() {
-
 
 
     
@@ -109,6 +104,7 @@ useEffect(() => {
                 </div>
             </div>
 
+            
 
             <div className = "informações">
             <div className = "Informação ">SOLTE O ARQUIVO AQUI PARA FAZER UPLOAD </div>

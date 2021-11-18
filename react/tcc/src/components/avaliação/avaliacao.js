@@ -1,13 +1,6 @@
 import { ConteinerAvaliacao } from "./styled"
 
 
-
-
-
-
-
-
-
 export default function Avaliação() {
     return(
         <ConteinerAvaliacao>

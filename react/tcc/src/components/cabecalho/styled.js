@@ -9,12 +9,12 @@ img {
     cursor: pointer;
 }
 :hover {
-    .ff {
+    .ffs {
         visibility: visible;
     }
 }
 
-.ff {
+.ffs {
 
     visibility: hidden;
     position: absolute;
@@ -125,7 +125,13 @@ a:hover {
   
 }
  
+@media (max-width: 1280px) {
 
+.conteudo {
+    
+margin-left: 11.2em;
+}
+}
 
 `
 export {ConteinerCabecalho, Tristeza}

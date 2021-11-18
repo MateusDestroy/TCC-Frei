@@ -15,7 +15,7 @@ export default function Pix() {
             <div className="cc"> 
                 <div className="titles"> Pedido aguardando Pagamento ! </div>
                 <div className="text"> 
-                     Utiliza o Pix Copia e Cola no aplicativo que você vai realizar o pagamento, com o valor total de: 1.400
+                     Utiliza o Pix Copia e Cola no aplicativo que você vai realizar o pagamento, com o valor total de: 40
                 </div>
                 <div className="text1"> 
                      Após o Pagamento, clica em Confimrar para Finalizar Pedido. (Caso o pagamento não seja confirmado irá retornar um erro)

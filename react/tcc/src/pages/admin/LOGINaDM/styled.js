@@ -2,117 +2,124 @@ import styled from "styled-components";
 
 
 const Conteineradml  = styled.div `
-
-
-.pagina-01 {
-
 display: flex;
-flex-direction: row;
-
-
-}
-
-.div01 {
-width:100px;
-height:100px;
-position:absolute;
-top:25%;
-left:5%;
-
-}
-
-.div02 {
-width:500px;
-height:100px;
-position:absolute;
-left:50%;
-text-align: center;
-background-color: #1867FF;
+align-items: center;
+justify-content: center;
 height: 100vh;
-width: 70vh;
+ background: linear-gradient(to top, #33ccff 0%, #0000ff 100%);
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+
 }
 
-.titulo {
-margin-top: 10%;
-font-size: 40px;
+.Titulo {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    margin-bottom: 5%;
+    font-weight: 10;
 }
 
 .subtitulo {
-margin-top: 1%;
-font-size: 15px;
-color: white;
+    font-weight: 100;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+    text-align: center;
+    color: white;
+    margin-bottom: 5%;
 }
 
-.inupt-01 {
+.Caixa-01 {
+    display: flex;
+    flex-direction: row;
+    padding-top: 8%;
+}
 
-width:100px;
-height:100px;
-position:relative;
-top:15%;
-left:25%;
+.input-data {
+    margin-left: 0.8em;
+}
 
-
+.input-datak {
+    margin-left: 0.8em;
 }
 
 input {
-
-width: 350px;
-height: 30px;
-border-radius: 2px;
-border-color: #000;
-border: 1px solid #000;
-border-radius: 50px;
-background-color: FFFFFF;
-}
-
-
-.inupt-02 {
-
-width:100px;
-height:100px;
-position:relative;
-top:10%;
-left:25%;
-
+    border:0;
+    font-size: 17px;
+    border-radius: 0px;
+    background-color: rgba(0, 191, 255, 0.0);
+    
 
 }
 
-.buto{
-width:100px;
-height:100px;
-position:relative;
-top:15%;
-left:25%;
+.bord {
+    background-color: #FB8604;
+    width: 14em;
+    height: 1px;
+    position: absolute;
+   align-items: center;
+   justify-content: center;
+   
+    
+    
+}
+.n {
+    font-size: 20px;
+   color: white;
+   font-family: 'Courier New', Courier, monospace;
+   font-weight: 100;
+
+
+
+
 }
 
-.custom-file-input {
-content: 'Select some files';
-display: inline-block;
-background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
-border: 1px solid #999;
-border-radius: 50px;
-padding: 5px 8px;
-
-white-space: nowrap;
--webkit-user-select: none;
-text-shadow: 1px 1px #fff;
-font-weight: 700;
-font-size: 10pt;
+.g{
+ font-size: 20px;
+color: white;
+font-family: 'Courier New', Courier, monospace;
+font-weight: 100;
 }
 
 button {
-border: 1px solid #000;
-border-radius: 50px;
-outline: none;
-cursor: pointer;
-background-color: #222096;
-color: #fff;
-width: 350px;
-height: 50px;
-font-size: 20px;}
+    
+    background-color: rgba(51, 51, 255, 0.8);
+    border-radius: 50px;
+    border: 0;
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
 
+.botão {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 5%;
+}
+
+.logo55 {
+    margin-bottom: 6%;
+    margin-left: 10%;
+    width: 17%;
+    text-align: center;
+
+}
+.lll {
+    color: white;  
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 2%;
+}
 `
 
 
-export {Conteineradml} 
-
+export {Conteineradml}

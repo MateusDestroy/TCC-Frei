@@ -12,31 +12,35 @@ const Containersroda = styled.div`
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      padding: 3em 0px 0px 0px;
+      
 }
       .part-roda1 {
       text-align: center;
-      margin-left: 24px;
-      margin-right: 80px;
+      margin-left: 1px;
+      margin-right: 10px;
 }
       .part-roda2 {
       text-align: center;
       margin-right: 80px;
-      padding-bottom: 4em;
+      padding-bottom: 1.5em;
       }
 
+      .part-roda3 {
+            align-items: center;
+            margin-right: 30px;
+      }
 
       .info-01 {
-      margin-bottom: 19px;
+      margin-bottom: 7px;
       font-size: 25px;
       }
 
       .info-02 {
-      margin-bottom: 15px;
+      margin-bottom: 7px;
       font-size: 18px;
       }
       .info-03 {
-      margin-bottom: 15px;
+      margin-bottom: 7px;
       font-size: 18px;
       }
       .info-04 {

@@ -1,26 +1,26 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infod_tif_acessos extends Model {
+export default class infoa_dtb_tb_genero extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_acesso: {
+    ID_GENERO: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    nm_tela: {
+    DS_GENERO: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: true
     },
-    qtd_acessos: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+    BT_ATIVO: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infod_tif_acessos',
+    tableName: 'infoa_dtb_tb_genero',
     timestamps: false,
     indexes: [
       {
@@ -28,11 +28,11 @@ export default class infod_tif_acessos extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_acesso" },
+          { name: "ID_GENERO" },
         ]
       },
     ]
   });
-  return infod_tif_acessos;
+  return infoa_dtb_tb_genero;
   }
 }
