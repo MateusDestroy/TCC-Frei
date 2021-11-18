@@ -186,6 +186,12 @@ app.get('/clientes/:id', async (req, resp) => {
 });
 
 
+app.get('/clientes/:id', async (req, resp) => {
+    let r = await db.infoa_sti_cliente.findOne({ where: { id_cliente: req.params.id}});
+    resp.send(r);
+});
+
+
 app.post('/login', async (req, resp) => {
 
 
@@ -199,7 +205,7 @@ app.post('/login', async (req, resp) => {
     })
 
     if(p == null)
-    
+    return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
 
     resp.sendStatus(200);
 });

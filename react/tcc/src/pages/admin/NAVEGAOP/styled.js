@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const Contenenag = styled.div` 
 background: linear-gradient(to top, #33ccff 0%, #0000ff 100%);
 height: 100vh;
+width: auto;
 
 .opcao01 {
     display: flex;
@@ -85,8 +86,9 @@ th {
 
 .table-user {
     border-collapse: collapse;
-    width: 160vh;
-    margin-left: 10em;
+    width: 80%;
+    margin-left: 10%;
+    
    
     
 }
