@@ -28,21 +28,19 @@ useEffect(carregarCarrinho, []);
 
 
 
-function carregarCarrinho() {
+    function carregarCarrinho() {
     // Lê o Array de Produtos do Carrinho do Cookie.
     // Se o Cookie estiver vazio, volta um Array vazio []
     // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
     let carrinho = Cookie.get('carrinho');
     carrinho = carrinho !== undefined 
-                  ? JSON.parse(carrinho) 
-                  : [];
+                ? JSON.parse(carrinho) 
+                : [];
 
-             
-
+            
     // Atualiza a variável de Estado com o Conteúdo do Cookie
     setProdutos(carrinho);
-  }
- 
+    }
     useEffect(() => { 
         const listar = async() => {
           const produtosr = await api.ListarEndereco(3);
