@@ -2,7 +2,6 @@ import db from './db.js';
 import express from 'express';
 import cors from 'cors';
 
-import enviarEmail from './enviarEmail.js';
 
 
 
@@ -187,6 +186,12 @@ app.get('/clientes/:id', async (req, resp) => {
 });
 
 
+app.get('/clientes/:id', async (req, resp) => {
+    let r = await db.infoa_sti_cliente.findOne({ where: { id_cliente: req.params.id}});
+    resp.send(r);
+});
+
+
 app.post('/login', async (req, resp) => {
 
 
@@ -200,79 +205,79 @@ app.post('/login', async (req, resp) => {
     })
 
     if(p == null)
-    
+    return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
 
     resp.sendStatus(200);
 });
 
 
 
-function getRandomInterger(min, max) {
-    return Math.floor(Math.random() + (max - min) ) + min; 
+// function getRandomInterger(min, max) {
+//     return Math.floor(Math.random() + (max - min) ) + min; 
     
-}
+// }
 
 
-app.post('/esqueciSenha', async(req, resp) => {
-   const  usuario = await db.infoa_sti_cliente.findOne({
-       where: {
-           ds_email: req.body.email
-       }
-   }); 
-   if (usuario == null){
-       resp.send ({status: 'erro', mensagem: 'E-mail invalido'});
-   }
+// app.post('/esqueciSenha', async(req, resp) => {
+//    const  usuario = await db.infoa_sti_cliente.findOne({
+//        where: {
+//            ds_email: req.body.email
+//        }
+//    }); 
+//    if (usuario == null){
+//        resp.send ({status: 'erro', mensagem: 'E-mail invalido'});
+//    }
 
-   let codigo = getRandomInterger(1000, 9999)
-   await db.infoa_sti_cliente.update({
-       ds_codigo_rec: codigo
-   }, {
-       where: {id_cliente: usuario.id_cliente}
-   })
+//    let codigo = getRandomInterger(1000, 9999)
+//    await db.infoa_sti_cliente.update({
+//        ds_codigo_rec: codigo
+//    }, {
+//        where: {id_cliente: usuario.id_cliente}
+//    })
 
-   enviarEmail(usuario.ds_email, 'Recuperação de senha', 
-   `
-   <h1> Recuperação de senha de usuario </h1>
-   <p> Sua requesição de recuperação de senha foi atendida</p>
-   <p> insira o codigo ${codigo} para recupera a sua senha 
-   `)
+//    enviarEmail(usuario.ds_email, 'Recuperação de senha', 
+//    `
+//    <h1> Recuperação de senha de usuario </h1>
+//    <p> Sua requesição de recuperação de senha foi atendida</p>
+//    <p> insira o codigo ${codigo} para recupera a sua senha 
+//    `)
 
-   resp.send({status: 'FOIII MEU FILHO'});
-})
+//    resp.send({status: 'FOIII MEU FILHO'});
+// })
 
-app.post('/validarSenha', async(req, resp) => {
+// app.post('/validarSenha', async(req, resp) => {
    
 
-})
+// })
 
 
-app.put('/restSenha', async(req, resp) => {
+// app.put('/restSenha', async(req, resp) => {
 
-})
-
-
-
+// })
 
 
 
 
-app.post('/loginadm', async (req, resp) => {
 
 
-    let loginadm = req.body;
 
-    let p = await db.infoa_sti_cliente.findOne({
-        where: {
-            ds_email: loginadm.email,
-            ds_senha: loginadm.senha
-        }
-    })
+// app.post('/loginadm', async (req, resp) => {
 
-    if(p == null)
+
+//     let loginadm = req.body;
+
+//     let p = await db.infoa_sti_cliente.findOne({
+//         where: {
+//             ds_email: loginadm.email,
+//             ds_senha: loginadm.senha
+//         }
+//     })
+
+//     if(p == null)
     
 
-    resp.sendStatus(200);
-});
+//     resp.sendStatus(200);
+// });
 
 
 

@@ -120,10 +120,16 @@ thead {
 }
 
 
+Img {
+    size: 150px;
+
+}
+
+
 th {
     height: 61.93px;
     text-align: center;
-    padding: .1em 4.2em;
+    padding: .1em 5.5em;
     color: #006BA1;
     font-weight: 800;
     
@@ -131,7 +137,7 @@ th {
 td {
     text-align: center;
     height:  61.93px;
-    padding: 1em;
+    padding: 1.1em;
     color: #6D6868;
     font-weight: 600;
 }

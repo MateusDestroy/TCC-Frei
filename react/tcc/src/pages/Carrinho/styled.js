@@ -3,12 +3,7 @@ import styled from 'styled-components'
 const ContainerCarrinho = styled.div`
 
 
-.as{
 
-position:absolute;
-bottom:0;
-width:100%;
-}
 .box-tabela {
   margin: 2em 4em 0em 4em;
 }

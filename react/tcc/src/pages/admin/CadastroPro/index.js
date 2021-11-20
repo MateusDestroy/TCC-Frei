@@ -27,7 +27,7 @@ const [descricao, setdescricao] = useState('');
 
 async function CadastraProduto() {
     let r = await api.CadastraProduto(codigo, Produto, Sabor, valor ,estoqueMax, estoqueMin, estoqueAtual, descricao);
-    alert("Produto Cadastrado !")
+   
     setSabor(r)
 }
 

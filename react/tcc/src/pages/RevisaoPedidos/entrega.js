@@ -8,6 +8,8 @@ import { useState } from 'react'
 import Model from '../../components/modal'
 import Api from '../../services/api'
 import { useEffect } from 'react'
+import BoxItem from './BoxRevisao'
+import Cookie from 'js-cookie'
 
 const api = new Api();
 
@@ -15,7 +17,30 @@ const api = new Api();
 export default function Carrinho(props) {
     const [endereco, SetEndereco] = useState([])   
     const [exibirModal, setExibirModal] = useState({show: false});
+    const [Mostrar, setMostrar] = useState(false);
+    const [produtos, setProdutos] = useState([]);
+    
 
+
+
+
+useEffect(carregarCarrinho, []);
+
+
+
+    function carregarCarrinho() {
+    // Lê o Array de Produtos do Carrinho do Cookie.
+    // Se o Cookie estiver vazio, volta um Array vazio []
+    // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
+    let carrinho = Cookie.get('carrinho');
+    carrinho = carrinho !== undefined 
+                ? JSON.parse(carrinho) 
+                : [];
+
+            
+    // Atualiza a variável de Estado com o Conteúdo do Cookie
+    setProdutos(carrinho);
+    }
     useEffect(() => { 
         const listar = async() => {
           const produtosr = await api.ListarEndereco(3);
@@ -64,15 +89,12 @@ export default function Carrinho(props) {
                   <th> Quantidade </th>
                   <th> Subtotal de itens</th>
               </thead>
-              <tbody>
-                  <tr>
-                      <td style={{width: '3%'}}> <img src="./assets/imagens/bolinho.png" alt="" width="90%" /> </td>
-                      <td>baguete de Queijo</td>
-                      <td>R$ 3,50</td>
-                      <td>3</td>  
-                      <td>R$ 3,50</td>
-                  </tr>
-              </tbody>
+              {produtos.map(item => 
+                    <BoxItem key={item.id} 
+                        info={item} 
+                       
+                        />
+                )}
             </div>
             <h1 style={{marginLeft: '3em'}}>Método de Pagamento</h1>    
             <div className="meto-paga">

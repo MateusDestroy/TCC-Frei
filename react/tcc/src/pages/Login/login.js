@@ -5,7 +5,9 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useHistory } from "react-router"
 
+
 import Api from '../../services/api'
+import Cookie from "js-cookie"
 const api = new Api();
 
 
@@ -16,6 +18,10 @@ export default function Login() {
     const paginas = useHistory();
 
     const logar = async () => {
+        let logarr = Cookie.get('logarr');
+        logarr = logarr !== undefined 
+                  ? JSON.parse(logarr) 
+                  : [];
         let r = await api.login(email, senha);
         
         if (r.erro) {
@@ -44,6 +50,7 @@ export default function Login() {
              <div className = "func-para-cadastro">
                  <div className = "Esqueceu"> Esqueci a senha <Link to = "/esqueceu"> <span> clique aqui </span></Link></div>
                  <div className = "cria"> <Link  to = "/Cadastra"> Criar conta um conta  </Link> </div> 
+                   <Link to="./Loginadm"> <div>Acessar o Adm</div> </Link>
                 </div>
        
              </div>

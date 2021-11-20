@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+
 import { Conteineradml } from './styled'
 import { useState } from "react"
 import { useHistory } from "react-router"
@@ -6,23 +6,24 @@ import { useHistory } from "react-router"
 import Api from '../../../services/api'
 const api = new Api();
 
-export default function Logadm () 
-{
+export default function Loginadm () {
+
     const[ email, setEmail] = useState ('');
     const[ senha, setSenha] = useState ('');
 
     const paginas = useHistory();
 
     const logar = async () => {
-        let r = await api.login(email, senha);
         
+        let r = await api.login(email, senha);
         if (r.erro) {
             alert (`${r.erro}`)
         } else {
             paginas.push('/CadastraProduto')
         }
-
     }
+
+    
 
     return (
         <Conteineradml>

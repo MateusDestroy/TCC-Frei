@@ -9,13 +9,24 @@ import { Link } from "react-router-dom"
 
 export default function Carrinho(props) {
     const [produtos, setProdutos] = useState([]);
-    
+    const [total, setTotal] = useState(0);
+
 
 
  
 
     useEffect(carregarCarrinho, []);
 
+    function atualizarTotal() {
+        let carrinho = Cookie.get('carrinho');
+        carrinho = carrinho != null
+                            ? JSON.parse(carrinho)
+                            : [];
+
+        let t = carrinho.reduce((prev,curr) => prev + curr.vl_valor * curr.qtd, 0);
+        t = Number(t.toFixed(2)); 
+        setTotal(t)
+    }
 
 
 function carregarCarrinho() {
@@ -28,7 +39,7 @@ function carregarCarrinho() {
                   : [];
 
              
-
+   atualizarTotal()
     // Atualiza a variável de Estado com o Conteúdo do Cookie
     setProdutos(carrinho);
   }
@@ -41,6 +52,7 @@ function removerProduto(id_produto) {
     // Atualiza o Cookie
     Cookie.set('carrinho', JSON.stringify(carrinho));
 
+    atualizarTotal();
     // Atualiza a variável de estado
     carregarCarrinho()
     }
@@ -55,6 +67,9 @@ function removerProduto(id_produto) {
     
         // Atualiza o Cookie
         Cookie.set('carrinho', JSON.stringify(produtos));
+
+
+        atualizarTotal();
      }
 
 
@@ -91,7 +106,7 @@ function removerProduto(id_produto) {
         <div className="precos"> 
             <div className="box-preco"> 
                 <div className="sb">Subtotal dos pedidos: </div>
-                <div className="pc">  </div>
+                <div className="pc"> {total} </div>
             </div>
             <div className="box-preco"> 
                 <div className="sb">Cupom de desconto:</div>
@@ -104,7 +119,10 @@ function removerProduto(id_produto) {
         </div>
         <div className="botoes"> 
             <Link to="./Produtos"> <button> Continuar comprando </button> </Link> 
-            <Link to="./revisao"> <button>  Realizar pedido   </button> </Link> 
+            <Link to ={{
+            pathname: '/revisao',
+            state: props.info
+        }} > <button>  Realizar pedido   </button> </Link> 
         </div>
         <div className="as">
                 <Rodape />
