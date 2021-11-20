@@ -32,11 +32,14 @@ export default function Cadastrar() {
 
 
 
-
     async function buscarCep() {
         const resp = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
         setLoc(resp.data);
-      }
+      
+    
+    }
+
+
       
 
 
@@ -96,7 +99,7 @@ const inserir = async () => {
                     </div>
                 <div className="name"> 
                     <div className="nome"> CPF: </div>
-                    <div className="inputs" > <input type=""  value={cpf} onChange = {e => setCpf(e.target.value)} /> </div>
+                    <div className="inputs" > <input type=""  mask="999.999.999-99"   value={cpf} onChange = {e => setCpf(e.target.value)} /> </div>
                 </div> 
            </div>
 

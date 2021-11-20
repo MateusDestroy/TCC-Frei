@@ -6,11 +6,55 @@ import cors from 'cors';
 
 
 
+
+import Sequelize from "sequelize";
+const { Op} = Sequelize;
+
 const app = new express();
 app.use(cors());
 app.use(express.json());
 
 
+
+
+app.post('/compras', async (req, resp) => {
+
+    try {
+
+        let r = req.body;
+
+
+    const venda = await db.infoa_sti_venda.create({
+            ds_codigo: Math.floor(Math.random() * 1200000000),
+            ds_forma_pagamento: r.pagamento,
+            ds_situacao: r.situacao
+
+    });
+
+    const produtoUsu = await db.infoa_sti_produto.findAll({
+        where: {
+            'nm_produto': { [Op.in]: Object.keys(r.produtos) }
+        }
+    })
+
+
+    for (let produto of produtoUsu) {
+    
+        const CompraItem  = await db.infoa_sti_venda_item.create({
+            id_produto: produto.id_produto,
+            id_venda: venda.id_venda,
+            qtd_produto: r.produtos[produto.nm_produto],
+        })
+
+       }
+
+        resp.send(r)
+    }
+    catch(e) {
+        resp.send({ erro: e.toString() });
+    }
+
+} )
 
 
 /*/

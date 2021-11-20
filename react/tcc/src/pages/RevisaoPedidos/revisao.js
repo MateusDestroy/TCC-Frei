@@ -9,17 +9,39 @@ import { useState, useEffect } from 'react'
 import BoxItem from './BoxRevisao'
 import Cookie from 'js-cookie'
 
-
+import { useHistory } from 'react-router'
 
 
 export default function Revisao(props) {
+    const nave = useHistory()
+
+    let usuarioLogado = lerUsuarioQuelogou() || {}
     const [endereco, SetEndereco] = useState([])   
     const [exibirModal, setExibirModal] = useState({show: false});
     const [Mostrar, setMostrar] = useState(false);
     const [produtos, setProdutos] = useState([]);
     
 
+    
+    function lerUsuarioQuelogou() {
+        let logado = Cookie.get('usuario-logado');
 
+        if (logado === undefined) {
+            alert('Você deve estar logado para acessar essa página');
+            nave.push('/Carrinho')
+
+        } else {
+            let usuarioLogado = JSON.parse(logado);
+            alert('nao')
+            return usuarioLogado;
+        }
+    }
+
+    
+    useEffect(() => {
+         lerUsuarioQuelogou() 
+                  
+      })
 
 
 useEffect(carregarCarrinho, []);

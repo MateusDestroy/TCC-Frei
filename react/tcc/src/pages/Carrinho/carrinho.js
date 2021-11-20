@@ -19,6 +19,7 @@ export default function Carrinho(props) {
 
     function atualizarTotal() {
         let carrinho = Cookie.get('carrinho');
+        
         carrinho = carrinho != null
                             ? JSON.parse(carrinho)
                             : [];
