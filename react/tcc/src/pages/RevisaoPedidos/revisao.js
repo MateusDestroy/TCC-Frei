@@ -10,6 +10,7 @@ import BoxItem from './BoxRevisao'
 import Cookie from 'js-cookie'
 
 import { useHistory } from 'react-router'
+import styled from 'styled-components'
 
 
 export default function Revisao(props) {
@@ -17,7 +18,7 @@ export default function Revisao(props) {
 
     let usuarioLogado = lerUsuarioQuelogou() || {}
     const [endereco, SetEndereco] = useState([])   
-    const [exibirModal, setExibirModal] = useState({show: false});
+    const [opcao, setOpcao] = useState('');
     const [Mostrar, setMostrar] = useState(false);
     const [produtos, setProdutos] = useState([]);
     
@@ -32,7 +33,6 @@ export default function Revisao(props) {
 
         } else {
             let usuarioLogado = JSON.parse(logado);
-            alert('nao')
             return usuarioLogado;
         }
     }
@@ -65,15 +65,28 @@ function carregarCarrinho() {
  
     
 
-    async function listar() {
-        setMostrar(true)  
-        onclick="select"
-    }
+  function get(c) {
+      if (opcao === c) 
+      return { backgroundColor: '#1AABF3', border: '2px solid #1AABF3', opacity: '80%'}
+    else  
+     return {}
 
-    async function remover(){
-        setMostrar(false)
-    }
+  }
 
+    async function listar(c) {
+        if (opcao === c)  {
+            setMostrar(true)  
+            onclick="select"
+            return { backgroundColor: '#1AABF3', border: '2px solid #1AABF3', opacity: '80%'}
+        }
+        else {
+            setMostrar(true)  
+            onclick="select"
+        }
+
+}
+
+    
 
     return ( 
 
@@ -116,9 +129,9 @@ function carregarCarrinho() {
             </div>
             <h1 style={{marginLeft: '3em'}}>Método de Pagamento</h1>    
             <div className="meto-paga">
-                <div className="pix"  type="radio" style={{marginLeft: '1em', alignItems: 'center'}}> <img src="./assets/imagens/logo-pix-icone-512 10.png" alt="" width="30%"/> <div style={{marginLeft: '.8em'}}> PIX </div> </div>
-                <div className="din"  onClick={remover} style={{marginLeft: '3em', alignItems: 'center'}}> <img src="./assets/imagens/dinheiro.png" alt="" width="58%"/> <div> Dinheiro </div> </div>
-                <div className="car" style={{marginLeft: '3em'}} onClick={listar}> <img src="./assets/imagens/kisspng-e-commerce-payment-system-credit-card-debit-card-5bf9cb52d627b6 2.svg" alt=""  /> <div>   Cartão de Crédito</div> </div>
+                <div className="pix" onClick={() => setOpcao('sla')} style ={get('sla')}> <img src="./assets/imagens/logo-pix-icone-512 10.png" alt="" width="30%"/> <div style={{marginLeft: '.8em'}}> PIX </div> </div>
+                <div className="din"  onClick={() =>  setOpcao('Boleto')} style ={get('Boleto')}> <img src="./assets/imagens/dinheiro.png" alt="" width="58%"/> <div> Dinheiro </div> </div>
+                <div className="car" onClick={listar,  setOpcao('Boleto')} style ={get('bi')}> <img src="./assets/imagens/kisspng-e-commerce-payment-system-credit-card-debit-card-5bf9cb52d627b6 2.svg" alt=""  /> <div>   Cartão de Crédito</div> </div>
             </div> 
             <div className="bandeiras">
                      
