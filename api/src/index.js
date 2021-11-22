@@ -412,6 +412,18 @@ app.post('/pedidos', async (req, resp) => {
 app.get('/produto/:id', async (req, resp) =>{
     let r = await db.infoa_sti_produto.findAll({ where: {id_categoria: req.params.id}});
     resp.send(r);
+});
+
+app.delete('/produto/:id', async (req, resp) => {
+    try {
+        let { id } = req.params;
+
+        let r = await db.tb_produto.destroy({where: {id_produto: req.params.id }})
+        resp.sendStatus(200);
+    } catch (e) {
+        resp.send({ erro: e.toString ()})
+    
+    }
 })
 
 

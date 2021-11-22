@@ -43,7 +43,7 @@ width: auto;
 
 td {
 
-    width: 20vh;
+    width: 15vh;
 
 }
 

@@ -11,6 +11,7 @@ import Cookie from 'js-cookie'
 export default function Status () {
 
     const [codigo, setCodigo] = useState('')
+    
 
     
     return (

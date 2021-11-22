@@ -54,7 +54,8 @@ export default function gerecniador () {
                                    </td>
                             <td>  </td>
                             <td>  </td>
-                            <td>  </td>
+                            <td> <img src="./assets/imagens/pngegg (5).png" width="50" alt="" />
+                            <img src="./assets/imagens/pngegg (6).png" width="50" alt="" />  </td>
                             
                             
                            
