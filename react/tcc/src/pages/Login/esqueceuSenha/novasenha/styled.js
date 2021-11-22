@@ -132,4 +132,4 @@ span {
 
 `
 
-export {Conteinernovasenha}]
+export {Conteinernovasenha}
