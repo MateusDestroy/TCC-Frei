@@ -31,7 +31,7 @@ async function a() {
                 <div className = "conteudo">
                     <div className = "sobre"> <Link to = "/sobre"> SOBRE NÓS </Link> </div>
 
-                    <div className = "inicial"> <Link to = "/home"> HOME </Link> </div>
+                    <div className = "inicial"> <Link to = "/"> HOME </Link> </div>
 
                     <div className = "menu"> <Link to = "/produtos">  MENU </Link></div> 
 
@@ -53,9 +53,9 @@ async function a() {
                              <div className="names"  onClick={ () => {
                                     if( Cookie !== undefined ){
                                         Cookie.remove('usuario-logado')
-                                        paginas.push('/')
+                                        paginas.push('/login')
                                     }
-                                    paginas.push('/')
+                                    paginas.push('/login')
                                         
                             }
                         }> { Cookie.get('usuario-logado') === undefined ? 'Entrar'  : 'Sair' } </div> 

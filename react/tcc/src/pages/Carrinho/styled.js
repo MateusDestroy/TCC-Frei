@@ -22,7 +22,7 @@ th {
     text-align: left;
     padding: .1em 6em;
     color: #ffff;
-    font-weight: 600;
+    font-weight: 100;
 } 
 
 td {
@@ -62,7 +62,7 @@ outline: none;
 
 .est-box {
     position: relative;
-    left: 3em;
+    left: 10em;
     top: 1em;
     display: flex;
     flex-direction: row;
@@ -90,7 +90,7 @@ outline: none;
 .lixeira {
     position: relative;
     top: 1.43em;
-    right: 12.5em;
+    right: 8.5em;
 
 }
 input {

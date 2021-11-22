@@ -24,7 +24,7 @@ export default function Login() {
             alert (`${r.erro}`)
         } else {
             Cookie.set('usuario-logado', JSON.stringify(r));
-            paginas.push('/home')
+            paginas.push('/')
         }
 
     }

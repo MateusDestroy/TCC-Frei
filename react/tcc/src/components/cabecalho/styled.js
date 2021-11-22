@@ -29,7 +29,7 @@ img {
     text-align: center;
 }
 
- a > .names {
+  .names {
 
     color: black;
     margin: 5px 0px;

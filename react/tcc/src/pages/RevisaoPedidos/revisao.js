@@ -39,7 +39,6 @@ export default function Revisao(props) {
 
     
     useEffect(() => {
-         lerUsuarioQuelogou() 
                   
       })
 
@@ -66,27 +65,30 @@ function carregarCarrinho() {
     
 
   function get(c) {
-      if (opcao === c) 
-      return { backgroundColor: '#1AABF3', border: '2px solid #1AABF3', opacity: '80%'}
-    else  
+      if (opcao === c)
+      return {
+        backgroundColor: '#1AABF3', border: '2px solid #1AABF3', opacity: '80%'
+    }
+    
+     else 
      return {}
 
   }
 
-    async function listar(c) {
-        if (opcao === c)  {
+    async function listar() {
             setMostrar(true)  
             onclick="select"
-            return { backgroundColor: '#1AABF3', border: '2px solid #1AABF3', opacity: '80%'}
+ }
+
+    function vaio() {
+        if (opcao === 'pix') {
+            nave.push('/Pagamento')
         }
+
         else {
-            setMostrar(true)  
-            onclick="select"
+            nave.push('/status')
         }
-
-}
-
-    
+    }
 
     return ( 
 
@@ -129,9 +131,9 @@ function carregarCarrinho() {
             </div>
             <h1 style={{marginLeft: '3em'}}>Método de Pagamento</h1>    
             <div className="meto-paga">
-                <div className="pix" onClick={() => setOpcao('sla')} style ={get('sla')}> <img src="./assets/imagens/logo-pix-icone-512 10.png" alt="" width="30%"/> <div style={{marginLeft: '.8em'}}> PIX </div> </div>
-                <div className="din"  onClick={() =>  setOpcao('Boleto')} style ={get('Boleto')}> <img src="./assets/imagens/dinheiro.png" alt="" width="58%"/> <div> Dinheiro </div> </div>
-                <div className="car" onClick={listar,  setOpcao('Boleto')} style ={get('bi')}> <img src="./assets/imagens/kisspng-e-commerce-payment-system-credit-card-debit-card-5bf9cb52d627b6 2.svg" alt=""  /> <div>   Cartão de Crédito</div> </div>
+                <div className="pix" onClick={() => setOpcao('pix')} style ={get('pix')}> <img src="./assets/imagens/logo-pix-icone-512 10.png" alt="" width="30%"/> <div style={{marginLeft: '.8em'}}> PIX </div> </div>
+                <div className="din"  onClick={() =>  setOpcao('dinheiro')} style ={get('dinheiro')}> <img src="./assets/imagens/dinheiro.png" alt="" width="58%"/> <div> Dinheiro </div> </div>
+                <div className="car" onClick={listar}> <img src="./assets/imagens/kisspng-e-commerce-payment-system-credit-card-debit-card-5bf9cb52d627b6 2.svg" alt=""  /> <div>   Cartão de Crédito</div> </div>
             </div> 
             <div className="bandeiras">
                      
@@ -157,8 +159,8 @@ function carregarCarrinho() {
                 </div>
             </div>
                 
-            <div className="but" >
-            <Link to="./Pagamento"> <button className="ff"> Fazer Pedidos</button> </Link>
+            <div className="but" onClick={vaio} >
+             <button className="ff"> Fazer Pedidos</button> 
             </div>
         <Rodape />
         </ContainerRevisao>
