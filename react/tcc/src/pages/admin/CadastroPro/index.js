@@ -10,12 +10,7 @@ const api = new Api();
 
 
 
-
-
-
-
 export default function Cadastro() {
-
 
 
     
@@ -32,13 +27,11 @@ const [descricao, setdescricao] = useState('');
 
 async function CadastraProduto() {
     let r = await api.CadastraProduto(codigo, Produto, Sabor, valor ,estoqueMax, estoqueMin, estoqueAtual, descricao);
-    alert("Produto Cadastrado !")
+   
     setSabor(r)
 }
 
-useEffect(() => {
-   CadastraProduto();
-  }, )
+
     
     return(
   
@@ -109,6 +102,7 @@ useEffect(() => {
                 </div>
             </div>
 
+            
 
             <div className = "informações">
             <div className = "Informação ">SOLTE O ARQUIVO AQUI PARA FAZER UPLOAD </div>

@@ -37,7 +37,7 @@ export default function sobrenos () {
                         <img src="./assets/imagens/Pao-doce-coco-creme-Baixa-5 3.png" height="158" width="258" alt="" />
                     </div>
                     <div className= 'img-pr1'>
-                        <img src="./assets/imagens/sonho.png" height="158" width="258"  alt="" />
+                        <img src="./assets/imagens/sonho de chocolate.png" height="158" width="258"  alt="" />
                     </div>
                     <div className= 'img-pr1'>
                         <img src="./assets/imagens/Bolo de Fubá.png" height="158" width="258" alt="" />
@@ -49,13 +49,13 @@ export default function sobrenos () {
 
                 <div className = 'img-pt2'>
                     <div className= 'img-pr2'>
-                        <img src="./assets/imagens/unnamed 3.png" height="158" width="258" alt="" />
+                        <img src="./assets/imagens/suco-de-goiaba 1.png" height="158" width="258" alt="" />
                     </div>
                     <div className= 'img-pr2'>
-                        <img src="./assets/imagens/Bolo de pote.png" height="158" width="258" alt="" />
+                        <img src="./assets/imagens/suco-de-abacaxi 2.png" height="158" width="258" alt="" />
                     </div>
                     <div className= 'img-pr2'>
-                        <img src="./assets/imagens/Brigadeiro-Cremoso-Simples-no-Pote-380x254 3.png" height="158" width="258" alt="" />
+                        <img src="./assets/imagens/Achocolatado.png" height="158" width="258" alt="" />
                     </div>
                     <div className= 'img-pr2'>
                         <img src="./assets/imagens/cafe.png" height="158" width="258" alt="" />
@@ -64,13 +64,13 @@ export default function sobrenos () {
 
                 <div className = 'img-pt3'>
                     <div className= 'img-pr3'>
-                        <img src="./assets/imagens/29327-sucos-funcionais-extraem-o-melhor-das-fr-article_block_media-2 2 (2).png" height="158" width="258" alt="" />
+                        <img src="./assets/imagens/Esfirra 2.png" height="158" width="258" alt="" />
                     </div>
                     <div className= 'img-pr3'>
-                        <img src="./assets/imagens/receitas-de-misto-quente 2.png" height="158" width="258" alt="" />
+                        <img src="./assets/imagens/mini-pizza 1.png" height="158" width="258" alt="" />
                     </div>
                     <div className= 'img-pr3'>
-                        <img src="./assets/imagens/queijo quente-380x380 2.png" height="158" width="258" alt="" />
+                        <img src="./assets/imagens/baguete escarola com calabresa.png" height="158" width="258" alt="" />
                     </div>
                     <div className= 'img-pr3'>
                         <img src="./assets/imagens/1582203069205 2.png" height="158" width="258" alt="" />

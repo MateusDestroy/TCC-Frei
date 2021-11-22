@@ -21,7 +21,12 @@ export default function MinhasCompras (){
                     <div className= "etapa1">
                         Todos
                     </div>
+                    
                     <div className="b"></div>
+
+                    <div className= "inupt-02">
+                    <input type="text" class="custom-file-input" name="search" placeholder="Pesquisar Codígo do produto ou nome do produto" />
+                    </div>
 
                 </div>
                 <div className="borda222">
@@ -37,7 +42,7 @@ export default function MinhasCompras (){
 
                     <div className="descricao-produto">
                         <div className= "imgprodutro">
-                            <img src="./assets/imagens/baguete-queijo e presunto 8.png" height="79" alt=""/>
+                            <img src="./assets/imagens/baguete-queijo e presunto 14.png" height="79" alt=""/>
                         </div>
                         <div className="pRoD">
                             <div className="nm-produto">
@@ -100,7 +105,7 @@ export default function MinhasCompras (){
                 <div className="borda222">
                     <div className="stausdacompra">
                         <div className="status-retirada">
-                            Retirada
+                            Retirada -
                         </div>
                         <div className="status-concluifdo">
                             Concluído
@@ -110,7 +115,7 @@ export default function MinhasCompras (){
 
                     <div className="descricao-produto">
                         <div className= "imgprodutro">
-                            <img src="./assets/imagens/baguete-queijo e presunto 8.png" alt=""/>
+                            <img src="./assets/imagens/baguete-queijo e presunto 14.png" alt=""/>
                         </div>
                         <div className="pRoD">
                             <div className="nm-produto">
@@ -125,7 +130,7 @@ export default function MinhasCompras (){
                             <div className= "Pre">
                                 Preço Unitario
                             </div>
-                            <div className="vl">
+                            <div className="valor">
                                 R$ 3,50
                             </div>
                         </div>
@@ -152,7 +157,7 @@ export default function MinhasCompras (){
                             Total de Pagamento
                         </div>
                         </div>
-                        <div className= "p">
+                        <div className= "vaLor">
                             R$ 3,50
                         </div>
                     </div>
@@ -174,7 +179,6 @@ export default function MinhasCompras (){
                         
                     </div>
                    
-             
                     <Rodape/>
         </Conteinercompras>
     )

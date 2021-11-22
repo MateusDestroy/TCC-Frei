@@ -6,14 +6,53 @@ import Cabecalho from '../../components/cabecalho/cabecalho'
 import Rodape from '../../components/rodape/rodape'
 import { useState } from 'react'
 import Model from '../../components/modal'
+import Api from '../../services/api'
+import { useEffect } from 'react'
+import BoxItem from './BoxRevisao'
+import Cookie from 'js-cookie'
 
-export default function Carrinho() {
+const api = new Api();
 
-    const [Exibir, setExibir] = useState(false)
+
+export default function Carrinho(props) {
+    const [endereco, SetEndereco] = useState([])   
+    const [exibirModal, setExibirModal] = useState({show: false});
+    const [Mostrar, setMostrar] = useState(false);
+    const [produtos, setProdutos] = useState([]);
+    
+
+
+
+
+useEffect(carregarCarrinho, []);
+
+
+
+    function carregarCarrinho() {
+    // Lê o Array de Produtos do Carrinho do Cookie.
+    // Se o Cookie estiver vazio, volta um Array vazio []
+    // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
+    let carrinho = Cookie.get('carrinho');
+    carrinho = carrinho !== undefined 
+                ? JSON.parse(carrinho) 
+                : [];
+
+            
+    // Atualiza a variável de Estado com o Conteúdo do Cookie
+    setProdutos(carrinho);
+    }
+    useEffect(() => { 
+        const listar = async() => {
+          const produtosr = await api.ListarEndereco(3);
+          SetEndereco(produtosr);
+        }
+        listar();
+      })
+
 
     return ( 
         <ContainerRevisao>
-            <Model show={Exibir} />
+            <Model options={exibirModal}/>
             <Cabecalho />
             <h1 style={{marginLeft: '70px'}}>  Finalização da Compra </h1>
             <Tiras/>
@@ -24,19 +63,21 @@ export default function Carrinho() {
             <div className="info"> 
             <div className="en-cabe">   
                 <h2> Endereço de Entrega </h2>
-                <button onClick={() => setExibir(true)}> <img src="./assets/imagens/plus_icon-icons.com_70890.svg" alt="" /> <h3>Novo Endereço</h3></button> 
+                <button onClick={() => setExibirModal({show: true})}> <img src="./assets/imagens/plus_icon-icons.com_70890.svg" alt="" /> <h3>Novo Endereço</h3></button> 
             </div>
                <div className="en-entrega">
-               <form>
-                    <div className="en-input">
-                        <input type="radio" id="age1" name="age" value="30" />
-                        <label>João Pedro Silva dos Santos   (+55) 1199999-9999 - R Rio do Vae, 700, Vila Mariana, São Paulo, São Paulo, 04018002</label> 
-                    </div>
-                    <div className="en-input">
-                        <input type="radio" id="age1" name="age" value="30" fill="red"/>
-                        <label>João Pedro Silva dos Santos   (+55) 1199999-9999 - R Rio do Vae, 700, Vila Mariana, São Paulo, São Paulo, 04018002</label> 
-                    </div>
-                </form>
+               
+
+                <form>
+                {endereco.map((item, i) =>
+                        <div className="en-input">
+                            <input type="radio" id="age1" name="age" value="30" />
+                            <label> {item.nm_nome}   (+55) 1199999-9999 - {item.ds_endereco}, {item.nr_numero}, {item.ds_cep}, {item.ds_cidade}</label> 
+                        </div>
+                     )} 
+                    
+                    </form>
+                
                 </div>
             </div>
             <div className="tabela"> 
@@ -48,15 +89,12 @@ export default function Carrinho() {
                   <th> Quantidade </th>
                   <th> Subtotal de itens</th>
               </thead>
-              <tbody>
-                  <tr>
-                      <td style={{width: '3%'}}> <img src="./assets/imagens/bolinho.png" alt="" width="90%" /> </td>
-                      <td>baguete de Queijo</td>
-                      <td>R$ 3,50</td>
-                      <td>3</td>  
-                      <td>R$ 3,50</td>
-                  </tr>
-              </tbody>
+              {produtos.map(item => 
+                    <BoxItem key={item.id} 
+                        info={item} 
+                       
+                        />
+                )}
             </div>
             <h1 style={{marginLeft: '3em'}}>Método de Pagamento</h1>    
             <div className="meto-paga">
@@ -83,7 +121,7 @@ export default function Carrinho() {
                 </div>
             </div>
             <div className="but">
-               <Link to="./status"> <button className="ff"> Fazer Pedidos</button> </Link>
+               <Link to="./Pagamento"> <button className="ff"> Fazer Pedidos</button> </Link>
             </div>
         <Rodape />
         </ContainerRevisao>

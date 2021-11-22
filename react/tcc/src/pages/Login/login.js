@@ -2,10 +2,32 @@
 
 import { ConteinerLogin } from "./styled"
 import { Link } from "react-router-dom"
+import { useState } from "react"
+import { useHistory } from "react-router"
+
+
+import Api from '../../services/api'
+import Cookie from "js-cookie"
+const api = new Api();
 
 
 export default function Login() {
+    const[ email, setEmail] = useState ('');
+    const[ senha, setSenha] = useState ('');
 
+    const paginas = useHistory();
+
+    const logar = async () => {
+        let r = await api.login(email, senha);
+        
+        if (r.erro) {
+            alert (`${r.erro}`)
+        } else {
+            Cookie.set('usuario-logado', JSON.stringify(r));
+            paginas.push('/')
+        }
+
+    }
     return (
         <ConteinerLogin>
             <div className = "ConteinerLogin">
@@ -16,11 +38,11 @@ export default function Login() {
                 </div>
 
                <div className = "inputs">
-                 <div className  = "email"> <input type = "email"  placeholder= "Digite seu email"/>  </div>
-                 <div className  = "senha"> <input type = "password" placeholder = "Digite sua senha"/></div>
+                 <div className  = "email"> <input type = "email"  value={email} onChange = {e => setEmail(e.target.value)}/>  </div>
+                 <div className  = "senha"> <input type = "password"value = {senha} onChange = {e => setSenha(e.target.value)}/></div>
                 </div>
 
-                 <div className = "botão"> <Link  to = "/home"> <button> Entrar </button>  </Link> </div>
+                 <div className = "botão" onClick={logar}>    <button> Entrar </button>  </div>
 
              <div className = "func-para-cadastro">
                  <div className = "Esqueceu"> Esqueci a senha <Link to = "/esqueceu"> <span> clique aqui </span></Link></div>
@@ -38,4 +60,3 @@ export default function Login() {
        
     )
 }
-

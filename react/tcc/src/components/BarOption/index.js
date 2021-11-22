@@ -6,30 +6,15 @@ import {ConteinerAdmBar} from "./styled"
 export default function ListaOpt() {
     return (
         <ConteinerAdmBar>
-            <div className = "conteinerBar">
-            <div className = "logo2"><img src = "./assets/imagens/logo1.png" alt = ""/> </div>
+           <div className = "bruninho">
+              <Link to="/CadastraProduto">      <div className= "Brun"> ADICIONAR PRODUTO      </div> </Link>
+              <Link  to="./Gerenciadorpt">       <div className= "Brun2"> GERENCIADOR DE PRODUTO </div> </Link>
+              <Link  to="/Navegação">    <div className= "Brun3"> PROCESSO DOS PEDIDOS   </div> </Link>
+                </div> 
+             
 
-            <div className = "espaço"> </div>
 
-
-            <div className = "botõesBar">
-             <div className = "botão1"> 
-                <div className = "barra"> </div>
-               <Link  to="/Navegação">  <div className = "gerenciamento"> Gerenciador de Produto </div> </Link>
-            </div>
-         
-            <div className = "botão1"> 
-                <div className = "barra"> </div>
-                <Link  to="./Gerenciadorpt">   <div className = "gerenciamento">Gerenciador de Pedidos  </div> </Link>
-            </div>
-
-            <div className = "botão1"> 
-                <div className = "barra"> </div>
-                <Link  to="./CadastraProduto">   <div className = "gerenciamento">Adicionar  Produtos  </div> </Link>
-            </div>
-            </div>  
-         </div>     
-
+                
         </ConteinerAdmBar>
 
     )

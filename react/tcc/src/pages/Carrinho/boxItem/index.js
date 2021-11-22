@@ -12,7 +12,7 @@ export default function Item(props) {
     
     
   function remover() {
-    props.onRemove(produto.id);
+    props.onRemove(produto.id_produto);
   
 }
 
@@ -27,28 +27,32 @@ export default function Item(props) {
 
 
   function multiplicar() {
-      setPreco(produto.valor * produto.qtd);
+      setPreco(produto.vl_valor * produto.qtd);
   }
 
 
+  
+
   useEffect(() => {
    multiplicar();
+   
   })
     return(
         <comtainersla>
-            
+           
         <tbody>
             <tr>
-                <td style={{width: '18%'}}><img src={produto.imagem} alt="" width="90%"/></td>
-                <td> {produto.nome} </td>
-                <td> R$: {produto.valor},00 </td>
+                <td style={{width: '12%'}}><img src={produto.img_produto} alt="" width="90%"/></td>
+                <td> {produto.nm_produto} </td>
+                <td> R$: {produto.vl_valor} </td>
                 <td> 
                     <div className="est-box">
                         <Contador onChange={alterarQtd} value={produto.qtd}/>
-                    </div> 
+                    </div>
                     <div className="lixeira"> <img src="./assets/imagens/lixeira.png" alt="" onClick={remover}/> </div>
+
                 </td>  
-                <td > R$: {preco},00</td>
+                <td className="h" > R$: {preco}</td>
             
             </tr>
         </tbody>

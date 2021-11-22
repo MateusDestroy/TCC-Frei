@@ -2,60 +2,63 @@ import styled from "styled-components";
 
 
 const ConteinerAdmBar = styled.div`
-height: 100vh;
-width: 12em;
-background-color:black;
-
-.logo2 img {
-    height: 8em;
-    width: 7em;
-}
-
-.logo2 {
-    padding-top: 9px;
-}
-
-.conteinerBar{
-display: flex;
-flex-direction: column;
-
-
-
-color: white
-}
-
-.espaço {
-    margin-top: 20px;
-    width: 12em;
-    height: 30px;
-    background-color: #383838;
-}
-
-.botõesBar{
+            width: 100vh;
+            
+.bruninho {
     display: flex;
-    flex-direction: column;
-    
-    color: black;
-}
 
-.botão1 {
-    display: flex;
-    flex-direction: row;
+    width: 140vh;
+    justify-content: space-around;
+    justify-content: center;
+    padding-top: 5%;
     align-items: center;
-    margin-top: 3em;
-    height: 3em;
-    background-color: white;
+    padding-top: 5em;
+    
+    
+}
+.Brun {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 22px;
+    margin: 0;
+    position: absolute;
+    left: 10%;
+    
+    
+    
+    
 }
 
-.gerenciamento {
-    padding-left: 4px;
+.Brun2 {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 22px;
+    margin: 0;
+    position: absolute;
+    left: 38%;
+    
 }
 
-.barra {
-    height: 48px;
-    width: 8px;
-    background-color: #0064FB;
+.Brun3 {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 22px;
+    margin: 0;
+    position: absolute;
+    left: 70%;
+    
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #2872FF;
+    
+}
+
 
 `
 

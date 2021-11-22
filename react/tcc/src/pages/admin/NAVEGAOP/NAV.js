@@ -10,7 +10,7 @@ export default function nav () {
                
                 <div className= "parte-02">
                     <div className= "titulo">
-                    GERENCIADOR DE PEDIDOS
+                   PROCESSO DE PEDIDOS
                     </div>
 
                     <table class ="table-user">

@@ -1,162 +1,91 @@
 import styled from "styled-components";
 
 
+const Container = styled.div`
+`
+
 const ConteinerCadastrar = styled.div`
 display: flex;
 flex-direction: column;
-background-color:#D2F6FF;
 height: 100vh;
+width: auto; 
+background-image: url("./assets/imagens/Background.svg");
+background-size: cover; 
+background-repeat: no-repeat; 
 
+.box {
+    background-color: rgba(0,0,0, 0.90);
+    margin-top: 1em;
+    margin-left: 4.5em;
 
-.conteinercadastro {
-display: flex;
-flex-direction: column;
-
+    margin-left: 7em;
+    padding: 3em 2em;
+    width: 70em;
+    border-radius: 14px;
 }
 .as {
-
-    position:absolute;
-    bottom:0;
-    width:100%;
-}
-
-.caixa1-inputs {
-    font-family: Gabriela;
-    display: flex;
-    flex-direction: column;
-}
-
-.isafoi, .ok {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-}
-
-.opa {
-    display: flex;
-    justify-content: space-between; 
-    margin-top: 0.9em;
-}
-
-.titulo {
-    font-family: Lobster;
-}
-
-.senha {
-    font-family: Gabriela;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-}
-.cidade {
-    font-family: Gabriela;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-}
-
-.complemento {
-    font-family: Gabriela;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-}
-
-.caixa2-inputs {
-    font-family: Gabriela;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-}
-
-.caixa3-inputs {
-    font-family: Lobster;
-
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
-}
-
-.Titulo {
-    
+    color: white;
     text-align: center;
-    font-family: Lobster;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 35px;
-    line-height: 62px;
-    
-    color: #000000;
+    font-size: 24px;
 }
-
-input {
+.box-cadas {
+    display: flex;
+    justify-content: space-between;
+    padding: 0em 5em 0em 5em;
+    align-self: center;
+}
+.name {
+    display: flex;
+    flex-direction: row;
+    
     align-items: center;
-    background: #FFFFFF;
-    opacity: 0.95;
-
-    border-radius: 30px;
+    margin-top: 2em;
+}
+.nome {
+    color: white;
+    margin-right: 10px;
+}
+.inputs > input, select  {
+    outline: black;
+    padding: 0em .5em;
+    width: 15em;
+    height: 2.4em;
     border: none;
+    border-radius: 12px;
 }
-
-.carolfoi {
-    display: flex;
-    flex-direction: row;
-    margin-top: 0.9em;
-}
-
 select {
+    width: 16em;
     text-align: center;
-    width: 12em;
 }
-
-
-.Botaomae {
+.pt {
+    margin-right: 4em;
+    margin-top: 2em;
     display: flex;
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9em;
+    justify-content: flex-end;
 }
-
-button {
+button {    
+    cursor: pointer;
+    margin-right: .8em;
     border: none;
-    font-family: Lobster;
-    padding: 10px;
-    margin: auto;
+    border-radius: 12px;
     width: 10em;
-    margin-top: 3em;
+    height: 2.3em;
+    font-size: 17px;
 }
-
-
-
-.botão1 > button {
-    background-color:#FF4949;
-    opacity: 0.75;
-    border-radius: 30px;
-    text-align: center;
-    font-family: Lobster;
+.ds{
+    background-color: #FF4949;
+    :hover {
+        background-color: #FF0707;
+        color: white;
+    }
 }
-
-.botão > button {
-    background-color:#1AF38B;
-    opacity: 0.75;
-    border-radius: 30px;
-    position: absolute;
+.js {
+    background-color: #1AF38B;
+    :hover {
+        background-color: #00B15C;
+        color: white;
+    }
 }
-
-
-
-.Botaomae {
-    display: flex;
-    flex-direction: column;
-}
-
-.Cancelar {
-    font-family: Lobster;
-}
-
-
-
 `
 
-export {ConteinerCadastrar}
+export {ConteinerCadastrar, Container}

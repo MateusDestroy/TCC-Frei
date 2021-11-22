@@ -5,11 +5,13 @@ import Rodape  from '../../components/rodape/rodape'
 import CarrinhoItem from './/boxItem/index'
 import Cookie from 'js-cookie'
 import { useState, useEffect } from "react"
-import { Link ,useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function Carrinho(props) {
     const [produtos, setProdutos] = useState([]);
+    const [total, setTotal] = useState(0);
 
+<<<<<<< HEAD
     const navegation = useHistory()
     const [total, setTotal] = useState(0);
     useEffect(carregarCarrinho, []);
@@ -24,54 +26,57 @@ export default function Carrinho(props) {
         t = Number(t.toFixed(2)); 
         setTotal(t)
     }
+=======
+>>>>>>> 3e6031d0c280e0c9ec1ba5daa74bf8840aa8f97b
+
 
  
 
-    useEffect(  function carregarCarrinho() {
+    useEffect(carregarCarrinho, []);
+
+    function atualizarTotal() {
         let carrinho = Cookie.get('carrinho');
-        carrinho = carrinho !== undefined
-            ? JSON.parse(carrinho)
-            : [];
-
-        if (carrinho.length === 0)
-            navegation.push('/CarrinhoVazio')
-
-
-        setProdutos(carrinho)
         
-    }
-, [ navegation ])  
-  
-    function carregarCarrinho() {
-      // Lê o Array de Produtos do Carrinho do Cookie.
-      // Se o Cookie estiver vazio, volta um Array vazio []
-      // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
-      let carrinho = Cookie.get('carrinho');
-      carrinho = carrinho !== undefined 
-                    ? JSON.parse(carrinho) 
-                     : [];
+        carrinho = carrinho != null
+                            ? JSON.parse(carrinho)
+                            : [];
 
-
-                     if (carrinho.length === 0)
-                     navegation.push('/carrinhoVazio')
-
-  
-      // Atualiza a variável de Estado com o Conteúdo do Cookie
-      setProdutos(carrinho);
+        let t = carrinho.reduce((prev,curr) => prev + curr.vl_valor * curr.qtd, 0);
+        t = Number(t.toFixed(2)); 
+        setTotal(t)
     }
 
+
+function carregarCarrinho() {
+    // Lê o Array de Produtos do Carrinho do Cookie.
+    // Se o Cookie estiver vazio, volta um Array vazio []
+    // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
+    let carrinho = Cookie.get('carrinho');
+    carrinho = carrinho !== undefined 
+                  ? JSON.parse(carrinho) 
+                  : [];
+
+             
+   atualizarTotal()
+    // Atualiza a variável de Estado com o Conteúdo do Cookie
+    setProdutos(carrinho);
+  }
+
     
+function removerProduto(id_produto) {
+    // Buscar todos os Itens do Carrinho DIFERENTES do produto que está sendo removido 
+    let carrinho = produtos.filter(item => item.id_produto !== id_produto);
     
-    function removerProduto(id) {
-        // Buscar todos os Itens do Carrinho DIFERENTES do produto que está sendo removido 
-        let carrinho = produtos.filter(item => item.id !== id);
-        
-        // Atualiza o Cookie
-        Cookie.set('carrinho', JSON.stringify(carrinho));
+    // Atualiza o Cookie
+    Cookie.set('carrinho', JSON.stringify(carrinho));
+
+    atualizarTotal();
+    // Atualiza a variável de estado
+    carregarCarrinho()
+    }
+
+  
     
-        // Atualiza a variável de estado
-        carregarCarrinho()
-        }
     
       function alterarProduto(id, qtd) {
         // Busca o Produto em questão no Carrinho e atualiza o campo de 'qtd'
@@ -80,6 +85,9 @@ export default function Carrinho(props) {
     
         // Atualiza o Cookie
         Cookie.set('carrinho', JSON.stringify(produtos));
+
+
+        atualizarTotal();
      }
 
 
@@ -91,14 +99,14 @@ export default function Carrinho(props) {
         <div className="titulo" style={{fontSize: '64px', marginLeft: '65px'}}> Meu Carrinho</div>
         <Tiras/>
         <div className="box-tabela"> 
-            <thead>
+        
+             <thead>
                 <th> </th>
                 <th> Produto </th>
                 <th> Preço </th>
                 <th className="f"> Quantidade </th>
                 <th> Total </th>
-            </thead>
-      
+             </thead>
                 {produtos.map(item => 
                     <CarrinhoItem key={item.id} 
                         info={item} 
@@ -116,7 +124,7 @@ export default function Carrinho(props) {
         <div className="precos"> 
             <div className="box-preco"> 
                 <div className="sb">Subtotal dos pedidos: </div>
-                <div className="pc"> {} </div>
+                <div className="pc"> {total} </div>
             </div>
             <div className="box-preco"> 
                 <div className="sb">Cupom de desconto:</div>
@@ -129,9 +137,14 @@ export default function Carrinho(props) {
         </div>
         <div className="botoes"> 
             <Link to="./Produtos"> <button> Continuar comprando </button> </Link> 
-            <Link to="./revisao"> <button>  Realizar pedido   </button> </Link> 
+            <Link to ={{
+            pathname: '/revisao',
+            state: props.info
+        }} > <button>  Realizar pedido   </button> </Link> 
         </div>
-        <Rodape />
-    </ ContainerCarrinho>
+        <div className="as">
+                <Rodape />
+            </div>
+                </ ContainerCarrinho>
     )
 }

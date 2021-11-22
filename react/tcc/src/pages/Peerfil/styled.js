@@ -3,6 +3,14 @@ import styled from 'styled-components'
 
 const ConteinerPerfils = styled.div`
  background-color: #D2F6FF;
+ height: 100vh;
+
+ .as{
+
+position:absolute;
+bottom:0;
+width:100%;
+}
 
  a {
      text-decoration: none;
@@ -94,7 +102,7 @@ align-items: center;
 
 
 .nascimento input {
-    width: 5em;
+    width: 15em;
     height: 1.5em;
     margin-left: 20px;
     text-align: center;
@@ -176,7 +184,7 @@ margin-bottom: 20px;
 background-color: rgba(255, 255, 255, 0.4);
 padding:  2em;   
 width: 35em;
-margin-top: 4em;
+margin-top: 0em;
 
 }
 

@@ -1,14 +1,41 @@
-Mateus - Produtos, Login e cadastrar 
+Mateus e João - API parte do usuario {
+    GET / Produto por Categoria (pronta)
+    GET / endereços por ID (pronta)
+    GET / do Pedido do usuario para Listar (Mateus)
+    GET/id do cliente (pronta)
+    GET / dos Produtos (pronta)
+    PUT / do Perfil (pronta)
 
-Bruno - Inicial, Sobre-nos, Status da Compra
-x
-João - carrinho  Completo, Meu Perfil
+    POST / dos pedidos (Pendente) 
+    GET / dos pedidos (Pendente) 
 
-Raul - Baixar Imagens, Fontes, fazer cabecalho e Rodapé
+}
+
+Bruno e Raul- Responsividade do site, arrumar todas telas de adm 
+
+Carol - (organizar api em camadas) (Pendente)
+Isa -  Dar inserts (pronta)
+
+** 09/11 até 00:00 **
+-----------------------------------------------
+Mateus - Atualizar o Banco (Andamento)
+
+João e  Raul - Atualizar o Caso de Uso  (Andamento)
+
+Carol - Atualizar o DER (Db Design) (Andamento)
+
+Bruno -   Arrumar as Imagens  (Andamento)
+
+Isa - Deixar o Figma igual o site e deixa (Andamento)
+
+Todos -  **Conectar Api com o React** {
+    Bruno e Raul - Tela de cadastro e Login (Vê o video do MonkChat se estiver duvida)
+    Mateus - Tela dos produto (com ajuda de todos)
+    Joao - Tela de Minha Conta
+}
+
+11/11 até até 18:00
+
+-----------------------------------------------------------------------------------
 
 
-** Cada um Mapear a rota das suas Paginas **
-
-
-
-models: colocar o nome da tabela para fazer innner joi

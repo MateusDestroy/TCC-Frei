@@ -33,8 +33,6 @@ import PerfilSen from './pages/Peerfil/senha'
 
 
 
-
-
 import Loginadm from './pages/admin/LOGINaDM/Admlo'
 import CadastraPro from './pages/admin/CadastroPro/index'
 import Navega from './pages/admin/NAVEGAOP/NAV'
@@ -53,8 +51,8 @@ export default function Routes () {
     return(
         <BrowserRouter>
           <Switch>
-              <Route path = '/' exact = {true} component = {Login} />
-              <Route path = '/home'  component = {Home} />
+              <Route path = '/' exact = {true} component = {Home} />
+              <Route path = '/login'  component = {Login} />
 
               <Route path = '/sobre' component = {Nos} />
               <Route path = '/esqueceu' component = {Esqueceu} />
@@ -104,10 +102,3 @@ export default function Routes () {
     )
     
 }
-
-
-
-
-
-
-   
