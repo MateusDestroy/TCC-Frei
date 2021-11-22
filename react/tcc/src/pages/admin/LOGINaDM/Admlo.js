@@ -13,6 +13,9 @@ export default function Loginadm () {
 
     const paginas = useHistory();
 
+
+    
+
     const logar = async () => {
         
         let r = await api.login(email, senha);

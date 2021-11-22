@@ -110,12 +110,12 @@ padding: 0px 12em 0px 5em;
 
 
 .tabela, .meto-paga {
-  margin: 2em 8em 0em 5em;
+  margin: 2em 1em 0em 5em;
 }
 
 thead {
 
-    width: 100vw;
+    width: 100%;
 
 }
 
@@ -128,16 +128,15 @@ Img {
 
 th {
     height: 61.93px;
-    text-align: center;
-    padding: .1em 5.5em;
-    color: #006BA1;
+    text-align: left;
+    padding: .1em 6em;
+    color: #6D6868;
     font-weight: 800;
-    
 } 
 td {
     text-align: center;
     height:  61.93px;
-    padding: 1.1em;
+    padding: 1em;
     color: #6D6868;
     font-weight: 600;
 }

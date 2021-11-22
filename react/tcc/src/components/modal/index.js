@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 import Api from '../../services/api'
 
+import axios from 'axios'
+
 const api = new Api();
 
 const Container = styled.div `
@@ -22,7 +24,8 @@ const Container = styled.div `
 
   .content {
     margin-top: -100px;
-    background-color: #fff;
+    background-color: #1AABF3;
+    opacity: 90%;
     padding: 1em;
     border-radius:27px;
   }
@@ -57,6 +60,7 @@ const Container = styled.div `
   }
 
   input {
+    padding: 5px;
     margin-top: 0em;
     outline: none;
   }
@@ -113,7 +117,15 @@ const Container = styled.div `
 export default function Model(props) {
 
 
+  
 
+  async function buscarCep() {
+    const resp = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+    setLoc(resp.data);
+  
+  }
+
+    const [loc, setLoc] = useState({});
     const [cep, SetCep] =useState('')
     const [endereco, SetEndereco] =useState('')
     const [numero, SetNumero] =useState('')
@@ -154,15 +166,15 @@ export default function Model(props) {
                 <div className="box1">
                     <div className="cep"> 
                         <div>CEP: </div>
-                        <input type="" value = {cep} onChange = {e => SetCep (e.target.value)}/>
+                        <input type="" value = {cep} onChange = {e => SetCep(e.target.value)} onBlur={buscarCep}/>
                     </div>
                     <div className="descricao"> 
                         <div>Endereço:</div>
-                        <input type="" value = {endereco} onChange = {e => SetEndereco (e.target.value)}/>
+                        <input type=""  value={loc.logradouro + ", " + loc.bairro}  onChange = {e => SetEndereco(e.target.value)}/>
                     </div>
                     <div className="cida"> 
                         <div>Cidade:</div>
-                        <input type="" value = {cidade} onChange = {e => SetCidade (e.target.value)}/>
+                        <input type="" value={loc.localidade} onChange = {e => SetCidade(e.target.value)}/>
                     </div>
                 </div>
                 <div className="box2">

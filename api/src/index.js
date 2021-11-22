@@ -138,9 +138,14 @@ app.post('/cadastarcliente', async (req, resp) => {
 
 
 
-app.get('/endereco', async (req, resp) => {
+app.get('/endereco/:id', async (req, resp) => {
     try {
-        let users = await db.infoa_sti_endereco.findAll()
+        let users = await db.infoa_sti_endereco.findAll({
+            where: {
+                id_cliente : req.params.id
+            } 
+        }
+        )
 
         resp.send(users)
         
@@ -253,6 +258,27 @@ app.post('/login', async (req, resp) => {
 
     resp.sendStatus(200);
 });
+
+
+// app.post('/loginADM', async (req, resp) => {
+
+
+//     let login = req.body;
+//     let d = ds_email === 'jh@gmail'  
+//    let x = ds_senha === '2213213'
+
+//     let p = await db.infoa_sti_cliente.findOne({
+//         where: {
+//             ds_email: d.email,
+//             ds_senha: x.senha
+//         }
+//     })
+     
+//     return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
+
+//     resp.sendStatus(200);
+// });
+
 
 
 

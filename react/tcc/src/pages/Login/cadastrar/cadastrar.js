@@ -21,7 +21,7 @@ export default function Cadastrar() {
     const[ senha, setSenha] = useState ('');
     const[sexo, setSexo] = useState ('');
     const[ cep , setcep] = useState('');
-    const[ endereco , setendereco] = useState('');
+    const[ endereco , Setendereco] = useState('');
     const[ numero , setnumero] = useState('');
     const[ complemento , setcomplemento] = useState('');
     const[ cidade , setcidade] = useState('');
@@ -54,17 +54,16 @@ export default function Cadastrar() {
     setSenha ('')
     setSexo ('')
     setcep ('')
-    setendereco ('')
+    Setendereco ('')
     setnumero ('')
     setcomplemento ('')
     setcidade ('')
-    setLoc ('');
     }
  
 
 const inserir = async () => {
-    if (nome === '' || sobrenome === ''|| telefone === ''|| cpf === ''|| nascimento === ''|| sexo === ''|| email === ''|| senha === ''|| cep === ''|| endereco === ''|| numero === '' || cidade === '')
-        alert ('campo nulo')
+    if (nome === '' || sobrenome === ''|| telefone === ''|| cpf === ''|| nascimento === ''|| sexo === ''|| email === ''|| senha === ''|| cep === ''|| numero === '')
+        alert ('Todos Campos tem quer ser Preenchido. Exceto (Complemento)')
         else {
             let r = await api.CadastarCliente(nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade );
             alert ('agr foi')
@@ -132,7 +131,7 @@ const inserir = async () => {
                 </div>
                 <div className="name"> 
                     <div className="nome"> Endereço: </div>
-                    <div className="inputs"> <input type=""value={loc.logradouro + ", " + loc.bairro}  onChange = {e => setendereco(e.target.value)}/> </div>
+                    <div className="inputs"> <input type="" value={loc.logradouro + ", " + loc.bairro}  onChange = {e => Setendereco(e.target.value)}/> </div>
                 </div> 
            </div>
 
