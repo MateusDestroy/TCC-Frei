@@ -8,10 +8,15 @@ import Cabecalho from '../../components/cabecalho/cabecalho'
 import Api from '../../services/api';
 import Rodape from '../../components/rodape/rodape'
 import { useState, useEffect } from 'react';
+import Cookie from 'js-cookie';
+
+import { useHistory } from "react-router"
+
 
 const api = new Api();
 
 export default function Perfil() {
+    const pagina = useHistory();
 
     const [nome, SetNome] = useState('');
     const [sexo, SetSexo] = useState('');
@@ -23,28 +28,41 @@ export default function Perfil() {
 
 
 
+
     async function Alterar() {
         await api.AlterarCadastro(3,  nome, sexo, nascimento, email);
         alert('Cliente alterado, Com Sucesso!');
 
     }
 
-
-
+    function lerUsuarioQuelogou() {
+        let logado = Cookie.get('usuario-logado');
     
+        if (logado === undefined) {
+            alert('Você deve estar logado para acessar essa página');
+            pagina.push('/')
+        } else {
+            let usuarioLogado = JSON.parse(logado);
+            alert('si fudeu')
+            return  usuarioLogado
+        }
+    }
 
-    
+    const acho = async() => {
+        let cookie = JSON.parse( Cookie.get('usuario-logado') )
 
+        const produtosr = await api.ListarUsuario(cookie.id);
+        SetTudo(produtosr);
+      }
+      console.log(acho)
+ 
     
 useEffect(() => { 
-    const listar = async() => {
-      const produtosr = await api.ListarUsuario(3);
-      SetTudo(produtosr);
-    }
-    listar();
+    lerUsuarioQuelogou();
+    acho();
   })
 
-
+ 
     return(
 
         <ConteinerPerfils>

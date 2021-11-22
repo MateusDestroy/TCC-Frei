@@ -56,7 +56,7 @@ confirmAlert({
 
     useEffect(() => { 
         const listar = async() => {
-          const produtosr = await api.ListarEnderecoPerfil(3);
+          const produtosr = await api.ListarEnderecoPerfil(58);
           SetEndereco(produtosr);
         }
         listar();

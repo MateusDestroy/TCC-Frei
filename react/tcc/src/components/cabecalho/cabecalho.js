@@ -4,9 +4,16 @@ import Pesquisa from "./Pesquisa/styled"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 
+import { useHistory } from "react-router"
+
+
+import Cookie from "js-cookie"
+
 export default function Cabecalho() {
 
     const [Pes, setPes] = useState(false);
+    
+    const paginas = useHistory();
 
 
 async function a() {
@@ -24,7 +31,7 @@ async function a() {
                 <div className = "conteudo">
                     <div className = "sobre"> <Link to = "/sobre"> SOBRE NÓS </Link> </div>
 
-                    <div className = "inicial"> <Link to = "/home"> HOME </Link> </div>
+                    <div className = "inicial"> <Link to = "/"> HOME </Link> </div>
 
                     <div className = "menu"> <Link to = "/produtos">  MENU </Link></div> 
 
@@ -43,7 +50,15 @@ async function a() {
                             <div className="bord"> </div>
                             <Link to = "./Compras"> <div className="names"> Meus Pedidos</div> </Link>
                             <div className="bord"> </div>
-                            <Link to = "/"> <div className="names"> Sair </div> </Link>
+                             <div className="names"  onClick={ () => {
+                                    if( Cookie !== undefined ){
+                                        Cookie.remove('usuario-logado')
+                                        paginas.push('/login')
+                                    }
+                                    paginas.push('/login')
+                                        
+                            }
+                        }> { Cookie.get('usuario-logado') === undefined ? 'Entrar'  : 'Sair' } </div> 
                             <div className="bord"> </div>
                         </div>            
                     </Tristeza>

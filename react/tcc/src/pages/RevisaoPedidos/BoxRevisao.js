@@ -35,7 +35,7 @@ import { useState } from "react"
             <comtainersla>
                
             <tbody>
-                <tr className="Img">
+                <tr>
                 <td style={{width: '12%'}}><img src={produto.img_produto} alt="" width="90%"/></td>         
                 <td>  {produto.nm_produto} </td>
                     <td> R$: {produto.vl_valor} </td>

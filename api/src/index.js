@@ -6,11 +6,55 @@ import cors from 'cors';
 
 
 
+
+import Sequelize from "sequelize";
+const { Op} = Sequelize;
+
 const app = new express();
 app.use(cors());
 app.use(express.json());
 
 
+
+
+app.post('/compras', async (req, resp) => {
+
+    try {
+
+        let r = req.body;
+
+
+    const venda = await db.infoa_sti_venda.create({
+            ds_codigo: Math.floor(Math.random() * 1200000000),
+            ds_forma_pagamento: r.pagamento,
+            ds_situacao: r.situacao
+
+    });
+
+    const produtoUsu = await db.infoa_sti_produto.findAll({
+        where: {
+            'nm_produto': { [Op.in]: Object.keys(r.produtos) }
+        }
+    })
+
+
+    for (let produto of produtoUsu) {
+    
+        const CompraItem  = await db.infoa_sti_venda_item.create({
+            id_produto: produto.id_produto,
+            id_venda: venda.id_venda,
+            qtd_produto: r.produtos[produto.nm_produto],
+        })
+
+       }
+
+        resp.send(r)
+    }
+    catch(e) {
+        resp.send({ erro: e.toString() });
+    }
+
+} )
 
 
 /*/
@@ -94,9 +138,14 @@ app.post('/cadastarcliente', async (req, resp) => {
 
 
 
-app.get('/endereco', async (req, resp) => {
+app.get('/endereco/:id', async (req, resp) => {
     try {
-        let users = await db.infoa_sti_endereco.findAll()
+        let users = await db.infoa_sti_endereco.findAll({
+            where: {
+                id_cliente : req.params.id
+            } 
+        }
+        )
 
         resp.send(users)
         
@@ -209,6 +258,27 @@ app.post('/login', async (req, resp) => {
 
     resp.sendStatus(200);
 });
+
+
+// app.post('/loginADM', async (req, resp) => {
+
+
+//     let login = req.body;
+//     let d = ds_email === 'jh@gmail'  
+//    let x = ds_senha === '2213213'
+
+//     let p = await db.infoa_sti_cliente.findOne({
+//         where: {
+//             ds_email: d.email,
+//             ds_senha: x.senha
+//         }
+//     })
+     
+//     return resp.send({erro: 'O email ou senha do usuário inserido não pertence a uma conta.'});
+
+//     resp.sendStatus(200);
+// });
+
 
 
 
@@ -368,6 +438,18 @@ app.post('/pedidos', async (req, resp) => {
 app.get('/produto/:id', async (req, resp) =>{
     let r = await db.infoa_sti_produto.findAll({ where: {id_categoria: req.params.id}});
     resp.send(r);
+});
+
+app.delete('/produto/:id', async (req, resp) => {
+    try {
+        let { id } = req.params;
+
+        let r = await db.tb_produto.destroy({where: {id_produto: req.params.id }})
+        resp.sendStatus(200);
+    } catch (e) {
+        resp.send({ erro: e.toString ()})
+    
+    }
 })
 
 

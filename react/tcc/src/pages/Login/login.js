@@ -18,16 +18,13 @@ export default function Login() {
     const paginas = useHistory();
 
     const logar = async () => {
-        let logarr = Cookie.get('logarr');
-        logarr = logarr !== undefined 
-                  ? JSON.parse(logarr) 
-                  : [];
         let r = await api.login(email, senha);
         
         if (r.erro) {
             alert (`${r.erro}`)
         } else {
-            paginas.push('/home')
+            Cookie.set('usuario-logado', JSON.stringify(r));
+            paginas.push('/')
         }
 
     }

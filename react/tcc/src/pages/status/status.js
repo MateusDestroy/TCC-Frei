@@ -5,6 +5,7 @@ import Roda from '../../components/rodape/rodape'
 import { Link } from "react-router-dom"
 import { useState } from 'react'
 import { useEffect } from 'react'
+import Cookie from 'js-cookie'
 
 
 export default function Status () {
@@ -12,15 +13,6 @@ export default function Status () {
     const [codigo, setCodigo] = useState('')
     
 
-    function getCurrentTime() {
-        setCodigo(Math.floor(Math.random() * 1200000000));
-    }
-
-
-    
-    useEffect(() => {
-        getCurrentTime();      
-      }, [])
     
     return (
         <Conteinerstatus>

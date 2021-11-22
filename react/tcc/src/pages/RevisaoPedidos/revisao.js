@@ -9,17 +9,38 @@ import { useState, useEffect } from 'react'
 import BoxItem from './BoxRevisao'
 import Cookie from 'js-cookie'
 
-
+import { useHistory } from 'react-router'
+import styled from 'styled-components'
 
 
 export default function Revisao(props) {
+    const nave = useHistory()
+
+    let usuarioLogado = lerUsuarioQuelogou() || {}
     const [endereco, SetEndereco] = useState([])   
-    const [exibirModal, setExibirModal] = useState({show: false});
+    const [opcao, setOpcao] = useState('');
     const [Mostrar, setMostrar] = useState(false);
     const [produtos, setProdutos] = useState([]);
     
 
+    
+    function lerUsuarioQuelogou() {
+        let logado = Cookie.get('usuario-logado');
 
+        if (logado === undefined) {
+            alert('Você deve estar logado para acessar essa página');
+            nave.push('/Carrinho')
+
+        } else {
+            let usuarioLogado = JSON.parse(logado);
+            return usuarioLogado;
+        }
+    }
+
+    
+    useEffect(() => {
+                  
+      })
 
 
 useEffect(carregarCarrinho, []);
@@ -43,15 +64,31 @@ function carregarCarrinho() {
  
     
 
+  function get(c) {
+      if (opcao === c)
+      return {
+        backgroundColor: '#1AABF3', border: '2px solid #1AABF3', opacity: '80%'
+    }
+    
+     else 
+     return {}
+
+  }
+
     async function listar() {
-        setMostrar(true)  
-        onclick="select"
-    }
+            setMostrar(true)  
+            onclick="select"
+ }
 
-    async function remover(){
-        setMostrar(false)
-    }
+    function vaio() {
+        if (opcao === 'pix') {
+            nave.push('/Pagamento')
+        }
 
+        else {
+            nave.push('/status')
+        }
+    }
 
     return ( 
 
@@ -94,9 +131,9 @@ function carregarCarrinho() {
             </div>
             <h1 style={{marginLeft: '3em'}}>Método de Pagamento</h1>    
             <div className="meto-paga">
-                <div className="pix"  type="radio" style={{marginLeft: '1em', alignItems: 'center'}}> <img src="./assets/imagens/logo-pix-icone-512 10.png" alt="" width="30%"/> <div style={{marginLeft: '.8em'}}> PIX </div> </div>
-                <div className="din"  onClick={remover} style={{marginLeft: '3em', alignItems: 'center'}}> <img src="./assets/imagens/dinheiro.png" alt="" width="58%"/> <div> Dinheiro </div> </div>
-                <div className="car" style={{marginLeft: '3em'}} onClick={listar}> <img src="./assets/imagens/kisspng-e-commerce-payment-system-credit-card-debit-card-5bf9cb52d627b6 2.svg" alt=""  /> <div>   Cartão de Crédito</div> </div>
+                <div className="pix" onClick={() => setOpcao('pix')} style ={get('pix')}> <img src="./assets/imagens/logo-pix-icone-512 10.png" alt="" width="30%"/> <div style={{marginLeft: '.8em'}}> PIX </div> </div>
+                <div className="din"  onClick={() =>  setOpcao('dinheiro')} style ={get('dinheiro')}> <img src="./assets/imagens/dinheiro.png" alt="" width="58%"/> <div> Dinheiro </div> </div>
+                <div className="car" onClick={listar}> <img src="./assets/imagens/kisspng-e-commerce-payment-system-credit-card-debit-card-5bf9cb52d627b6 2.svg" alt=""  /> <div>   Cartão de Crédito</div> </div>
             </div> 
             <div className="bandeiras">
                      
@@ -122,8 +159,8 @@ function carregarCarrinho() {
                 </div>
             </div>
                 
-            <div className="but" >
-            <Link to="./Pagamento"> <button className="ff"> Fazer Pedidos</button> </Link>
+            <div className="but" onClick={vaio} >
+             <button className="ff"> Fazer Pedidos</button> 
             </div>
         <Rodape />
         </ContainerRevisao>
