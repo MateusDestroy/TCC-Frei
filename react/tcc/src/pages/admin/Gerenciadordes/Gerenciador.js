@@ -46,14 +46,13 @@ export default function gerecniador () {
             
                     <tbody>
                        <tr>
-                            <td>   </td>
                             <td> </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td > 
-                                   </td>
-                            <td>  </td>
-                            <td>  </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td ></td>
+                            <td> </td>
+                            <td> </td>
                             <td> <img src="./assets/imagens/pngegg (5).png" width="50" alt="" />
                             <img src="./assets/imagens/pngegg (6).png" width="50" alt="" />  </td>
                             
@@ -62,23 +61,7 @@ export default function gerecniador () {
                         </tr>
 
                     
-                    
-
-                    
-                        <tr >
-                        <td>  </td>
-                            <td> </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td > 
-                                   </td>
-                            <td>  </td>
-                            <td>  </td>
-                            <td>  </td>
-                            
-                            
-                           
-                        </tr>
+                
 
                         
                     </tbody> 
