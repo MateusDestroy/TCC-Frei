@@ -31,9 +31,7 @@ async function CadastraProduto() {
     setSabor(r)
 }
 
-useEffect(() => {
-   CadastraProduto();
-  }, )
+
     
     return(
   

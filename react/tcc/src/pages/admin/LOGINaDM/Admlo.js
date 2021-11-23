@@ -21,7 +21,8 @@ export default function Loginadm () {
         let r = await api.login(email, senha);
         if (r.erro) {
             alert (`${r.erro}`)
-        } else {
+        }
+         else {
             paginas.push('/CadastraProduto')
         }
     }
