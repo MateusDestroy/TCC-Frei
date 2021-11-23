@@ -108,8 +108,8 @@ span {
 }
 `
 
-<<<<<<< HEAD
+
 export {Conteinernovasenha}
-=======
-export {Conteinernovasenha}
->>>>>>> 3e6031d0c280e0c9ec1ba5daa74bf8840aa8f97b
+
+
+

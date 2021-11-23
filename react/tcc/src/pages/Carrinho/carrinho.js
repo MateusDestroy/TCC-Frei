@@ -8,12 +8,11 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
 export default function Carrinho(props) {
+
+    const navegation = useHistory()
     const [produtos, setProdutos] = useState([]);
     const [total, setTotal] = useState(0);
 
-<<<<<<< HEAD
-    const navegation = useHistory()
-    const [total, setTotal] = useState(0);
     useEffect(carregarCarrinho, []);
 
     function atualizarTotal() {
@@ -26,8 +25,17 @@ export default function Carrinho(props) {
         t = Number(t.toFixed(2)); 
         setTotal(t)
     }
-=======
->>>>>>> 3e6031d0c280e0c9ec1ba5daa74bf8840aa8f97b
+
+    function carregarCarrinho() {
+        let carrinho = Cookie.get('carrinho');
+        carrinho = carrinho != null
+                            ? JSON.parse(carrinho)
+                            : [];
+
+        atualizarTotal();
+        setProdutos(carrinho);
+    }
+
 
 
  
