@@ -7,7 +7,7 @@ import Cookie from 'js-cookie'
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
-export default function Carrinho(props) {
+export default function Carrinho(props ) {
 
     const navegation = useHistory()
     const [produtos, setProdutos] = useState([]);
