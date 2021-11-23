@@ -10,17 +10,12 @@ import Rodape from '../../components/rodape/rodape'
 import { useState, useEffect } from 'react';
 import Cookie from 'js-cookie';
 
-import { useHistory } from "react-router"
-import Cookies from 'js-cookie';
-
+import { useHistory } from 'react-router';
 
 const api = new Api();
 
 export default function Perfil() {
-    const pagina = useHistory();
-
-    let logado = Cookie.get('usuario-logado')
-    let usuariologado = JSON.parse(logado)
+    const nave = useHistory()
 
 
     const [nome, SetNome] = useState('');
@@ -28,11 +23,27 @@ export default function Perfil() {
     const [nascimento, SetNascimento] = useState('');
     const [email, SetEmail] = useState('');
     const [tudo, SetTudo] = useState ([]);
-    const [idAlterando, setIdAlterando] = useState(82);
 
 
 
 
+    function lerUsuarioQuelogou() {
+        let logado = Cookie.get('usuario-logado');
+
+        if (logado === undefined) {
+            alert('Você deve estar logado para acessar essa página');
+            nave.push('/')
+
+        } else {
+            let usuarioLogado = JSON.parse(logado);
+            return usuarioLogado;
+        }
+    }
+
+    
+    useEffect(() => {
+                  lerUsuarioQuelogou()
+      })
 
 
 
@@ -55,7 +66,7 @@ export default function Perfil() {
     // }
 
     const listar = async () => {
-        let r = await api.ListarUsuario(idAlterando);
+        let r = await api.ListarUsuario(82);
         SetTudo(r);
         console.log(r)
     }
@@ -85,7 +96,7 @@ useEffect(() => {
                 </div>
                 <div className="tab"> 
                     <div className="per-form"> 
-                        <div className="nomes"  style={{marginLeft: '1.4em'}}> <h4>Nome de Usuário:</h4> <input ttype="text" name="username" value={tudo.nm_cliente} />   </div>
+                        <div className="nomes"  style={{marginLeft: '1.4em'}}> <h4>Nome de Usuário:</h4> <input ttype="text" name="username" value={tudo.nm_cliente} onChange={e => SetNome(e.target.value)}/>   </div>
                         <div className="nomes" style={{marginLeft: '6.6em'}}> <h4 >Email:</h4> <input ype="email" id="email" name="email" placeholder={tudo.ds_email} onChange={e => SetEmail(e.target.value)}/> </div>
                         <div className="nomes"> <h4> Número de Telefone: </h4> <input  type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder={tudo.ds_telefone}/> </div>
                         <div className="genero"  style={{marginLeft: '7.4em'}}> <h4> Sexo: </h4>                         

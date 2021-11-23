@@ -3,14 +3,11 @@ import Cabe from '../../components/cabecalho/cabecalho'
 import Roda from '../../components/rodape/rodape' 
 
 import { Link } from "react-router-dom"
-import { useState } from 'react'
-import { useEffect } from 'react'
-import Cookie from 'js-cookie'
+
 
 
 export default function Status () {
 
-    const [codigo, setCodigo] = useState('')
     
 
     
@@ -57,7 +54,7 @@ export default function Status () {
                             </div> 
                             
                             <div className ="numero">
-                            Nº do Pedido: {codigo}
+                            Nº do Pedido: 767867655
             
                             </div> 
                         </div>

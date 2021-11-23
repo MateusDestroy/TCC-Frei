@@ -10,14 +10,12 @@ import BoxItem from './BoxRevisao'
 import Cookie from 'js-cookie'
 
 import { useHistory } from 'react-router'
-import styled from 'styled-components'
 
 
 export default function Revisao(props) {
     const nave = useHistory()
 
-    let usuarioLogado = lerUsuarioQuelogou() || {}
-    const [endereco, SetEndereco] = useState([])   
+
     const [opcao, setOpcao] = useState('');
     const [Mostrar, setMostrar] = useState(false);
     const [produtos, setProdutos] = useState([]);
@@ -39,7 +37,7 @@ export default function Revisao(props) {
 
     
     useEffect(() => {
-                  
+                  lerUsuarioQuelogou()
       })
 
 

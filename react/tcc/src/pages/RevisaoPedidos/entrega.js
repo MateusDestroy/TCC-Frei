@@ -11,7 +11,6 @@ import { useEffect } from 'react'
 import BoxItem from './BoxRevisao'
 import Cookie from 'js-cookie'
 
-import { useHistory } from 'react-router-dom'
 
 
 const api = new Api();
@@ -21,21 +20,20 @@ export default function Carrinho(props) {
 
 
 
-    let usuarioLogado = lerUsuarioQuelogou() || {}
+     
 
 
-    let navigation = useHistory();    
 
 
     const [endereco, SetEndereco] = useState([])   
     const [exibirModal, setExibirModal] = useState({show: false});
-    const [Mostrar, setMostrar] = useState(false);
     const [produtos, setProdutos] = useState([]);
-    const [usu, setUsu] = useState(usuarioLogado.ds_email);
  
     
-
+    
     function lerUsuarioQuelogou(navigation) {
+     
+     
         let logado = Cookie.get('usuario-logado');
     
         if (logado === undefined) {
@@ -48,8 +46,8 @@ export default function Carrinho(props) {
         }
     }
 
+    useEffect(lerUsuarioQuelogou);
 
-    
     
 
 useEffect(carregarCarrinho, []);
@@ -81,6 +79,7 @@ useEffect(carregarCarrinho, []);
     return ( 
         <ContainerRevisao>
             <Model options={exibirModal}/>
+
             <Cabecalho />
             <h1 style={{marginLeft: '70px'}}>  Finalização da Compra </h1>
             <Tiras/>
@@ -109,7 +108,7 @@ useEffect(carregarCarrinho, []);
                 </div>
             </div>
             <div className="tabela"> 
-            <h1 value={usu}> {usuarioLogado.ds_email}  </h1>
+            <h1> Produtos Pedidos </h1>
             <thead>
                   <th>   </th>
                   <th> Produto </th>

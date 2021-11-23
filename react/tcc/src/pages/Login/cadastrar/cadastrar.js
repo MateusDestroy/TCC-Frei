@@ -1,5 +1,4 @@
 import {ConteinerCadastrar, Container} from './styled'
-import axios from 'axios'
 
 import InputMask from 'react-input-mask';
 import Rodape from '../../../components/rodape/rodape'
@@ -26,19 +25,18 @@ export default function Cadastrar() {
     const[ numero , setnumero] = useState('');
     const[ complemento , setcomplemento] = useState('');
     const[ cidade , setcidade] = useState('');
-    const [loc, setLoc] = useState({});
 
     const paginas = useHistory();
 
 
 
 
-    async function buscarCep() {
-        const resp = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-        setLoc(resp.data);
+    // async function buscarCep() {
+    //     const resp = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+    //     setLoc(resp.data);
       
     
-    }
+    // }
 
 
       
@@ -67,8 +65,8 @@ const inserir = async () => {
         alert ('Todos Campos tem quer ser Preenchido. Exceto (Complemento)')
     
         else {
-            let r = await api.CadastarCliente(nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade );
-{
+             await api.CadastarCliente(nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade );
+            {
     let r = await api.login(email, senha);
         
         if (r.erro) {
@@ -137,7 +135,7 @@ const inserir = async () => {
            <div className="box-cadas"> 
                 <div className="name">
                     <div className="nome"    style={{marginLeft:'33px'}}> CEP: </div>
-                    <div className="inputs"> <InputMask mask="99999-999"   value={cep}  onChange = {e => setcep(e.target.value)} onBlur={buscarCep}  />  </div>
+                    <div className="inputs"> <InputMask mask="99999-999"   value={cep}  onChange = {e => setcep(e.target.value)}  />  </div>
                 </div>
                 <div className="name"> 
                     <div className="nome"> Endereço: </div>

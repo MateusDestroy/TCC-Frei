@@ -14,7 +14,21 @@ export default function Carrinho(props ) {
     const [produtos, setProdutos] = useState([]);
     const [total, setTotal] = useState(0);
 
-    useEffect(carregarCarrinho, []);
+    useEffect(
+        function carregarCarrinho() {
+            let carrinho = Cookie.get('carrinho');
+            carrinho = carrinho != null
+                                ? JSON.parse(carrinho)
+                                : [];
+    
+            setProdutos(carrinho);
+        
+            if (carrinho.length === 0)
+            navegation.push('/carrinhoVazio')
+    
+        }, [navegation]
+     );
+
 
     function atualizarTotal() {
         let carrinho = Cookie.get('carrinho');
@@ -22,8 +36,8 @@ export default function Carrinho(props ) {
                             ? JSON.parse(carrinho)
                             : [];
 
-        let t = carrinho.reduce((prev,curr) => prev + curr.vl_preco * curr.qtd, 0);
-        t = Number(t.toFixed(2)); 
+                            let t = carrinho.reduce((prev,curr) => prev + curr.vl_valor * curr.qtd, 0);
+                            t = Number(t.toFixed(2)); 
         setTotal(t)
     }
 
@@ -35,7 +49,12 @@ export default function Carrinho(props ) {
 
         atualizarTotal();
         setProdutos(carrinho);
+    
+        if (carrinho.length === 0)
+        navegation.push('/carrinhoVazio')
+
     }
+
 
 
 
@@ -67,7 +86,7 @@ function removerProduto(id_produto) {
         atualizarTotal();
      }
 
-
+ 
     
      
     return (

@@ -1,4 +1,3 @@
-import Cookie from "js-cookie";
 import { useEffect } from "react";
 import { useState } from "react"
 
@@ -30,6 +29,8 @@ import { useState } from "react"
         useEffect(() => {
             multiplicar();
             
+
+            
            })
         return(
             <comtainersla>
@@ -40,7 +41,7 @@ import { useState } from "react"
                 <td>  {produto.nm_produto} </td>
                     <td> R$: {produto.vl_valor} </td>
                     <td>  {produto.qtd}</td>
-                    <td> R$ {preco} </td>
+                    <td> R$ {preco} {setProduto}</td>
                                       
                 </tr>
             </tbody>

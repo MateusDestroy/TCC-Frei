@@ -4,10 +4,6 @@ import Cabecalho from '../../components/cabecalho/cabecalho'
 import Rodape  from '../../components/rodape/rodape'
 import { Link } from 'react-router-dom'
 
-const cookieParser = require('js-cookie')
-
-
-
 
 export default function Inicial () {
 
