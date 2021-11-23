@@ -4,7 +4,7 @@ import Cabecalho from '../../components/cabecalho/cabecalho'
 import Rodape  from '../../components/rodape/rodape'
 import CarrinhoItem from './/boxItem/index'
 import Cookie from 'js-cookie'
-import { useState, useEffect, useHistory } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
 import { useHistory } from 'react-router'

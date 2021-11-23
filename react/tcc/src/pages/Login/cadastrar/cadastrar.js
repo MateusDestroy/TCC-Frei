@@ -141,14 +141,14 @@ const inserir = async () => {
                 </div>
                 <div className="name"> 
                     <div className="nome"> Endereço: </div>
-                    <div className="inputs"> <input type="" value={loc.logradouro + ", " + loc.bairro}  onChange = {e => Setendereco(e.target.value)}/> </div>
+                    <div className="inputs"> <input type="" value={endereco}  onChange = {e => Setendereco(e.target.value)}/> </div>
                 </div> 
            </div>
 
            <div className="box-cadas" > 
                 <div className="name"   style={{marginLeft:'49px'}}>
                     <div className="nome"> Cidade: </div>
-                    <div className="inputs"> <input type="" value={loc.localidade} onChange = {e => setcidade(e.target.value)} />  </div>
+                    <div className="inputs"> <InputMask mask="" value={cidade} onChange = {e => setcidade(e.target.value)} />  </div>
                 </div>
                 <div className="name"> 
                     <div className="nome"> Número:  </div>

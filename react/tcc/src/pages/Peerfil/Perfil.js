@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import Cookie from 'js-cookie';
 
 import { useHistory } from "react-router"
+import Cookies from 'js-cookie';
 
 
 const api = new Api();
@@ -27,7 +28,7 @@ export default function Perfil() {
     const [nascimento, SetNascimento] = useState('');
     const [email, SetEmail] = useState('');
     const [tudo, SetTudo] = useState ([]);
-    const [idAlterando, setIdAlterando] = useState(usuariologado.id_cliente);
+    const [idAlterando, setIdAlterando] = useState(82);
 
 
 
@@ -54,7 +55,7 @@ export default function Perfil() {
     // }
 
     const listar = async () => {
-        let r = await api.ListarUsuario(usuariologado.id_cliente);
+        let r = await api.ListarUsuario(idAlterando);
         SetTudo(r);
         console.log(r)
     }

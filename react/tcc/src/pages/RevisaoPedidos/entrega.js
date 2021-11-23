@@ -71,7 +71,7 @@ useEffect(carregarCarrinho, []);
     }
     useEffect(() => { 
         const listar = async() => {
-          const produtosr = await api.ListarEndereco(usuarioLogado.id_cliente);
+          const produtosr = await api.ListarEndereco(82);
           SetEndereco(produtosr);
         }
         listar();
