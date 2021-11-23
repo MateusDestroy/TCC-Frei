@@ -179,7 +179,7 @@ app.get('/endereco-usuario/:id', async (req, resp) => {
 
 
 
-app.get('/clientes', async (req, resp) => {
+app.get('/clientesss', async (req, resp) => {
     try {
         let users = await db.infoa_sti_cliente.findAll()
 
@@ -199,6 +199,8 @@ app.get('/clientes/:id', async (req, resp) => {
 
 
 app.get('/clientes/:id', async (req, resp) => {
+
+    
     let r = await db.infoa_sti_cliente.findOne({ where: { id_cliente: req.params.id}});
     resp.send(r);
 });
