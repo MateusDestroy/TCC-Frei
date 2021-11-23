@@ -7,43 +7,36 @@ import Cookie from 'js-cookie'
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
-export default function Carrinho(props) {
+export default function Carrinho(props ) {
+
+    const navegation = useHistory()
     const [produtos, setProdutos] = useState([]);
     const [total, setTotal] = useState(0);
-
-
-
- 
 
     useEffect(carregarCarrinho, []);
 
     function atualizarTotal() {
         let carrinho = Cookie.get('carrinho');
-        
         carrinho = carrinho != null
                             ? JSON.parse(carrinho)
                             : [];
 
-        let t = carrinho.reduce((prev,curr) => prev + curr.vl_valor * curr.qtd, 0);
+        let t = carrinho.reduce((prev,curr) => prev + curr.vl_preco * curr.qtd, 0);
         t = Number(t.toFixed(2)); 
         setTotal(t)
     }
 
+    function carregarCarrinho() {
+        let carrinho = Cookie.get('carrinho');
+        carrinho = carrinho != null
+                            ? JSON.parse(carrinho)
+                            : [];
 
-function carregarCarrinho() {
-    // Lê o Array de Produtos do Carrinho do Cookie.
-    // Se o Cookie estiver vazio, volta um Array vazio []
-    // Se o Cookie não estiver vazio, converte o Cookie em Array pelo JSON.parse()
-    let carrinho = Cookie.get('carrinho');
-    carrinho = carrinho !== undefined 
-                  ? JSON.parse(carrinho) 
-                  : [];
+        atualizarTotal();
+        setProdutos(carrinho);
+    }
 
-             
-   atualizarTotal()
-    // Atualiza a variável de Estado com o Conteúdo do Cookie
-    setProdutos(carrinho);
-  }
+
 
     
 function removerProduto(id_produto) {
