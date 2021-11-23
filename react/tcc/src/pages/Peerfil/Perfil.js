@@ -41,17 +41,17 @@ export default function Perfil() {
 
     }
 
-    function lerUsuarioQuelogou() {
-        let logado = Cookie.get('usuario-logado');
+    // function lerUsuarioQuelogou() {
+    //     let logado = Cookie.get('usuario-logado');
     
-        if (logado === undefined) {
-            alert('Você deve estar logado para acessar essa página');
-            pagina.push('/')
-        } else {
-            let usuarioLogado = JSON.parse(logado);
-            return  usuarioLogado
-        }
-    }
+    //     if (logado === undefined) {
+    //         alert('Você deve estar logado para acessar essa página');
+    //         pagina.push('/')
+    //     } else {
+    //         let usuarioLogado = JSON.parse(logado);
+    //         return  usuarioLogado
+    //     }
+    // }
 
     const listar = async () => {
         let r = await api.ListarUsuario(idAlterando);
@@ -63,7 +63,7 @@ export default function Perfil() {
  
     
 useEffect(() => { 
-    le();
+    listar();
   })
 
  
@@ -83,7 +83,7 @@ useEffect(() => {
                 </div>
                 <div className="tab"> 
                     <div className="per-form"> 
-                        <div className="nomes"  style={{marginLeft: '1.4em'}}> <h4>Nome de Usuário:</h4> <input ttype="text" name="username" placeholder={tudo.nm_nome} onChange={e => SetNome(e.target.value)} />  </div>
+                        <div className="nomes"  style={{marginLeft: '1.4em'}}> <h4>Nome de Usuário:</h4> <input ttype="text" name="username" placeholder={usuariologado.nm_nome} onChange={e => SetNome(e.target.value)} />  </div>
                         <div className="nomes" style={{marginLeft: '6.6em'}}> <h4 >Email:</h4> <input ype="email" id="email" name="email" placeholder={tudo.ds_email} onChange={e => SetEmail(e.target.value)}/> </div>
                         <div className="nomes"> <h4> Número de Telefone: </h4> <input  type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder={tudo.ds_telefone}/> </div>
                         <div className="genero"  style={{marginLeft: '7.4em'}}> <h4> Sexo: </h4>                         
