@@ -34,7 +34,7 @@ export default class infoa_sti_produto extends Model {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    vl_avalicao: {
+    vl_avaliacao: {
       type: DataTypes.INTEGER,
       allowNull: true
     },

@@ -11,18 +11,46 @@ import { useEffect } from 'react'
 import BoxItem from './BoxRevisao'
 import Cookie from 'js-cookie'
 
+import { useHistory } from 'react-router-dom'
+
+
 const api = new Api();
 
 
 export default function Carrinho(props) {
+
+
+
+    let usuarioLogado = lerUsuarioQuelogou() || {}
+
+
+    let navigation = useHistory();    
+
+
     const [endereco, SetEndereco] = useState([])   
     const [exibirModal, setExibirModal] = useState({show: false});
     const [Mostrar, setMostrar] = useState(false);
     const [produtos, setProdutos] = useState([]);
+    const [usu, setUsu] = useState(usuarioLogado.ds_email);
+ 
     
 
+    function lerUsuarioQuelogou(navigation) {
+        let logado = Cookie.get('usuario-logado');
+    
+        if (logado === undefined) {
+            alert('Você deve estar logado para acessar essa página');
+            navigation.push('/entrega')
+    
+        } else {
+            let usuarioLogado = JSON.parse(logado);
+            return usuarioLogado;
+        }
+    }
 
 
+    
+    
 
 useEffect(carregarCarrinho, []);
 
@@ -43,7 +71,7 @@ useEffect(carregarCarrinho, []);
     }
     useEffect(() => { 
         const listar = async() => {
-          const produtosr = await api.ListarEndereco(3);
+          const produtosr = await api.ListarEndereco(usuarioLogado.id_cliente);
           SetEndereco(produtosr);
         }
         listar();
@@ -81,7 +109,7 @@ useEffect(carregarCarrinho, []);
                 </div>
             </div>
             <div className="tabela"> 
-            <h1> Produtos Pedidos</h1>
+            <h1 value={usu}> {usuarioLogado.ds_email}  </h1>
             <thead>
                   <th>   </th>
                   <th> Produto </th>

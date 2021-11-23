@@ -1,34 +1,26 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infob_hdm_admin extends Model {
+export default class infoc_tht_loginadm extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_HDM_chat: {
+    id_loginAdm: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    ds_HDM_mensagem: {
-      type: DataTypes.STRING(255),
+    ds_emailAdm: {
+      type: DataTypes.STRING(50),
       allowNull: true
     },
-    nm_HDM_usuario: {
-      type: DataTypes.STRING(200),
+    ds_senhaAdm: {
+      type: DataTypes.STRING(50),
       allowNull: true
-    },
-    dt_HDM_data: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    infob_ds_codigo: {
-      type: DataTypes.STRING(100),
-      allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'infob_hdm_admin',
+    tableName: 'infoc_tht_loginadm',
     timestamps: false,
     indexes: [
       {
@@ -36,11 +28,11 @@ export default class infob_hdm_admin extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_HDM_chat" },
+          { name: "id_loginAdm" },
         ]
       },
     ]
   });
-  return infob_hdm_admin;
+  return infoc_tht_loginadm;
   }
 }

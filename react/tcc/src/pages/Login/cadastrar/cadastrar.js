@@ -1,12 +1,13 @@
 import {ConteinerCadastrar, Container} from './styled'
 import axios from 'axios'
 
-
+import InputMask from 'react-input-mask';
 import Rodape from '../../../components/rodape/rodape'
 import { useState } from "react"
 import { useHistory } from "react-router"
 
 import Api from '../../../services/api'
+import Cookie from 'js-cookie'
 const api = new Api ();
 
 
@@ -64,10 +65,19 @@ export default function Cadastrar() {
 const inserir = async () => {
     if (nome === '' || sobrenome === ''|| telefone === ''|| cpf === ''|| nascimento === ''|| sexo === ''|| email === ''|| senha === ''|| cep === ''|| numero === '')
         alert ('Todos Campos tem quer ser Preenchido. Exceto (Complemento)')
+    
         else {
             let r = await api.CadastarCliente(nome, sobrenome, telefone, cpf, nascimento, sexo, email, senha, cep, endereco, numero, complemento, cidade );
-            alert ('agr foi')
+{
+    let r = await api.login(email, senha);
+        
+        if (r.erro) {
+            alert (`usuario não foi cadastrado`)
+        } else {
+            Cookie.set('usuario-logado', JSON.stringify(r));
+            paginas.push('/')
         }
+}        }
 
  }
  return (
@@ -98,18 +108,18 @@ const inserir = async () => {
                     </div>
                 <div className="name"> 
                     <div className="nome"> CPF: </div>
-                    <div className="inputs" > <input type=""  mask="999.999.999-99"   value={cpf} onChange = {e => setCpf(e.target.value)} /> </div>
+                    <div className="inputs" > <InputMask mask="999.999.999-99"   value={cpf} onChange = {e => setCpf(e.target.value)} /> </div>
                 </div> 
            </div>
 
            <div className="box-cadas"> 
                 <div className="name">
                     <div className="nome"   style={{marginLeft:'37px'}}> Telefone: </div>
-                    <div className="inputs"> <input type="tel"  value={telefone} onChange = {e => setTelefone(e.target.value)}/>  </div>
+                    <div className="inputs">  <InputMask mask="(99) 99999-9999"  value={telefone} onChange = {e => setTelefone(e.target.value)}/>  </div>
                 </div>
                 <div className="name"> 
                     <div className="nome"> Data de Nascimento: </div>
-                    <div className="inputs"> <input type="text" value={nascimento} onChange = {e => setNascimento(e.target.value)} /> </div>
+                    <div className="inputs"> <InputMask mask="99/99/9999" value={nascimento} onChange = {e => setNascimento(e.target.value)} /> </div>
                 </div> 
            </div>
 
@@ -127,7 +137,7 @@ const inserir = async () => {
            <div className="box-cadas"> 
                 <div className="name">
                     <div className="nome"    style={{marginLeft:'33px'}}> CEP: </div>
-                    <div className="inputs"> <input type=""value={cep}  onChange = {e => setcep(e.target.value)} onBlur={buscarCep}  />  </div>
+                    <div className="inputs"> <InputMask mask="99999-999"   value={cep}  onChange = {e => setcep(e.target.value)} onBlur={buscarCep}  />  </div>
                 </div>
                 <div className="name"> 
                     <div className="nome"> Endereço: </div>

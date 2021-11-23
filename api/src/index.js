@@ -17,46 +17,6 @@ app.use(express.json());
 
 
 
-app.post('/compras', async (req, resp) => {
-
-    try {
-
-        let r = req.body;
-
-
-    const venda = await db.infoa_sti_venda.create({
-            ds_codigo: Math.floor(Math.random() * 1200000000),
-            ds_forma_pagamento: r.pagamento,
-            ds_situacao: r.situacao
-
-    });
-
-    const produtoUsu = await db.infoa_sti_produto.findAll({
-        where: {
-            'nm_produto': { [Op.in]: Object.keys(r.produtos) }
-        }
-    })
-
-
-    for (let produto of produtoUsu) {
-    
-        const CompraItem  = await db.infoa_sti_venda_item.create({
-            id_produto: produto.id_produto,
-            id_venda: venda.id_venda,
-            qtd_produto: r.produtos[produto.nm_produto],
-        })
-
-       }
-
-        resp.send(r)
-    }
-    catch(e) {
-        resp.send({ erro: e.toString() });
-    }
-
-} )
-
-
 /*/
 app.get('/pedidos', async (req, resp)=>
     try {
@@ -105,6 +65,9 @@ app.post('/cadastrar-endereco/:id', async (req, resp) => {
 app.post('/cadastarcliente', async (req, resp) => {
     try {
         let { nome, sobrenome, sexo, cpf, nascimento, telefone, email, senha } = req.body;
+
+        if (r.nome === null)
+            return resp.send({ error: 'O Campo nome esta nulo'})
         
         let r = await db.infoa_sti_cliente.create({
             nm_nome: nome,
@@ -128,7 +91,7 @@ app.post('/cadastarcliente', async (req, resp) => {
             ds_cidade: x.cidade
         })
 
-        
+    
         resp.send(r);
     } catch (e) {
         resp.send({ erro: e.toString() })
@@ -349,6 +312,42 @@ app.post('/login', async (req, resp) => {
 //     resp.sendStatus(200);
 // });
 
+
+
+app.post('/compras', async (req, resp) => {
+
+    try {
+
+        let r = req.body;
+
+        const sla = await db.infoa_sti_cliente.findOne()
+
+        const nd = await db.infoa_sti_produto.findOne()
+
+        const usuarioLogado = await db.infoa_sti_endereco.findOne({
+            where: {
+            id_endereco: endereco,
+             ds_cidade: cidade
+            }
+        });
+
+
+        const vmve = await db.infoa_sti_venda.create({
+            id_endereco: usuarioLogado.id_endereco,
+            id_produto: nd.id_produto,
+            ds_forma_pagamento: r.pagamento,
+            ds_situacao: r.situacao
+        })
+        
+
+
+        resp.send(200)
+    }
+    catch(e) {
+        resp.send({ erro: e.toString() });
+    }
+
+} )
 
 
 app.post('/cadastrar', async (req, resp) => {

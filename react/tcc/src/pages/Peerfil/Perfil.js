@@ -18,11 +18,17 @@ const api = new Api();
 export default function Perfil() {
     const pagina = useHistory();
 
+    let logado = Cookie.get('usuario-logado')
+    let usuariologado = JSON.parse(logado)
+
+
     const [nome, SetNome] = useState('');
     const [sexo, SetSexo] = useState('');
     const [nascimento, SetNascimento] = useState('');
     const [email, SetEmail] = useState('');
     const [tudo, SetTudo] = useState ([]);
+    const [idAlterando, setIdAlterando] = useState(usuariologado.id_cliente);
+
 
 
 
@@ -43,23 +49,21 @@ export default function Perfil() {
             pagina.push('/')
         } else {
             let usuarioLogado = JSON.parse(logado);
-            alert('si fudeu')
             return  usuarioLogado
         }
     }
 
-    const acho = async() => {
-        let cookie = JSON.parse( Cookie.get('usuario-logado') )
+    const listar = async () => {
+        let r = await api.ListarUsuario(idAlterando);
+        console.log(r)
+    }
 
-        const produtosr = await api.ListarUsuario(cookie.id);
-        SetTudo(produtosr);
-      }
-      console.log(acho)
+
+
  
     
 useEffect(() => { 
-    lerUsuarioQuelogou();
-    acho();
+    le();
   })
 
  
